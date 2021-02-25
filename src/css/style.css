@@ -1,7 +1,7 @@
 body{
     background-color: red;
 }
-#game{
+#game_board{
    width: 600px;
    position: absolute;
     padding: 25px 0;
@@ -15,8 +15,6 @@ body{
         background-color: black;
 }
 .card{
-    width: 125px;
-    height: 125px;
     margin: 5px;
     border: 2px solid red;
     box-sizing: border-box;
@@ -24,6 +22,8 @@ body{
     transition: all .3s linear;
     filter: brightness(70%);
     cursor: pointer;
+    /* background-image: url(../images/HTFLogo.png); */
+    background-size: cover;
 }
 .card:hover{
     filter: brightness(90%);
@@ -34,11 +34,11 @@ body{
     }
     50%{
         width: 0%;
-        background-image: url(images/HTFLogo.png)
+        /* background-image: url(images/HTFLogo.png) */
     }
     100%{
         width: 10px;
-        background-image: url(images/HTFLogo.png)
+        /* background-image: url(images/HTFLogo.png) */
     }
 }
 .card img{
