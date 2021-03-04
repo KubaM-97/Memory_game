@@ -16,7 +16,7 @@ playableCards.forEach( (playableCard, index) => {
         if ((playableCard as HTMLDivElement).style.opacity !== "0" && blockRevealMoreThanTwoCards == false) {
 
             blockRevealMoreThanTwoCards = true;
-            (playableCard as HTMLDivElement).style.backgroundImage = `url(images/${gameCards[index]}.png)`
+            (playableCard as HTMLDivElement).style.backgroundImage = `url(images/cards${gameCards[index]}.png)`
 
             if (oneVisible == false) {
                 firstCardIndex = index;
@@ -51,8 +51,8 @@ function hitPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
     blockRevealMoreThanTwoCards = false;
 }
 function missedPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
-    card1.style.backgroundImage = `url(images/HTFlogo.png)`;
-    card2.style.backgroundImage = `url(images/HTFlogo.png)`;
+    card1.style.backgroundImage = `url(images/cardsHTFlogo.png)`;
+    card2.style.backgroundImage = `url(images/cardsHTFlogo.png)`;
 
     blockRevealMoreThanTwoCards = false;
 }

@@ -20,7 +20,7 @@ export class Card implements interfaceCard{
         card.classList.add("card")
         card.style.width = `${this.width}px`;
         card.style.height = `${this.height}px`;
-        card.style.backgroundImage = `url(./images/HTFLogo.png)`;
+        card.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
         card.style.backgroundSize = `cover`;
         
         gameCards.appendChild(card)
