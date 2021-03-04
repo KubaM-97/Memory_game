@@ -14,16 +14,15 @@ export class Card implements interfaceCard{
     ){};
     create(){
         
-        const gameBoard = document.querySelector("#game_board") as HTMLDivElement;
+        const gameCards = document.querySelector("#game_cards") as HTMLDivElement;
 
         const card = document.createElement("DIV");
         card.classList.add("card")
         card.style.width = `${this.width}px`;
         card.style.height = `${this.height}px`;
-        card.style.backgroundImage = `url(./img/HTFLogo.png)`;
+        card.style.backgroundImage = `url(./images/HTFLogo.png)`;
         card.style.backgroundSize = `cover`;
         
-        gameBoard.appendChild(card)
-        // console.log(card)
+        gameCards.appendChild(card)
     }   
 }

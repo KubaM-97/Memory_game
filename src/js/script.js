@@ -1,82 +1,77 @@
 "use strict";
 exports.__esModule = true;
+require("../css/style.css");
+//hard, timer, moves_limit, 
+var origin_js_1 = require("./origin.js");
 var card_1 = require("./classes/card");
-var card1 = new card_1.Card(150, 250, 1, "lumpy");
-console.log(card1.create());
-// const aa: Card = {
-//     width: 150,
-//     height: 250,
-//     index: 1,
-//     character: "lumpy"
-// } 
-// console.log(aa)
-// console.log(aa)
-// console.log(aa)
-// console.log(aa)
-// console.log(aa)
-// const gameCards: string[] = []
-// let output: string = ""
-// while (gameCards.length < 16) {
-//     const index: number = Math.floor(Math.random() * 8)
-//     const isThereTwoSuchCards: string[] = gameCards.filter(el => el === originCards[index])
-//     if (isThereTwoSuchCards.length == 2) {
-//         continue
-//     } else {
-//         gameCards.push(originCards[index])
-//         output += `<div class="card"></div>`
-//     }
-// }
-// const game: any = document.getElementById("game")
-// game.innerHTML = output
-// const card: any = document.querySelectorAll(".card")
-// let pair: boolean = false
-// let oneVisible: boolean = false
-// let index1: any;
-// let letRevealCard: boolean = true;
-// let blockRevealMoreThanTwoCards: boolean = false
-// let turnCounter: number = 0;
-// let totalPairs: number = gameCards.length / 2
-// interface ICard {
-//     backgroundImage: string;
-//     backgroundSize: string
-// }
-// for (let index2 = 0; index2 < card.length; index2++) {
-//     card[index2].style.backgroundImage = "url(images/HTFlogo.png)"
-//     card[index2].style.backgroundSize = "cover"
-//     card[index2].addEventListener("click", function () {
-//         if (this.style.opacity !== 0 && blockRevealMoreThanTwoCards == false) {
-//             blockRevealMoreThanTwoCards = true
-//             card[index2].style.backgroundImage = `url(images/${gameCards[index2]}.png)`
-//             if (oneVisible == false) {
-//                 index1 = index2
-//                 oneVisible = true;
-//                 blockRevealMoreThanTwoCards = false
-//             } else {
-//                 turnCounter++;
-//                 document.getElementById("score").innerHTML = `Made moves: ${turnCounter}`
-//                 if (gameCards[index1] == gameCards[index2] && index1 != index2) {
-//                     setTimeout(() => {
-//                         card[index1].style.opacity = 0
-//                         card[index2].style.opacity = 0
-//                         card[index1].style.cursor = "default"
-//                         card[index2].style.cursor = "default"
-//                     }, 500)
-//                     blockRevealMoreThanTwoCards = false;
-//                     totalPairs--
-//                     if (totalPairs == 0) {
-//                         setTimeout(()=>{
-//                             alert("winner")
-//                         }, 1000)
-//                     }
-//                 } else {
-//                     setTimeout(() => {
-//                         card[index1].style.backgroundImage = `url(images/HTFlogo.png)`
-//                         card[index2].style.backgroundImage = `url(images/HTFlogo.png)`
-//                         blockRevealMoreThanTwoCards = false
-//                     }, 500)
-//                 }
-//                 oneVisible = false
-//             }
-//         }
-//     })
-// }
+var gameCards = [];
+var _loop_1 = function () {
+    var i = Math.floor(Math.random() * 8);
+    var isThereTwoSuchCards = gameCards.filter(function (el) { return el === origin_js_1.originCards[i]; });
+    if (isThereTwoSuchCards.length == 2) {
+        return "continue";
+    }
+    else {
+        gameCards.push(origin_js_1.originCards[i]);
+        var card = new card_1.Card(125, 125, 1, origin_js_1.originCards[i]);
+        card.create();
+    }
+};
+while (gameCards.length < 16) {
+    _loop_1();
+}
+var oneVisible = false;
+var blockRevealMoreThanTwoCards = false;
+var turnCounter = 0;
+var totalPairs = gameCards.length / 2;
+var firstCardIndex = 0;
+var playableCards = document.querySelectorAll(".card");
+var score = document.getElementById("score");
+playableCards.forEach(function (playableCard, index) {
+    playableCard.addEventListener("click", function () {
+        if (playableCard.style.opacity !== "0" && blockRevealMoreThanTwoCards == false) {
+            blockRevealMoreThanTwoCards = true;
+            playableCard.style.backgroundImage = "url(img/" + gameCards[index] + ".png)";
+            if (oneVisible == false) {
+                firstCardIndex = index;
+                oneVisible = true;
+                blockRevealMoreThanTwoCards = false;
+            }
+            else {
+                turnCounter++;
+                score.innerHTML = "Made moves: " + turnCounter;
+                if (gameCards[firstCardIndex] == gameCards[index] && firstCardIndex != index) {
+                    setTimeout(function () {
+                        playableCard.style.opacity = "0";
+                        playableCards[firstCardIndex].style.opacity = "0";
+                        playableCard.style.cursor = "default";
+                        playableCards[firstCardIndex].style.cursor = "default";
+                    }, 500);
+                    blockRevealMoreThanTwoCards = false;
+                    totalPairs--;
+                    if (totalPairs == 0) {
+                        setTimeout(function () {
+                            alert("win in " + turnCounter + " moves");
+                        }, 1000);
+                    }
+                }
+                else {
+                    setTimeout(function () {
+                        playableCard.style.backgroundImage = "url(img/HTFlogo.png)";
+                        playableCards[firstCardIndex].style.backgroundImage = "url(img/HTFlogo.png)";
+                        blockRevealMoreThanTwoCards = false;
+                    }, 500);
+                }
+                oneVisible = false;
+            }
+        }
+    });
+});
+console.log(score);
+score.addEventListener("click", function (e) {
+    alert(56);
+    console.log(e.target.value);
+    // if(e.key=="enter"){
+    //     alert("ENTER")
+    // }
+});

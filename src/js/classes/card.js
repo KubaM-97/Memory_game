@@ -10,7 +10,15 @@ var Card = /** @class */ (function () {
     }
     ;
     Card.prototype.create = function () {
-        console.log("created");
+        var gameBoard = document.querySelector("#game_board");
+        var card = document.createElement("DIV");
+        card.classList.add("card");
+        card.style.width = this.width + "px";
+        card.style.height = this.height + "px";
+        card.style.backgroundImage = "url(./img/HTFLogo.png)";
+        card.style.backgroundSize = "cover";
+        gameBoard.appendChild(card);
+        // console.log(card)
     };
     return Card;
 }());

@@ -21,6 +21,32 @@ module.exports = {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
             },
+            {
+              test: /\.(png|jpe?g|gif)$/i,
+              loader: 'file-loader',
+              options: {
+                outputPath: 'images',
+                publicPath: 'images',
+                name: "[name].[ext]"
+              },
+            },
+            {
+                test: /\.(wav|mp3)$/i,
+                loader: 'file-loader',
+                options: {
+                  outputPath: 'audio',
+                  publicPath: 'audio',
+                  name: "[name].[ext]"
+                },
+            },
+            {
+                test: /\.less$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "less-loader",
+                ]
+            }
         ]
     },
     resolve: {
@@ -29,7 +55,8 @@ module.exports = {
     plugins:[
         new CopyWebpackPlugin({
             patterns: [
-                { from: "src/images", to: "img" }
+                { from: "src/images", to: "images" },
+                { from: "src/audio", to: "audio" }
             ],
         }),
     ]

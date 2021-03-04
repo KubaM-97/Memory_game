@@ -4,11 +4,122 @@
     <meta charset="UTF-8">
     <title>Cards</title>
 </head>
-<body>
-    <div id="game_board">
+<body>            
+    <main>
+    <div id="overlay"></div>
+    
+    <div class="container">
         
+        <div class="game">
+        
+        <div class="door" id="left_door"></div>            
+        <div class="door" id="right_door"></div>  
+
+        <div id="game_start">
+
+            <header>
+                <h1>Happy Tree Friends</h1>
+                <h2>Memory game</h2>
+                <h5>Based on animated series for kids 
+                    <a href="https://www.mondomedia.com/channel/HappyTreeFriends" target="_blank">[link]</a>
+                </h5>    
+            </header>
+
+            <section class="main_buttons">
+
+                <div class="main_button" id="play">
+                    <span>PLAY</span>
+                </div>
+                <div class="main_button" id="options">
+                    <span>OPTIONS</span>
+                </div>
+                <div class="main_button" id="best_scores">
+                    <span>BEST SCORES</span>
+                </div>
+
+            </section>
+            
+            <div class="switch_sound">
+                <img src="images/volume.png" alt="sound-icon" />
+            </div> 
+        </div>
+
+        <div id="game_options">
+            Options
+            <!-- <form action="#">
+                <div class="variants_group">
+                    <div class="variant">
+                        <input type="radio" id="x16">
+                        <label for="x16">
+                            <div class="option">
+                                <img src="./images/lumpy.png" alt="x16">
+                            </div>
+                        </label>
+                        <div class="optHint">x16</div>
+                    </div>
+                    <div class="variant">
+                        <input type="radio" id="x16">
+                        <label for="x16">
+                            <div class="option">
+                                <img src="./images/lumpy.png" alt="x16">
+                            </div>
+                        </label>
+                        <div class="optHint">x24</div>
+                    </div>
+                    <div class="variant">
+                        <input type="radio" id="x16">
+                        <label for="x16">
+                            <div class="option">
+                                <img src="./images/lumpy.png" alt="x16">
+                            </div>
+                        </label>
+                        <div class="optHint">x32</div>
+                    </div>
+                </div>
+                
+                <div class="variants_group">
+                    <div class="variant">
+                        <input type="radio" id="x16">
+                        <label for="x16">
+                            <div class="option">
+                                <img src="./images/lumpy.png" alt="x16">
+                            </div>
+                        </label>
+                        <div class="optHint">X</div>
+                    </div>
+                    <div class="variant">
+                        <input type="radio" id="x16">
+                        <label for="x16">
+                            <div class="option">
+                                <img src="./images/lumpy.png" alt="x16">
+                            </div>
+                        </label>
+                        <div class="optHint">\</div>
+                    </div>
+                </div>
+                
+                
+                
+            </form> -->
+        </div>
+        <div id="game_bestScores"> Best Scores</div>
+        <div id="game_board">
+            <div id="game_cards"></div>
+            <div id="timer">Time: <br> <span id="timeCounter">30</span></div>
+            <div id="score">Moves: <br><span id="scoreCounter">0</span></div>
+        </div>
+
+        </div>
     </div>
-    <div id="score"></div>
+</main>
+
+    <div class="audios">
+        <audio id="sound_card">
+            <source src="./audio/card.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
     <script src="bundle.js"></script>
 </body>
 </html>
