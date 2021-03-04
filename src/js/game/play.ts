@@ -51,8 +51,8 @@ function hitPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
     blockRevealMoreThanTwoCards = false;
 }
 function missedPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
-    card1.style.backgroundImage = `url(./images/cards/HTFlogo.png)`;
-    card2.style.backgroundImage = `url(./images/cards/HTFlogo.png)`;
+    card1.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
+    card2.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
 
     blockRevealMoreThanTwoCards = false;
 }
