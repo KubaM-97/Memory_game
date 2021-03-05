@@ -18,7 +18,6 @@ var Card = /** @class */ (function () {
         card.style.backgroundImage = "url(./img/HTFLogo.png)";
         card.style.backgroundSize = "cover";
         gameBoard.appendChild(card);
-        // console.log(card)
     };
     return Card;
 }());

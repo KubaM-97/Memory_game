@@ -14,3 +14,7 @@ export const switchSoundButton = document.querySelector(".switch_sound") as HTML
 export const scoreCounter = document.getElementById("scoreCounter") as HTMLDivElement
 export const timer = document.getElementById("timer") as HTMLDivElement
 export let timeCounter = document.getElementById("timeCounter") as HTMLDivElement
+
+export const end_screen_message = document.querySelector("#game_end .message") as HTMLDivElement;
+export const main_menu = document.querySelector(".main_menu") as HTMLButtonElement;
+export const try_again = document.querySelector(".try_again") as HTMLButtonElement;

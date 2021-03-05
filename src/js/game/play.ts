@@ -1,10 +1,11 @@
-import { scoreCounter } from "../variables"
-import { gameCards } from "./init_game"
+import { scoreCounter, end_screen_message } from "../variables";
+import { changeView } from "../menu/door";
+import { gameCards } from "./init_game";
 
 let oneVisible: boolean = false;
 let blockRevealMoreThanTwoCards: boolean = false;
-let turnCounter: number = 0;
-let totalPairs: number = gameCards.length / 2;
+export let turnCounter: number = 0;
+export let totalPairs: number = gameCards.length / 2;
 let firstCardIndex: number = 0;
 
 //catches all cards
@@ -41,7 +42,7 @@ playableCards.forEach( (playableCard, index) => {
         }
     })
 })
-function hitPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
+export function hitPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
     card1.style.opacity = "0";
     card2.style.opacity = "0";
 
@@ -56,6 +57,8 @@ function missedPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
 
     blockRevealMoreThanTwoCards = false;
 }
-function endGame(): void{
-    alert("win in "+ turnCounter +" moves")
+async function endGame(){
+    await changeView("game_board", "game_end");
+    end_screen_message.innerHTML = `You win in ${turnCounter} moves!!! Great job!!!`;
+    end_screen_message.style.color = "rgb(57, 233, 57)"
 }
