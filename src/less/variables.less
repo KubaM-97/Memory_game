@@ -1,0 +1,45 @@
+//spash screen
+@header-font-color: #fffedb;
+
+@main-button-background-color: rgb(231, 15, 15);
+@main-button-font-color: #fffee0;
+@main-button-hover-background-color: #3fb007;
+@main-button-hover-font-color: #ede618;
+
+@switchsound-button-background-color: #a3fff6;
+
+//game board
+@score-stats-font-color: rgb(10, 148, 212);
+@score-squinting-stats-font-color: rgb(204, 40, 34);
+
+//end screen
+@end-message-text-shadow-color: 2px 2px 4px rgb(231, 208, 208);
+@optionAndEnd-button-background-color: rgb(9, 131, 231);
+@optionAndEnd-button-hover-background-color: rgb(12, 112, 170);
+
+.buttons{
+    position: absolute;
+    bottom: 30%;
+    display: none;
+    width: 100%;
+    justify-content: space-around;
+    opacity: 0;
+    button{
+        .button
+    }
+}
+.button{
+    background-color: @optionAndEnd-button-background-color;
+    padding: 10px 30px 15px;
+    border-radius: 22px;
+    color: white;
+    font-size: 2.5rem;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    min-width: 250px;
+    &:hover{
+        cursor: pointer;
+        background-color: @optionAndEnd-button-hover-background-color;
+    }
+}

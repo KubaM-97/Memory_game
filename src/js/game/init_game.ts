@@ -8,15 +8,15 @@ if(16 == 16) {
 
     while (gameCards.length < 16) {
 
-    const i: number = Math.floor(Math.random() * 8)
-    const isThereTwoSuchCards: string[] = gameCards.filter(el => el === originCards[i])
-    if (isThereTwoSuchCards.length == 2) {
-        continue
-    } else {
-        gameCards.push(originCards[i])
-        const card: interfaceCard = new Card(170, 170, 1, originCards[i])
-        card.create()
-    }
+        const i: number = Math.floor(Math.random() * 8)
+        const isThereTwoSuchCards: string[] = gameCards.filter(el => el === originCards[i])
+        if (isThereTwoSuchCards.length == 2) {
+            continue
+        } else {
+            gameCards.push(originCards[i])
+            const card: interfaceCard = new Card(170, 170, 1, originCards[i])
+            card.create()
+        }
 
     }
 }

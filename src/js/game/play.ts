@@ -1,4 +1,4 @@
-import { scoreCounter, end_screen_message } from "../variables";
+import { scoreCounter, cardSound, winSound, winVideo, divVideo, end_screen_message, end_screen_buttons } from "../variables";
 import { changeView } from "../menu/door";
 import { gameCards } from "./init_game";
 
@@ -9,10 +9,13 @@ export let totalPairs: number = gameCards.length / 2;
 let firstCardIndex: number = 0;
 
 //catches all cards
-const playableCards: NodeListOf<Element> = document.querySelectorAll(".card")
+const playableCardsBackground: NodeListOf<Element> = document.querySelectorAll(".card_background");
+const playableCards: NodeListOf<Element> = document.querySelectorAll(".card");
 
 playableCards.forEach( (playableCard, index) => {
     playableCard.addEventListener("click", function() {
+
+        cardSound.play();
 
         if ((playableCard as HTMLDivElement).style.opacity !== "0" && blockRevealMoreThanTwoCards == false) {
 
@@ -25,13 +28,13 @@ playableCards.forEach( (playableCard, index) => {
                 blockRevealMoreThanTwoCards = false
             }
             else {
-                console.log(totalPairs)
                 turnCounter++;
                 scoreCounter.innerHTML = `${turnCounter}`
 
                 if (gameCards[firstCardIndex] == gameCards[index] && firstCardIndex != index) {
 
-                    setTimeout(() => { hitPair(playableCard as HTMLDivElement, playableCards[firstCardIndex] as HTMLDivElement) }, 500);
+                    setTimeout(() => { hitPair(playableCardsBackground[index] as HTMLDivElement, playableCardsBackground[firstCardIndex] as HTMLDivElement) }, 500);
+                    
                     totalPairs--;
                    
                     if (totalPairs == 0) setTimeout( () => { endGame() }, 1000) 
@@ -43,13 +46,15 @@ playableCards.forEach( (playableCard, index) => {
     })
 })
 export function hitPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
+    
+    blockRevealMoreThanTwoCards = false;
+    
     card1.style.opacity = "0";
     card2.style.opacity = "0";
 
     card1.style.cursor = "default";
     card2.style.cursor = "default"; 
     
-    blockRevealMoreThanTwoCards = false;
 }
 function missedPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
     card1.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
@@ -59,6 +64,37 @@ function missedPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
 }
 async function endGame(){
     await changeView("game_board", "game_end");
-    end_screen_message.innerHTML = `You win in ${turnCounter} moves!!! Great job!!!`;
-    end_screen_message.style.color = "rgb(57, 233, 57)"
+
+
+
+    end_screen_message.innerHTML = ``;
+    end_screen_buttons.style.display = "none";
+
+    divVideo.style.display = "block";
+    divVideo.appendChild(winVideo);
+    divVideo.style.animation = "show 2s";
+
+    winVideo.play();
+    winVideo.muted = true;
+    winVideo.playbackRate = 0.7;
+
+    
 }
+
+winVideo.addEventListener("ended", function(){
+    divVideo.style.animation = "hide 2s";
+    divVideo.style.animationFillMode = "forwards";
+    divVideo.style.display = "none";
+    setTimeout(()=>{
+
+        end_screen_message.innerHTML = `You win in ${turnCounter} moves!!! Great job!!!`;
+        end_screen_message.style.color = "rgb(57, 233, 57)"
+        end_screen_message.style.animation = "show 2s";
+        end_screen_message.style.animationFillMode = "forwards";
+
+        end_screen_buttons.style.display = "flex";
+        end_screen_buttons.style.animation = "show 2s";
+        end_screen_buttons.style.animationFillMode = "forwards";
+        
+    },800)
+})

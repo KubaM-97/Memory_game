@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Stick&display=swap');
 @import "./door.less";
-
-@header-font-color: #fffedb;
-
-@button-background-color: rgb(231, 15, 15);
-@button-font-color: #fffee0;
-@button-hover-background-color: #3fb007;
-@button-hover-font-color: #ede618;
-
-@sound-background-color: #a3fff6;
+@import "./variables.less";
 
 .header-font{
     color: @header-font-color;
@@ -33,15 +25,15 @@
         & .main_button{
             margin: 50px auto;
             padding: 20px;
-            background-color: @button-background-color;
-            color: @button-font-color;
+            background-color: @main-button-background-color;
+            color: @main-button-font-color;
             width: 70%;
             transform: skew(-15deg);
             font-size: 1.5rem;
             cursor: pointer;
             &:hover{
-                background-color: @button-hover-background-color;
-                color: @button-hover-font-color;
+                background-color: @main-button-hover-background-color;
+                color: @main-button-hover-font-color;
             }
             span{
                 display: inline-block;
@@ -53,7 +45,7 @@
         position: absolute;
         bottom: 30px;
         right: 50px;
-        background-color: @sound-background-color;
+        background-color: @switchsound-button-background-color;
         padding: 10px 10px 5px;
         cursor: pointer;
         img{

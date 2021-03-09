@@ -31,11 +31,20 @@ module.exports = {
               },
             },
             {
-                test: /\.(wav|mp3)$/i,
+                test: /\.(mp3)$/i,
                 loader: 'file-loader',
                 options: {
                   outputPath: 'audio',
                   publicPath: 'audio',
+                  name: "[name].[ext]"
+                },
+            },
+            {
+                test: /\.(mp4)$/i,
+                loader: 'file-loader',
+                options: {
+                  outputPath: 'video',
+                  publicPath: 'video',
                   name: "[name].[ext]"
                 },
             },
@@ -55,8 +64,7 @@ module.exports = {
     plugins:[
         new CopyWebpackPlugin({
             patterns: [
-                { from: "src/images", to: "images" },
-                { from: "src/audio", to: "audio" }
+                { from: "src/images", to: "images" }
             ],
         }),
     ]

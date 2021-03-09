@@ -1,5 +1,6 @@
 
-import { switchSoundButton, audios } from "../variables"
+import { switchSoundButton, audios, backgroundSoundIndex } from "../variables"
+
 
 export function switchSoundFunction(){
     
@@ -9,14 +10,20 @@ export function switchSoundFunction(){
         switchSoundButton.innerHTML = `<img src="images/mute.png" alt="muted"/>`
         audios.forEach( audio => {
             (audio as HTMLAudioElement).muted = true
-        })
+        });
     }
     else{
         switchSoundButton.innerHTML = `<img src="images/volume.png" alt="volume"/>`
         audios.forEach( audio => {
             (audio as HTMLAudioElement).muted = false;
-        })
+        });
+        unmuteBackgroundSound();
     }
 
+}
+
+export function unmuteBackgroundSound(): void{
+    audios[backgroundSoundIndex].autoplay = true;
+    audios[backgroundSoundIndex].loop = true;
 }
 

@@ -1,4 +1,13 @@
+//styles
 import "../less/style.less";
 
-import "./menu"
-import "./game"
+//game
+import "./menu";
+import "./game";
+
+//audios and videos
+import "./media";
+
+//starts playing background music
+import { unmuteBackgroundSound } from "./menu/sound";
+unmuteBackgroundSound();
