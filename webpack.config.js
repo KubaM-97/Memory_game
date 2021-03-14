@@ -55,6 +55,11 @@ module.exports = {
                     "css-loader",
                     "less-loader",
                 ]
+            },
+            {
+                test: /\.js$/,
+                enforce: "pre",
+                use: ["source-map-loader"],
             }
         ]
     },

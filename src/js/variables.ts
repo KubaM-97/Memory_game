@@ -9,7 +9,9 @@ export const optTimerDiv = document.querySelector("#game_options .timer") as HTM
 export const clock = document.querySelector("#game_options .clock") as HTMLButtonElement;
 export const clockMinutes = document.querySelector("#game_options .clock span.clockTimeMinutes") as HTMLButtonElement;
 export const clockSeconds = document.querySelector("#game_options .clock span.clockTimeSeconds") as HTMLButtonElement;
-export const optButton= document.querySelector("#game_options .buttons") as HTMLButtonElement;
+export const minusTime = document.querySelector("#game_options .updateTime #minusTime") as HTMLButtonElement;
+export const plusTime = document.querySelector("#game_options .updateTime #plusTime") as HTMLButtonElement;
+export const optButton= document.querySelector("#game_options .buttons button") as HTMLButtonElement;
 
 //door
 export const overlay = document.querySelector("#overlay") as HTMLDivElement;
