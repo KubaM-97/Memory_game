@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 @import "./variables.less";
 
 
@@ -30,7 +31,6 @@
                 .option;
                 border: 7px solid black;
                 background-image: @card-background-color;
-                // background-color: rgba(241, 47, 47, 0.8);
                 img{
                     width: 100%;
                 }
@@ -41,10 +41,8 @@
                     font-size: 2.7em;
                     font-weight: 700;
                     color: rgb(179, 118, 84);
-                    // color: rgb(13, 106, 228);
                     font-family: 'RocknRoll One', sans-serif;
                     text-shadow: 2px 2px 2px rgb(0, 0, 0);
-                    // text-shadow: 2px 2px 2px rgb(4, 4, 235);
                 }
             }
             .timerNo{
@@ -58,10 +56,24 @@
                 background-color: rgba(96, 212, 96, .8);
             }
             .clock{
+                position: relative;
                 width: 265px;
-                display: none;
+                // display: none;
                 img{
                     width: 100%;
+                }
+                .clockTime{
+                    width: 100%;
+                    display: inline-block;
+                    text-align: center;
+                    position: absolute;
+                    top: 55%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 3rem;
+                    font-family: 'Orbitron', sans-serif;
+                    letter-spacing: 1.2px;
+                    color: @clockTime-color;
                 }
             }
             .active{
@@ -116,7 +128,6 @@
             .options{
                 .clock{
                     width: 215px;
-                    display: block;
                 }
             }
         }

@@ -2,6 +2,7 @@ import { play, options, bestScores, switchSoundButton } from "../variables";
 import { switchSoundFunction } from "./sound";
 import { changeView } from "./door";
 import { startTimer } from  "./../game/timer";
+import "./options";
 
 play.addEventListener("click", () => startTimer())
 

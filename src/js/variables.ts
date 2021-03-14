@@ -3,6 +3,14 @@ export const play = document.querySelector(".main_button#play") as HTMLDivElemen
 export const options = document.querySelector(".main_button#options") as HTMLDivElement;
 export const bestScores = document.querySelector(".main_button#best_scores") as HTMLDivElement;
 
+//options
+export const optCardsNumberDiv = document.querySelector("#game_options .cardsNumber") as HTMLDivElement;
+export const optTimerDiv = document.querySelector("#game_options .timer") as HTMLDivElement;
+export const clock = document.querySelector("#game_options .clock") as HTMLButtonElement;
+export const clockMinutes = document.querySelector("#game_options .clock span.clockTimeMinutes") as HTMLButtonElement;
+export const clockSeconds = document.querySelector("#game_options .clock span.clockTimeSeconds") as HTMLButtonElement;
+export const optButton= document.querySelector("#game_options .buttons") as HTMLButtonElement;
+
 //door
 export const overlay = document.querySelector("#overlay") as HTMLDivElement;
 export const doorLeft = document.querySelector("#left_door") as HTMLDivElement;
