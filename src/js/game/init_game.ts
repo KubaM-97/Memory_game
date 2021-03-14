@@ -1,9 +1,10 @@
-import { interfaceCard, Card } from "./../classes/card"
-import { timer } from "./../variables"
+import { interfaceCard, Card } from "./../classes/card";
+import { timer } from "./../variables";
+import { readyOptions } from "../menu/options";
 
 export const gameCards: string[] = []
 
-if(16 == 16) {
+if(16 == readyOptions.cardsNumber) {
     const originCards: string[] = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky"]
 
     while (gameCards.length < 16) {

@@ -1,17 +1,25 @@
 import { timer, timeCounter, loseVideo, divVideo, end_screen_message, end_screen_buttons } from "../variables";
 import { changeView } from "../menu/door";
 import { totalPairs } from "./play";
+import { readyOptions } from "../menu/options";
 
 export async function startTimer(){
 
     await changeView("game_start", "game_board");
-    let currentTime: number = 3;
+    let currentTime: number = -1
+    if( readyOptions.time !== null){
+        currentTime = readyOptions.time;
+    }
+    else{
+        timer.style.display = "none" ;
+    }
     timeCounter.innerHTML = currentTime.toString();
 
     const startTimer = setInterval( async function() {
         currentTime--;
         timeCounter.innerHTML = currentTime.toString();
-        if(currentTime <= 5){
+        
+        if(currentTime <= 5 && currentTime >=0){
             timer.style.animation = "squintingTimer .4s infinite" ;
             timer.style.animationDirection = "alternate";
         }
