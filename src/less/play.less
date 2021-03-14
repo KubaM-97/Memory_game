@@ -23,7 +23,7 @@
             filter: brightness(70%);
             cursor: pointer;
             background-size: cover;
-            background-image: repeating-linear-gradient(150deg, rgb(227, 228, 228) 5%, rgb(127, 169, 233) 8%);
+            background-image: @card-background-color;
             
             &:hover{
                 filter: brightness(90%);
@@ -40,9 +40,9 @@
         }
         
     }
-    .stats(){
+    .stats{
         color: @score-stats-font-color;
-        font-size: 4rem;
+        font-size: 4em;
         font-family: 'Indie Flower', cursive;
         font-weight: 700;
         position: absolute;
@@ -55,14 +55,66 @@
         }
     }
     #score{
-        .stats();
+        .stats;
         bottom: 22%;
         left: 1%;
     }
     #timer{
         display: none;
-        .stats();
+        .stats;
         bottom: 21%;
         right: 2%;
+    }
+}
+
+@media all and (orientation: landscape) and (max-device-width: 800px){
+    #game_board{
+        #game_cards{
+            top: 42%;
+            .card_background{
+                width: 92px !important;
+                height: 92px !important;
+                border: 3px solid black;
+            }
+        }
+        .stats{
+            #scoreCounter{
+                font-size: 3.5rem;
+            }
+        }
+        #score{
+            .stats;
+            font-size: 3em;
+            bottom: 2%;
+            left: 40px;
+        }
+        #timer{
+            font-size: 3em;
+            bottom: 2%;
+            right: 40px;
+        }
+    }
+}
+
+@media all and (orientation: portrait) and (max-device-width: 800px){
+    #game_board{
+        #game_cards{
+            top: 42%;
+        }
+        .stats{
+            #scoreCounter{
+                font-size: 2rem;
+            }
+        }
+        #score{
+            font-size: 5em;
+            bottom: 2%;
+            left: 110px
+        }
+        #timer{
+            font-size: 5em;
+            bottom: 2%;
+            right: 110px;
+        }
     }
 }

@@ -1,93 +1,129 @@
 @import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
 @import "./variables.less";
 
+
 #game_options{
-    display: none;
-    // display: flex;
-    justify-content: center;
-    form{
-        width: 100%;
-        .variants_group{
-            display: flex;
-            justify-content: space-around;
-            width: 90%;
-            margin: 40px auto;
-            .variant{
-                width: 130px;
-                height: 130px;
-                position: relative;
-                border: 2px solid black;
-                cursor: pointer;
-                &:hover{
-                    border: 2px solid red;
-                }
+    display: block;
+    width: 90%;
+    margin: 100px auto;
+    .option_step{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 7px solid rgb(194, 145, 117);
+        border-radius: 20px;
+        backdrop-filter: brightness(160%);
+        padding: 12px;
+        margin: 40px auto;
+        .option_description{
+            display: inline-block;
+            width: 43%;
+            text-align: center;
+            font-size: 2.2em;
+        }
+        .options{
+            display: inline-flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 65%;
+            .option{
+                .option;
+                border: 7px solid black;
+                background-image: @card-background-color;
+                // background-color: rgba(241, 47, 47, 0.8);
                 img{
                     width: 100%;
                 }
                 .optHint{
                     position: absolute;
-                    bottom: -30px;
-                    right: -30px;
-                    font-size: 2rem;
+                    bottom: -10px;
+                    right: -10px;
+                    font-size: 2.7em;
                     font-weight: 700;
-                    color: rgb(79, 141, 223);
+                    color: rgb(179, 118, 84);
+                    // color: rgb(13, 106, 228);
                     font-family: 'RocknRoll One', sans-serif;
-                    text-shadow: 2px 2px 22px rgb(4, 4, 235);
+                    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+                    // text-shadow: 2px 2px 2px rgb(4, 4, 235);
+                }
+            }
+            .timerNo{
+                .option;
+                background-image: none;
+                background-color: rgba(241, 47, 47, 0.8);
+            }
+            .timerYes{
+                .option;
+                background-image: none;
+                background-color: rgba(96, 212, 96, .8);
+            }
+            .clock{
+                width: 265px;
+                display: none;
+                img{
+                    width: 100%;
+                }
+            }
+            .active{
+                border: 7px solid rgb(255, 187, 0);
+                opacity: 1;
+            }
+        }
+    }
+    .buttons{
+        .buttons;
+        bottom: 10%;
+        right: 0;
+        text-align: center;
+        button{
+            font-size: 1.8em;
+        }
+    }
+}
+@media all and (orientation: landscape) and (max-device-width: 800px){
+    #game_options{
+        margin-top: 30px;
+        .option_step{
+            .option_description{
+                font-size: 1.6em;
+                width: 20%;
+                text-align: left;
+            }
+            .options{
+                width: 80%;
+                .option{
+                    width: 92px !important;
+                    height: 92px !important;
+                    .optHint{
+                        font-size: 1.6em;
+                    }
+                }
+                .clock{
+                    width: 175px;
                 }
             }
         }
-        .buttons;
- }
-    
-
-
-
-
-
-
-
-
-
-    // display: none;
-    // form{
-    //     display: flex;
-    //     justify-content: space-evenly;
-    //     flex-wrap: wrap;
-    // }
-    // .variant{
-    //     width: 170px;
-    //     position: relative;
-    //     background-color: black;
-    //     // background-image: url("../images/woodOption.jpg");
-    //     padding: 10px;
-    //     cursor: pointer;
-    //     img{
-    //         width: 100%;
-    //         cursor: pointer;
-    //         align-self: center;
-    //     }
-    //     input[type="radio"]{
-    //         display: none;
-    //     }
-    //     .optHint{
-    //         position: absolute;
-    //         bottom: -30px;
-    //         right: -30px;
-    //         font-size: 3rem;
-    //         font-weight: 700;
-    //         color: rgb(79, 141, 223);
-    //         font-family: 'RocknRoll One', sans-serif;
-    //         text-shadow: 2px 2px 22px rgb(4, 4, 235);
-    //     }
-    //     &::before{
-    //         content: "";
-    //         position: absolute;
-    //         left: 0;
-    //         top: 0;
-    //         box-shadow: 2px 2px 10px 10px rgb(139, 243, 42);
-    //         z-index: -1;
-    //         height: 100%;
-    //         width: 100%;
-    //     }
-    // }
+    }
+}
+@media all and (orientation: portrait) and (max-device-width: 800px){
+    #game_options{
+        .option_step{
+            margin: 100px auto;
+            .option_description{
+                width: 20%;
+                text-align: left;
+            }
+            .options{
+                .clock{
+                    width: 215px;
+                    display: block;
+                }
+            }
+        }
+        .buttons{
+            button{
+                font-size: 2.8em;
+            }
+        }
+    }
 }

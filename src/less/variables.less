@@ -9,6 +9,7 @@
 @switchsound-button-background-color: #a3fff6;
 
 //game board
+@card-background-color: repeating-linear-gradient(150deg, rgb(227, 228, 228) 5%, rgb(127, 169, 233) 8%);
 @score-stats-font-color: rgb(10, 148, 212);
 @score-squinting-stats-font-color: rgb(204, 40, 34);
 
@@ -20,10 +21,10 @@
 .buttons{
     position: absolute;
     bottom: 30%;
-    display: none;
+    // display: none;
     width: 100%;
     justify-content: space-around;
-    opacity: 0;
+    // opacity: 0;
     button{
         .button
     }
@@ -42,4 +43,15 @@
         cursor: pointer;
         background-color: @optionAndEnd-button-hover-background-color;
     }
+}
+
+.option{
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 6px;
+    opacity: .55;
 }

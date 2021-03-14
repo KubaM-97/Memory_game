@@ -5,7 +5,7 @@ import { totalPairs } from "./play";
 export async function startTimer(){
 
     await changeView("game_start", "game_board");
-    let currentTime: number = 30;
+    let currentTime: number = 3;
     timeCounter.innerHTML = currentTime.toString();
 
     const startTimer = setInterval( async function() {

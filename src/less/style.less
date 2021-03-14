@@ -56,9 +56,18 @@ a{
     display: none;
 }
 
-// @media all and (max-width: 1500px){
-//     .container{
-//         height: 80%;
-//         width: 600px;
-//     }
-// }
+@media all and (orientation: landscape) and (max-device-width: 800px) {
+    .container{
+        top: 50%;
+        width: 65%;
+        max-height: 95%;
+    }
+}
+
+@media all and (orientation: portrait) and (max-device-width: 800px) {
+    .container{
+        top: 40%;
+        width: 95%;
+        height: 900px;
+    }
+}

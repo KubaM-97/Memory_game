@@ -7,9 +7,9 @@
     letter-spacing: 5px;
 }
 #game_start{
-    // display: none;
+    display: none;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     opacity: .9;
     width: 70%;
     margin: auto;
@@ -54,4 +54,47 @@
     }
     
     
+}
+
+@media all and (orientation: landscape) and (max-device-width: 800px){
+    #game_start{
+        header{
+            font-size: 15px;
+        }
+        section.main_buttons{
+            margin: 50px 0;
+            & .main_button{
+                margin: 30px auto;
+                padding: 10px;
+                font-size: 1.3rem;
+                width: 90%;
+            }
+        }
+    }
+}
+@media all and (orientation: portrait) and (max-device-width: 800px){
+    #game_start{
+        header{
+            font-size: 1.2em;
+        }
+        section.main_buttons{
+            & .main_button{
+                margin: 55px auto;
+                padding: 20px;
+                font-size: 1.9rem;
+                width: 90%;
+            }
+        }
+        .switch_sound{
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+            background-color: @switchsound-button-background-color;
+            padding: 10px 10px 5px;
+            cursor: pointer;
+            img{
+                width: 64px;
+            }
+        }
+    }
 }
