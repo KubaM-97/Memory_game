@@ -37,5 +37,4 @@ export async function initGame():Promise<void>{
         }
     
     }
-    console.log(gameCards)
 }
