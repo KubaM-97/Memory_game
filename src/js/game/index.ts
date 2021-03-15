@@ -1,2 +1,1 @@
-import "./play";
-import "./end_game";
+// import "./end_game";

@@ -1,15 +1,32 @@
 import { interfaceCard, Card } from "./../classes/card";
-import { timer } from "./../variables";
 import { readyOptions } from "../menu/options";
 
 export const gameCards: string[] = []
 
-if(16 == readyOptions.cardsNumber) {
-    const originCards: string[] = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky"]
+let originCards: string[];
+function getCards(){
+    switch(readyOptions.cardsNumber){
+        case 16:{
+            originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky"]
+            break;
+        }
+        case 20:{
+            originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky", "lifty&shifty", "mime"]
+            break;
+        }
+        case 24:{
+            originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky", "lifty&shifty", "mime", "nutty", "ruffles"]
+            break;
+        }
+    }
+}
+export async function initGame():Promise<void>{
 
-    while (gameCards.length < 16) {
-
-        const i: number = Math.floor(Math.random() * 8)
+    await getCards()
+        
+    while (gameCards.length < originCards.length*2) {
+    
+        const i: number = Math.floor(Math.random() * originCards.length)
         const isThereTwoSuchCards: string[] = gameCards.filter(el => el === originCards[i])
         if (isThereTwoSuchCards.length == 2) {
             continue
@@ -18,9 +35,7 @@ if(16 == readyOptions.cardsNumber) {
             const card: interfaceCard = new Card(170, 170, 1, originCards[i])
             card.create()
         }
-
+    
     }
-}
-if(1==1){
-    timer.style.display = "block"
+    console.log(gameCards)
 }

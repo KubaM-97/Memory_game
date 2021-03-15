@@ -3,7 +3,7 @@ import "../less/style.less";
 
 //game
 import "./menu";
-import "./game";
+// import "./game";
 
 //audios and videos
 import "./media";
