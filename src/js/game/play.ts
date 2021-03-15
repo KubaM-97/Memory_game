@@ -5,7 +5,7 @@ import { gameCards } from "./init_game";
 let oneVisible: boolean = false;
 let blockRevealMoreThanTwoCards: boolean = false;
 export let turnCounter: number = 0;
-export let totalPairs: number = gameCards.length / 2;
+export let totalPairs: number = gameCards.length / 2 | 16;
 let firstCardIndex: number = 0;
 
 export function mainGame(){

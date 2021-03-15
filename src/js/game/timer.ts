@@ -3,9 +3,9 @@ import { changeView } from "../menu/door";
 import { totalPairs } from "./play";
 import { readyOptions } from "../menu/options";
 
+// console.log(totalPairs)
 export async function startTimer(){
 
-    await changeView("game_start", "game_board");
     if( readyOptions.time !== null){
     
         //shows timer
@@ -38,6 +38,7 @@ export async function startTimer(){
                 loseVideo.muted = true;
                 loseVideo.playbackRate = 0.7;
 
+                timer.style.animation = "none";
             }
             if(totalPairs == 0) {
                 clearInterval(startTimer);
