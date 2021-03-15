@@ -6,44 +6,45 @@ import { readyOptions } from "../menu/options";
 export async function startTimer(){
 
     await changeView("game_start", "game_board");
-    let currentTime: number = -1
     if( readyOptions.time !== null){
-        currentTime = readyOptions.time;
-    }
-    else{
-        timer.style.display = "none" ;
-    }
-    timeCounter.innerHTML = currentTime.toString();
+    
+        //shows timer
+        timer.style.display = "block" ;
 
-    const startTimer = setInterval( async function() {
-        currentTime--;
+        let currentTime: number  = readyOptions.time;
         timeCounter.innerHTML = currentTime.toString();
         
-        if(currentTime <= 5 && currentTime >=0){
-            timer.style.animation = "squintingTimer .4s infinite" ;
-            timer.style.animationDirection = "alternate";
-        }
-        if(currentTime == -1) {
-            clearInterval(startTimer);
-            timeCounter.innerHTML = "0";
-            await changeView("game_board", "game_end");
+        const startTimer = setInterval( async function() {
+            currentTime--;
+            timeCounter.innerHTML = currentTime.toString();
             
-            // loseSound.play();
-            end_screen_message.innerHTML = ``;
-            end_screen_buttons.style.display = "none";
-            divVideo.style.display = "block";
-            divVideo.appendChild(loseVideo);
-            divVideo.style.animation = "show 2s";
+            if(currentTime <= 5 && currentTime >=0){
+                timer.style.animation = "squintingTimer .4s infinite" ;
+                timer.style.animationDirection = "alternate";
+            }
+            if(currentTime == -1) {
+                clearInterval(startTimer);
+                timeCounter.innerHTML = "0";
+                await changeView("game_board", "game_end");
+                
+                // loseSound.play();
+                end_screen_message.innerHTML = ``;
+                end_screen_buttons.style.display = "none";
+                divVideo.style.display = "block";
+                divVideo.appendChild(loseVideo);
+                divVideo.style.animation = "show 2s";
 
-            loseVideo.play();
-            loseVideo.muted = true;
-            loseVideo.playbackRate = 0.7;
+                loseVideo.play();
+                loseVideo.muted = true;
+                loseVideo.playbackRate = 0.7;
 
-        }
-        if(totalPairs == 0) {
-            clearInterval(startTimer);
-        }
-    },1000)
+            }
+            if(totalPairs == 0) {
+                clearInterval(startTimer);
+            }
+        },1000)
+    }
+    
 
 }
 loseVideo.addEventListener("ended", function(){
