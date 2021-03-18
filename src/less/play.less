@@ -24,7 +24,8 @@
             cursor: pointer;
             background-size: cover;
             background-image: @card-background-color;
-            
+            // width: 170px;
+            // height: 170px;
             &:hover{
                 filter: brightness(90%);
             }.card{
@@ -62,14 +63,25 @@
         right: 2%;
     }
 }
-
+@media all and (min-device-width: 801px){
+    #game_board{
+        #game_cards{
+            .card_background{
+                // width: 110px !important;
+                // height: 110px !important;
+            }
+        }
+    }
+}
 @media all and (orientation: landscape) and (max-device-width: 800px){
     #game_board{
         #game_cards{
+            width: 82%;
             top: 42%;
             .card_background{
-                width: 92px !important;
-                height: 92px !important;
+                // width: 93px !important;
+                // height: 93px !important;
+                // margin: 2px;
                 border: 3px solid black;
             }
         }
@@ -95,6 +107,7 @@
 @media all and (orientation: portrait) and (max-device-width: 800px){
     #game_board{
         #game_cards{
+            width: 97%;
             top: 42%;
         }
         .stats{
