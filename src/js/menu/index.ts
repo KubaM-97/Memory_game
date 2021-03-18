@@ -4,7 +4,7 @@ import { changeView } from "./door";
 import { initGame } from "../game/init_game";
 import { mainGame } from "../game/play";
 import { startTimer } from  "./../game/timer"; 
-// import "../game/end_game";
+import "../game/end_game";
 
 play.addEventListener("click", async () => {
     await initGame(); 

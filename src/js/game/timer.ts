@@ -3,8 +3,6 @@ import { changeView } from "../menu/door";
 import { totalPairs } from "./play";
 import { readyOptions } from "../menu/options";
 
-export let currentTime: number;
-
 export async function startTimer(){
 
     if( readyOptions.time !== null){
@@ -12,7 +10,7 @@ export async function startTimer(){
         //shows timer
         timer.style.display = "block" ;
 
-        currentTime  = readyOptions.time;
+        let currentTime: number  = readyOptions.time;
         timeCounter.innerHTML = currentTime.toString();
         
         const startTimer = setInterval( async function() {
@@ -24,7 +22,6 @@ export async function startTimer(){
                 timer.style.animationDirection = "alternate";
             }
             if(currentTime == -1) {
-
                 clearInterval(startTimer);
                 timeCounter.innerHTML = "0";
                 await changeView("game_board", "game_end");
