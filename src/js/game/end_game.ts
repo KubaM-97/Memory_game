@@ -4,7 +4,7 @@ import { readyOptions } from "../menu/options";
 import { startTimer, currentTime } from  "./timer";
 import { turnCounter } from  "./play";
 
-endGame()
+// endGame()
 export async function endGame(){
 
     await changeView("game_board", "game_end");
