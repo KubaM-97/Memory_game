@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -71,6 +72,6 @@ module.exports = {
             patterns: [
                 { from: "src/images", to: "images" }
             ],
-        }),
+        })
     ]
 }

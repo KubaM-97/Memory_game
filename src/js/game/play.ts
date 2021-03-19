@@ -1,6 +1,6 @@
-import { scoreCounter, cardSound, winSound, winVideo, divVideo, end_screen_message, end_screen_buttons } from "../variables";
-import { changeView } from "../menu/door";
+import { scoreCounter, cardSound } from "../variables";
 import { gameCards } from "./init_game";
+import { endGame } from "./end_game";
 
 let oneVisible: boolean = false;
 let blockRevealMoreThanTwoCards: boolean = false;
@@ -50,7 +50,7 @@ export function mainGame(){
     })
 }
 
-export function hitPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
+function hitPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
     
     blockRevealMoreThanTwoCards = false;
     
@@ -70,40 +70,3 @@ function missedPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
 
     blockRevealMoreThanTwoCards = false;
 }
-async function endGame(){
-    await changeView("game_board", "game_end");
-
-
-
-    end_screen_message.innerHTML = ``;
-    end_screen_buttons.style.display = "none";
-
-    divVideo.style.display = "block";
-    divVideo.appendChild(winVideo);
-    divVideo.style.animation = "show 2s";
-
-    winVideo.play();
-    winVideo.playbackRate = 0.7;
-
-    
-}
-
-winVideo.addEventListener("ended", function(){
-    divVideo.style.animation = "hide 2s";
-    divVideo.style.animationFillMode = "forwards";
-    divVideo.style.display = "none";
-    setTimeout(()=>{
-
-        winSound.play();
-        
-        end_screen_message.innerHTML = `You win in ${turnCounter} moves!!! Great job!!!`;
-        end_screen_message.style.color = "rgb(57, 233, 57)"
-        end_screen_message.style.animation = "show 2s";
-        end_screen_message.style.animationFillMode = "forwards";
-
-        end_screen_buttons.style.display = "flex";
-        end_screen_buttons.style.animation = "show 2s";
-        end_screen_buttons.style.animationFillMode = "forwards";
-        
-    },800)
-})

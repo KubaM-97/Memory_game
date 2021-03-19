@@ -2,9 +2,9 @@
 
 
 #game_end{
-    display: none;
+    // display: none;
     text-align: center;
-    font-size: 6em;
+    font-size: 3em;
     position: relative;
     width: 100%;
     height: 100%;
@@ -12,14 +12,49 @@
         width: 100%;
         height: 100%;
         .message{
-            display: block;
-            margin-top: 100px;
-            opacity: 0;
+            font-size: 2.8rem;
+            margin-top: 80px;
+            .message_segment{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 85%;
+                margin: auto;
+                color: green;
+                &#madeMoves{
+                    color: red;
+                }
+                &#totalPoints{
+                    position: absolute;
+                    bottom: 40%;
+                    font-size: 4.5rem;
+                    color: green;
+                    width: 90%;
+                    text-align: center;.message_segment_description{
+                        width: 40%;
+                    } 
+                    .message_segment_score{
+                        width: 50%;
+                    }
+                }
+                
+            .message_segment_description{
+                width: 40%;
+            } 
+            .message_segment_score{
+                width: 57%;
+            }
+            }
+            // display: block;
+            text-align: left;
+            margin: 30px;
+            // margin-top: 100px;
+            // opacity: 0;
             text-shadow: @end-message-text-shadow-color;
         }
         .video{
             position: absolute;
-            top: 40%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 700px;

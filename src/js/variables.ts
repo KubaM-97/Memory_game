@@ -45,6 +45,38 @@ export let timeCounter = document.getElementById("timeCounter") as HTMLDivElemen
 
 //end screen
 export const end_screen_message = document.querySelector("#game_end .message") as HTMLDivElement;
+
+export const messageParts = {
+    cardsNumber: document.querySelector("#game_end .message #cardsNumber") as HTMLDivElement,
+    timeStart: document.querySelector("#game_end .message #timeStart") as HTMLDivElement,
+    timeLeft: document.querySelector("#game_end .message #timeLeft") as HTMLDivElement,
+    madeMoves: document.querySelector("#game_end .message #madeMoves") as HTMLDivElement,
+}
+
+export const cardsNumber = document.querySelector("#game_end .message #cardsNumber") as HTMLDivElement;
+export const timeStart = document.querySelector("#game_end .message #timeStart") as HTMLDivElement;
+export const timeLeft = document.querySelector("#game_end .message #timeLeft") as HTMLDivElement;
+export const madeMoves = document.querySelector("#game_end .message #madeMoves") as HTMLDivElement;
+export const totalPoints = document.querySelector("#game_end .message #totalPoints") as HTMLDivElement;
+
+
+export const messageDescriptions = {
+    cardsNumberDescription: cardsNumber.querySelector(":scope > .message_segment_description") as HTMLDivElement,
+    timeStartDescription: timeStart.querySelector(":scope > .message_segment_description") as HTMLDivElement,
+    timeLeftDescription: timeLeft.querySelector(":scope > .message_segment_description") as HTMLDivElement,
+    madeMovesDescription: madeMoves.querySelector(":scope > .message_segment_description") as HTMLDivElement,
+    totalPointsDescription: totalPoints.querySelector(":scope > .message_segment_description") as HTMLDivElement,
+}
+
+export const messageScores = {
+    cardsNumberScore: cardsNumber.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+    timeStartScore: timeStart.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+    timeLeftScore: timeLeft.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+    madeMovesScore: madeMoves.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+    totalPointsScore: totalPoints.querySelector(":scope > .message_segment_score .score_full") as HTMLDivElement,
+}
+
+
 export const end_screen_buttons = document.querySelector("#game_end .buttons") as HTMLDivElement;
 export const main_menu = document.querySelector(".main_menu") as HTMLButtonElement;
 export const try_again = document.querySelector(".try_again") as HTMLButtonElement;

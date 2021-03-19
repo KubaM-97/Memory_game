@@ -1,6 +1,8 @@
+
 //styles
 import "../less/style.less";
 
+console.log(345534)
 //game
 import "./menu";
 
