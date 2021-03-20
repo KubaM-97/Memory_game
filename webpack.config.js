@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: "development",
-    devtool: "eval-source-map",
+    devtool: "eval",
     entry: './src/js/script.ts',
     output: {
         publicPath: "public",

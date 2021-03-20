@@ -30,10 +30,10 @@ export const audios: HTMLAudioElement[] = [backgroundSound, cardSound, winSound,
 export const backgroundSoundIndex: number = audios.findIndex(audio => audio == backgroundSound);
 
 //videos
-export const winVideo = document.createElement("video") as HTMLVideoElement;
+export const winVideo = document.createElement("VIDEO") as HTMLVideoElement;
 winVideo.setAttribute("src", "video/win.mp4");
 
-export const loseVideo = document.createElement("video") as HTMLVideoElement;
+export const loseVideo = document.createElement("VIDEO") as HTMLVideoElement;
 loseVideo.setAttribute("src", "video/lose.mp4");
 
 export const divVideo = document.querySelector(".video") as HTMLDivElement;
