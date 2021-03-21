@@ -1,6 +1,6 @@
 import { scoreCounter, cardSound } from "../variables";
 import { gameCards } from "./init_game";
-import { endGame } from "./end_game";
+import { winningProcedure } from "./end_game/win";
 
 let oneVisible: boolean = false;
 let blockRevealMoreThanTwoCards: boolean = false;
@@ -40,7 +40,7 @@ export function mainGame(){
                         setTimeout(() => { hitPair(playableCardsBackground[index] as HTMLDivElement, playableCardsBackground[firstCardIndex] as HTMLDivElement) }, 500);
                         
                         totalPairs--;
-                        if (totalPairs == 0) setTimeout( () => { endGame() }, 1000) 
+                        if (totalPairs == 0) setTimeout( () => { winningProcedure() }, 1000) 
     
                     } else  setTimeout( () => { missedPair(playableCard as HTMLDivElement, playableCards[firstCardIndex] as HTMLDivElement) }, 500); 
                     oneVisible = false

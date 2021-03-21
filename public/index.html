@@ -92,15 +92,18 @@
                                     <img src="./images/clock.png" alt="clock">
                                     <span class="clockTime">  
 
-                                        <span class="updateTime">
+                                        <span class="updateTime minusTime">
                                             <button id="minusTime">-</button>  
                                         </span>
 
-                                        <span class="clockTimeMinutes">0</span>
-                                        :
-                                        <span class="clockTimeSeconds">15</span>
+                                        <div class="clockTimeDisplay">
+                                            <span class="clockTimeMinutes">0</span>
+                                            :
+                                            <span class="clockTimeSeconds">25</span>
+                                        </div>
+                                       
 
-                                        <span class="updateTime">
+                                        <span class="updateTime plusTime">
                                             <button id="plusTime">+</button> 
                                         </span>
                                     </span>                     
@@ -125,6 +128,7 @@
                 <div id="game_end">
                     <div class="wrapper">
                         <div class="message">
+                            <div class="message_lose">Game Over! You die!</div>
                             <div class="message_segment" id="cardsNumber">
                                 <div class="message_segment_description">Cards number: </div>
                                 <div class="message_segment_score">
@@ -132,15 +136,15 @@
                                     <span class="score_full"></span>
                                 </div>
                             </div>
-                            <div class="message_segment" id="timeStart">
-                                <div class="message_segment_description">Time start: </div>
+                            <div class="message_segment" id="timeLeft">
+                                <div class="message_segment_description">Time left: </div>
                                 <div class="message_segment_score">
                                     <span class="score"></span>
                                     <span class="score_full"></span>
                                 </div>
                             </div>
-                            <div class="message_segment" id="timeLeft">
-                                <div class="message_segment_description">Time left: </div>
+                            <div class="message_segment" id="timeStart">
+                                <div class="message_segment_description">Time start: </div>
                                 <div class="message_segment_score">
                                     <span class="score"></span>
                                     <span class="score_full"></span>
