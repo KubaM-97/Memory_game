@@ -1,24 +1,15 @@
-import { optCardsNumberDiv, optTimerDiv, clock, clockMinutes, clockSeconds, minusTime, plusTime, optButton } from "../variables";
+import { enumCardsNumber, enumTimer, optCardsNumberDiv, optTimerDiv, clock, clockMinutes, clockSeconds, minusTime, plusTime, optButton } from "../variables";
 import { changeView } from "./door";
 
-enum cardsNumber{
-    opt1 = 16,
-    opt2 = 20,
-    opt3 = 24
-}
-enum timer{
-    opt1 = 10,
-    opt2 = 15,
-    opt3 = 20,
-    opt4 = 25
-}
 
-let t:number = 2;
+
+let enumIndex:number = 3;
+const enumLength: number = Object.keys(enumTimer).length / 2;
 
 for(let i: number=0; i<optCardsNumberDiv.children.length; i++){
     optCardsNumberDiv.children[i].addEventListener("click", function(this: any){
 
-        readyOptions.cardsNumber = cardsNumber[`opt${i+1}`];
+        readyOptions.cardsNumber = enumCardsNumber[`opt${i+1}`];
         
         for(let j: number=0; j<optCardsNumberDiv.children.length; j++){
             optCardsNumberDiv.children[j].classList.remove("active");
@@ -41,20 +32,26 @@ optTimerDiv.children[1].addEventListener("click", function(this: any){
     this.classList.add("active");
 
     clock.style.display = "block";
-    readyOptions.time = timer[`opt${t}`];
+    readyOptions.time = enumTimer[`opt${enumIndex}`];
     clockSeconds.innerHTML = "" + readyOptions.time
 })
 minusTime.addEventListener("click", function(){
-    t==1 ? t=4 : t--
-    readyOptions.time = timer["opt".concat(t.toString())];
-    clockSeconds.innerHTML = timer[`opt${t}`]
+    enumIndex==1 ? enumIndex=enumLength : enumIndex--
+    readyOptions.time = enumTimer["opt".concat(enumIndex.toString())];
+    const minutes = Math.floor(enumTimer[`opt${enumIndex}`] / 60 )
+    clockMinutes.innerHTML = ` ${ minutes } `
+    let seconds: number = enumTimer[`opt${enumIndex}`] % 60
+    seconds < 10 ? clockSeconds.innerHTML = ` 0${ seconds } ` : clockSeconds.innerHTML = ` ${ seconds } `;
+    
 })
 plusTime.addEventListener("click", function(){
-    t==4 ? t=1 : t++
-    readyOptions.time = timer[`opt${t}`];
-    clockSeconds.innerHTML = timer[`opt${t}`]
+    enumIndex==enumLength ? enumIndex=1 : enumIndex++
+    readyOptions.time = enumTimer[`opt${enumIndex}`];
+    const minutes = Math.floor(enumTimer[`opt${enumIndex}`] / 60 )
+    clockMinutes.innerHTML = ` ${ minutes } `
+    let seconds: number = enumTimer[`opt${enumIndex}`] % 60
+    seconds < 10 ? clockSeconds.innerHTML = ` 0${ seconds } ` : clockSeconds.innerHTML = ` ${ seconds } `;
 })
-
 
 interface options_interface {
     cardsNumber: number;

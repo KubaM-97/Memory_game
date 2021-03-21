@@ -1,9 +1,10 @@
 const path = require("path");
+const webpack = require("webpack");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: "development",
-    devtool: "eval-source-map",
+    devtool: "source-map",
     entry: './src/js/script.ts',
     output: {
         publicPath: "public",
@@ -71,6 +72,6 @@ module.exports = {
             patterns: [
                 { from: "src/images", to: "images" }
             ],
-        }),
+        })
     ]
 }

@@ -14,23 +14,32 @@
         .message{
             font-size: 2.8rem;
             margin-top: 80px;
+            .message_lose{
+                font-size: 3.3em;
+                padding-top: 10px;
+                text-align: center;
+                color: red;
+                display: none;
+            }
             .message_segment{
-                display: flex;
+                display: none;
                 justify-content: space-between;
                 align-items: center;
-                width: 85%;
+                width: 90%;
                 margin: auto;
                 color: green;
-                &#madeMoves{
+                &#timeStart, &#madeMoves{
                     color: red;
                 }
                 &#totalPoints{
+                    display: none;
                     position: absolute;
                     bottom: 40%;
                     font-size: 4.5rem;
                     color: green;
                     width: 90%;
-                    text-align: center;.message_segment_description{
+                    text-align: center;
+                    .message_segment_description{
                         width: 40%;
                     } 
                     .message_segment_score{
@@ -38,23 +47,20 @@
                     }
                 }
                 
-            .message_segment_description{
-                width: 40%;
-            } 
-            .message_segment_score{
-                width: 57%;
+                .message_segment_description{
+                    width: 40%;
+                } 
+                .message_segment_score{
+                    width: 57%;
+                }
             }
-            }
-            // display: block;
             text-align: left;
             margin: 30px;
-            // margin-top: 100px;
-            // opacity: 0;
             text-shadow: @end-message-text-shadow-color;
         }
         .video{
             position: absolute;
-            top: 50%;
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 700px;
@@ -73,20 +79,37 @@
 }
 @media all and (orientation: landscape) and (max-device-width: 800px){
     #game_end{
-        font-size: 5em;
         .wrapper{
             .message{
-                margin-top: 40px;
+                font-size: 1.8rem;
+                margin: 30px 10px 0;
+                .message_lose{
+                    font-size: 2.1em;
+                }
+                .message_segment{
+                    margin-top: 15px;
+                    width: 100%;
+                    &#totalPoints{
+                        bottom: 36%;
+                        font-size: 3.5rem;
+                        .message_segment_description{
+                            width: 53%;
+                        } 
+                        .message_segment_score{
+                            width: 71%;
+                        }
+                    }
+                }
             }
             .video{
                 width: 95%;
             }
             .buttons{
-                bottom: 20%;
+                bottom: 15%;
                 .button{
-                    padding: 10px;
+                    padding: 0;
                     button{
-                        font-size: .8em;
+                        font-size: .75em;
                     }
                 }
             }
@@ -96,5 +119,15 @@
 @media all and (orientation: portrait) and (max-device-width: 800px){
     #game_end{
         font-size: 7em;
+        .wrapper{
+            .message{
+                padding-top: 50px;
+                font-size: 2.5rem;
+                .message_segment{
+                    margin-top: 20px;
+                    width: 95%;
+                }
+            }
+        }
     }
 }

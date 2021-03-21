@@ -65,43 +65,33 @@
                 }
                 .clockTime{
                     width: 100%;
-                    display: inline-block;
                     text-align: center;
                     position: absolute;
                     top: 55%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    font-size: 3rem;
+                    font-size: 2.5rem;
                     font-family: 'Orbitron', sans-serif;
                     letter-spacing: 1.2px;
                     color: @clockTime-color;
+                    .clockTimeDisplay{
+                        width: 56%;
+                        display: inline-block;
+                        margin: auto;
+                    }
                     .updateTime{
+                        width: 7%;;
                         font-size: 2.5rem;
-                        position: absolute;
-                        top: 10%;
-                        &:first-child{
-                            left: 10%;
-                            #minusTime{
-                                background-color: transparent;
-                                outline: none;
-                                border: none;
-                                color: inherit;
-                                font-size: 2.9rem;
-                                font-weight: 700;
-                                cursor: pointer;
-                            }
-                        }
-                        &:last-child{
-                            right: 10%;
-                            #plusTime{
-                                background-color: transparent;
-                                outline: none;
-                                border: none;
-                                color: inherit;
-                                font-size: inherit;
-                                font-weight: 700;
-                                cursor: pointer;
-                            }
+                        display: inline-block;
+                        margin: auto;
+                        & button{
+                            background-color: transparent;
+                            outline: none;
+                            border: none;
+                            color: inherit;
+                            font-size: 100%;
+                            font-weight: 700;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -141,7 +131,13 @@
                     }
                 }
                 .clock{
-                    width: 175px;
+                    width: 170px;
+                    .clockTime{
+                        font-size: 1.5rem;
+                        .updateTime{
+                            font-size: 1.8rem;
+                        }
+                    }
                 }
             }
         }
@@ -156,8 +152,9 @@
                 text-align: left;
             }
             .options{
+                width: 70%;
                 .clock{
-                    width: 215px;
+                    width: 260px;
                 }
             }
         }
