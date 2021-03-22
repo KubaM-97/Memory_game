@@ -13,9 +13,14 @@ winVideo.addEventListener("ended", async function(){
 
     messageParts.totalPoints.style.display = "flex";
     hideAndClearSummarize();
-    await summary();
+    const playerTotalScore = await summary();
+    if(playerTotalScore > 2000){
+        alert("Best Score")
+    }
+    else{
+        showEndButtons();
+    }
     
-    showEndButtons();
 
 })
 

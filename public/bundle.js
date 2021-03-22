@@ -789,6 +789,7 @@ function summary() {
         timeStart = 0;
         timeLeft = 0;
         madeMoves = 0;
+        return totalSum;
     });
 }
 function summarizePoints(x, messagePart, messageScore, multiplier) {
@@ -876,8 +877,13 @@ _variables__WEBPACK_IMPORTED_MODULE_0__.winVideo.addEventListener("ended", funct
         (0,_index__WEBPACK_IMPORTED_MODULE_1__.hideVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.winSound);
         _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.totalPoints.style.display = "flex";
         (0,_summary__WEBPACK_IMPORTED_MODULE_2__.hideAndClearSummarize)();
-        yield (0,_summary__WEBPACK_IMPORTED_MODULE_2__.summary)();
-        (0,_index__WEBPACK_IMPORTED_MODULE_1__.showEndButtons)();
+        const playerTotalScore = yield (0,_summary__WEBPACK_IMPORTED_MODULE_2__.summary)();
+        if (playerTotalScore > 2000) {
+            alert("Best Score");
+        }
+        else {
+            (0,_index__WEBPACK_IMPORTED_MODULE_1__.showEndButtons)();
+        }
     });
 });
 

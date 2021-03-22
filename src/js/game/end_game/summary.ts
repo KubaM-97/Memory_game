@@ -20,7 +20,7 @@ export function hideAndClearSummarize(){
     // }
 }
 
-export async function summary(): Promise<void>{
+export async function summary(): Promise<number>{
     totalSum = 0;
     messageScores.totalPointsScore.innerHTML = `0`;
     updateTotalSum = updateTotalSumGenerator(0);
@@ -48,6 +48,7 @@ export async function summary(): Promise<void>{
     timeLeft = 0;
     madeMoves = 0;
 
+    return totalSum
 }
 
 async function summarizePoints(x:number, messagePart: HTMLDivElement, messageScore: HTMLDivElement, multiplier: number): Promise<number>{
