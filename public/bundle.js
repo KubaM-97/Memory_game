@@ -558,6 +558,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Card": () => (/* binding */ Card)
 /* harmony export */ });
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
+
 class Card {
     constructor(size, size_mobile_screen_landscape, size_mobile_screen_portrait, index, character) {
         this.size = size;
@@ -568,7 +570,6 @@ class Card {
     }
     ;
     create() {
-        const gameCards = document.querySelector("#game_cards");
         const card_background = document.createElement("DIV");
         card_background.classList.add("card_background");
         card_background.style.backgroundImage = `background-image: repeating-linear-gradient(150deg, rgb(227, 228, 228) 5%, rgb(1, 79, 197) 10%);
@@ -584,7 +585,7 @@ class Card {
         card.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
         card.style.backgroundSize = `cover`;
         card_background.appendChild(card);
-        gameCards.appendChild(card_background);
+        _variables__WEBPACK_IMPORTED_MODULE_0__.gameCardsDiv.appendChild(card_background);
     }
     changeCardsSize(card_background) {
         if (window.screen.width < 700) {
@@ -605,21 +606,24 @@ class Card {
 
 /***/ }),
 
-/***/ "./src/js/game/end_game.ts":
-/*!*********************************!*\
-  !*** ./src/js/game/end_game.ts ***!
-  \*********************************/
+/***/ "./src/js/game/end_game/index.ts":
+/*!***************************************!*\
+  !*** ./src/js/game/end_game/index.ts ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "clearPreviousGame": () => (/* binding */ clearPreviousGame),
 /* harmony export */   "showVideo": () => (/* binding */ showVideo),
 /* harmony export */   "hideVideo": () => (/* binding */ hideVideo),
 /* harmony export */   "showEndButtons": () => (/* binding */ showEndButtons)
 /* harmony export */ });
-/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
-/* harmony import */ var _menu_door__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../menu/door */ "./src/js/menu/door.ts");
-/* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./timer */ "./src/js/game/timer.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../variables */ "./src/js/variables.ts");
+/* harmony import */ var _menu_door__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../menu/door */ "./src/js/menu/door.ts");
+/* harmony import */ var _timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! .././timer */ "./src/js/game/timer.ts");
+/* harmony import */ var _init_game__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! .././init_game */ "./src/js/game/init_game.ts");
+/* harmony import */ var _play__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! .././play */ "./src/js/game/play.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -632,6 +636,15 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 
+
+
+function clearPreviousGame() {
+    _variables__WEBPACK_IMPORTED_MODULE_0__.divVideo.innerHTML = "";
+    _variables__WEBPACK_IMPORTED_MODULE_0__.message_lose.style.display = "none";
+    for (const div in _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts) {
+        _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts[div].style.display = "none";
+    }
+}
 function showVideo(video) {
     return __awaiter(this, void 0, void 0, function* () {
         yield (0,_menu_door__WEBPACK_IMPORTED_MODULE_1__.changeView)("game_board", "game_end");
@@ -659,8 +672,12 @@ _variables__WEBPACK_IMPORTED_MODULE_0__.main_menu.addEventListener("click", func
     (0,_menu_door__WEBPACK_IMPORTED_MODULE_1__.changeView)("game_end", "game_start");
 });
 _variables__WEBPACK_IMPORTED_MODULE_0__.try_again.addEventListener("click", function () {
-    (0,_menu_door__WEBPACK_IMPORTED_MODULE_1__.changeView)("game_end", "game_board");
-    (0,_timer__WEBPACK_IMPORTED_MODULE_2__.startTimer)();
+    return __awaiter(this, void 0, void 0, function* () {
+        yield (0,_init_game__WEBPACK_IMPORTED_MODULE_3__.initGame)();
+        yield (0,_play__WEBPACK_IMPORTED_MODULE_4__.mainGame)();
+        yield (0,_menu_door__WEBPACK_IMPORTED_MODULE_1__.changeView)("game_start", "game_board");
+        yield (0,_timer__WEBPACK_IMPORTED_MODULE_2__.startTimer)();
+    });
 });
 
 
@@ -677,7 +694,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "losingProcedure": () => (/* binding */ losingProcedure)
 /* harmony export */ });
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../variables */ "./src/js/variables.ts");
-/* harmony import */ var _end_game__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../end_game */ "./src/js/game/end_game.ts");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./src/js/game/end_game/index.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -692,15 +709,16 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 function losingProcedure() {
     return __awaiter(this, void 0, void 0, function* () {
         _variables__WEBPACK_IMPORTED_MODULE_0__.timeCounter.innerHTML = "0";
-        (0,_end_game__WEBPACK_IMPORTED_MODULE_1__.showVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.loseVideo);
+        (0,_index__WEBPACK_IMPORTED_MODULE_1__.clearPreviousGame)();
+        (0,_index__WEBPACK_IMPORTED_MODULE_1__.showVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.loseVideo);
     });
 }
 _variables__WEBPACK_IMPORTED_MODULE_0__.loseVideo.addEventListener("ended", function () {
-    (0,_end_game__WEBPACK_IMPORTED_MODULE_1__.hideVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.loseSound);
+    (0,_index__WEBPACK_IMPORTED_MODULE_1__.hideVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.loseSound);
     _variables__WEBPACK_IMPORTED_MODULE_0__.message_lose.style.display = "flex";
     _variables__WEBPACK_IMPORTED_MODULE_0__.message_lose.style.animation = "show 2s";
     _variables__WEBPACK_IMPORTED_MODULE_0__.message_lose.style.animationFillMode = "forwards";
-    (0,_end_game__WEBPACK_IMPORTED_MODULE_1__.showEndButtons)();
+    (0,_index__WEBPACK_IMPORTED_MODULE_1__.showEndButtons)();
 });
 
 
@@ -714,6 +732,7 @@ _variables__WEBPACK_IMPORTED_MODULE_0__.loseVideo.addEventListener("ended", func
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "hideAndClearSummarize": () => (/* binding */ hideAndClearSummarize),
 /* harmony export */   "summary": () => (/* binding */ summary)
 /* harmony export */ });
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../variables */ "./src/js/variables.ts");
@@ -734,34 +753,48 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 
 
 let totalSum = 0;
-const updateTotalSum = updateTotalSumGenerator(0);
-updateTotalSum.next(0);
+let updateTotalSum;
+console.log(totalSum);
 function* updateTotalSumGenerator(x) {
     totalSum += yield;
     totalSum += yield;
     totalSum -= yield;
     totalSum -= yield;
 }
+function hideAndClearSummarize() {
+    // for(const div in messageParts){
+    //     console.log(div)
+    //     // div.style.display = "none";
+    // }
+}
 function summary() {
     return __awaiter(this, void 0, void 0, function* () {
-        if (_menu_options__WEBPACK_IMPORTED_MODULE_1__.readyOptions.time === null) {
-            _menu_options__WEBPACK_IMPORTED_MODULE_1__.readyOptions.time = 0;
-        }
-        const timeLeft = _timer__WEBPACK_IMPORTED_MODULE_2__.currentTime | 0;
-        const totalSegmentPointsCards = yield summarizePoints(_menu_options__WEBPACK_IMPORTED_MODULE_1__.readyOptions.cardsNumber, _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.cardsNumber, _variables__WEBPACK_IMPORTED_MODULE_0__.messageScores.cardsNumberScore, _variables__WEBPACK_IMPORTED_MODULE_0__.multipliers.multiplierCards);
+        totalSum = 0;
+        _variables__WEBPACK_IMPORTED_MODULE_0__.messageScores.totalPointsScore.innerHTML = `0`;
+        updateTotalSum = updateTotalSumGenerator(0);
+        updateTotalSum.next(0);
+        let cardsNumber = _menu_options__WEBPACK_IMPORTED_MODULE_1__.readyOptions.cardsNumber;
+        let timeStart = _menu_options__WEBPACK_IMPORTED_MODULE_1__.readyOptions.time | 0;
+        let timeLeft = _timer__WEBPACK_IMPORTED_MODULE_2__.currentTime | 0;
+        let madeMoves = _play__WEBPACK_IMPORTED_MODULE_3__.turnCounter;
+        const totalSegmentPointsCards = yield summarizePoints(cardsNumber, _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.cardsNumber, _variables__WEBPACK_IMPORTED_MODULE_0__.messageScores.cardsNumberScore, _variables__WEBPACK_IMPORTED_MODULE_0__.multipliers.multiplierCards);
         yield summarizeTotalPoints(totalSum + totalSegmentPointsCards, totalSegmentPointsCards);
         const totalSegmentPointsTimeLeft = yield summarizePoints(timeLeft, _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.timeLeft, _variables__WEBPACK_IMPORTED_MODULE_0__.messageScores.timeLeftScore, _variables__WEBPACK_IMPORTED_MODULE_0__.multipliers.multiplieTimeLeft);
         yield summarizeTotalPoints(totalSum + totalSegmentPointsTimeLeft, totalSegmentPointsTimeLeft);
-        const totalSegmentPointsTimeStart = yield summarizePoints(_menu_options__WEBPACK_IMPORTED_MODULE_1__.readyOptions.time, _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.timeStart, _variables__WEBPACK_IMPORTED_MODULE_0__.messageScores.timeStartScore, _variables__WEBPACK_IMPORTED_MODULE_0__.multipliers.multiplieTimeStart);
+        const totalSegmentPointsTimeStart = yield summarizePoints(timeStart, _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.timeStart, _variables__WEBPACK_IMPORTED_MODULE_0__.messageScores.timeStartScore, _variables__WEBPACK_IMPORTED_MODULE_0__.multipliers.multiplieTimeStart);
         yield summarizeTotalPoints(totalSum - totalSegmentPointsTimeStart, totalSegmentPointsTimeStart);
-        const totalSegmentPointsMoves = yield summarizePoints(_play__WEBPACK_IMPORTED_MODULE_3__.turnCounter, _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.madeMoves, _variables__WEBPACK_IMPORTED_MODULE_0__.messageScores.madeMovesScore, _variables__WEBPACK_IMPORTED_MODULE_0__.multipliers.multiplieMoves);
+        const totalSegmentPointsMoves = yield summarizePoints(madeMoves, _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.madeMoves, _variables__WEBPACK_IMPORTED_MODULE_0__.messageScores.madeMovesScore, _variables__WEBPACK_IMPORTED_MODULE_0__.multipliers.multiplieMoves);
         yield summarizeTotalPoints(totalSum - totalSegmentPointsMoves, totalSegmentPointsMoves);
+        cardsNumber = 0;
+        timeStart = 0;
+        timeLeft = 0;
+        madeMoves = 0;
     });
 }
 function summarizePoints(x, messagePart, messageScore, multiplier) {
     return __awaiter(this, void 0, void 0, function* () {
         messagePart.style.display = "flex";
-        messageScore.querySelector(":scope > .score").innerHTML = `0 x 50 = `;
+        messageScore.querySelector(":scope > .score").innerHTML = `0 x ${multiplier} = `;
         let i = 0;
         return yield new Promise((resolve, reject) => {
             const incrementScore = setInterval(() => {
@@ -817,7 +850,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "winningProcedure": () => (/* binding */ winningProcedure)
 /* harmony export */ });
 /* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../variables */ "./src/js/variables.ts");
-/* harmony import */ var _end_game__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../end_game */ "./src/js/game/end_game.ts");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./src/js/game/end_game/index.ts");
 /* harmony import */ var _summary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./summary */ "./src/js/game/end_game/summary.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -834,15 +867,17 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 // winningProcedure()
 function winningProcedure() {
     return __awaiter(this, void 0, void 0, function* () {
-        (0,_end_game__WEBPACK_IMPORTED_MODULE_1__.showVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.winVideo);
+        (0,_index__WEBPACK_IMPORTED_MODULE_1__.clearPreviousGame)();
+        (0,_index__WEBPACK_IMPORTED_MODULE_1__.showVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.winVideo);
     });
 }
 _variables__WEBPACK_IMPORTED_MODULE_0__.winVideo.addEventListener("ended", function () {
     return __awaiter(this, void 0, void 0, function* () {
-        (0,_end_game__WEBPACK_IMPORTED_MODULE_1__.hideVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.winSound);
+        (0,_index__WEBPACK_IMPORTED_MODULE_1__.hideVideo)(_variables__WEBPACK_IMPORTED_MODULE_0__.winSound);
         _variables__WEBPACK_IMPORTED_MODULE_0__.messageParts.totalPoints.style.display = "flex";
+        (0,_summary__WEBPACK_IMPORTED_MODULE_2__.hideAndClearSummarize)();
         yield (0,_summary__WEBPACK_IMPORTED_MODULE_2__.summary)();
-        (0,_end_game__WEBPACK_IMPORTED_MODULE_1__.showEndButtons)();
+        (0,_index__WEBPACK_IMPORTED_MODULE_1__.showEndButtons)();
     });
 });
 
@@ -862,6 +897,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _classes_card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../classes/card */ "./src/js/classes/card.ts");
 /* harmony import */ var _menu_options__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../menu/options */ "./src/js/menu/options.ts");
+/* harmony import */ var _variables__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -871,6 +907,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+
 
 
 const gameCards = [];
@@ -905,8 +942,11 @@ function getCards() {
 }
 function initGame() {
     return __awaiter(this, void 0, void 0, function* () {
+        _variables__WEBPACK_IMPORTED_MODULE_2__.gameCardsDiv.innerHTML = "";
         yield getCards();
-        console.log(window.screen.width);
+        gameCards.splice(0, gameCards.length);
+        console.log(originCards);
+        console.log("Przed initGame: Karty do gry: ", gameCards);
         while (gameCards.length < originCards.length * 2) {
             const i = Math.floor(Math.random() * originCards.length);
             const isThereTwoSuchCards = gameCards.filter(el => el === originCards[i]);
@@ -919,6 +959,7 @@ function initGame() {
                 card.create();
             }
         }
+        console.log("Po initGame: Karty do gry: ", gameCards);
     });
 }
 
@@ -949,6 +990,8 @@ let turnCounter = 0;
 let totalPairs;
 let firstCardIndex = 0;
 function mainGame() {
+    turnCounter = 0;
+    _variables__WEBPACK_IMPORTED_MODULE_0__.scoreCounter.innerHTML = `${turnCounter}`;
     totalPairs = _init_game__WEBPACK_IMPORTED_MODULE_1__.gameCards.length / 2;
     //catches all cards
     const playableCardsBackground = document.querySelectorAll(".card_background");
@@ -1030,6 +1073,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
 let currentTime;
 function startTimer() {
     return __awaiter(this, void 0, void 0, function* () {
+        console.log(_menu_options__WEBPACK_IMPORTED_MODULE_2__.readyOptions.time, currentTime);
         if (_menu_options__WEBPACK_IMPORTED_MODULE_2__.readyOptions.time !== null) {
             //shows timer
             _variables__WEBPACK_IMPORTED_MODULE_0__.timer.style.display = "block";
@@ -1273,6 +1317,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "loseSound": () => (/* binding */ loseSound),
 /* harmony export */   "audios": () => (/* binding */ audios),
 /* harmony export */   "backgroundSoundIndex": () => (/* binding */ backgroundSoundIndex),
+/* harmony export */   "gameCardsDiv": () => (/* binding */ gameCardsDiv),
 /* harmony export */   "winVideo": () => (/* binding */ winVideo),
 /* harmony export */   "loseVideo": () => (/* binding */ loseVideo),
 /* harmony export */   "divVideo": () => (/* binding */ divVideo),
@@ -1337,6 +1382,8 @@ const winSound = new Audio("audio/win.mp3");
 const loseSound = new Audio("audio/lose.mp3");
 const audios = [backgroundSound, cardSound, winSound, loseSound];
 const backgroundSoundIndex = audios.findIndex(audio => audio == backgroundSound);
+// game
+const gameCardsDiv = document.querySelector("#game_cards");
 //videos
 const winVideo = document.createElement("VIDEO");
 winVideo.setAttribute("src", "video/win.mp4");
@@ -1351,9 +1398,9 @@ let timeCounter = document.getElementById("timeCounter");
 var multipliers;
 (function (multipliers) {
     multipliers[multipliers["multiplierCards"] = 150] = "multiplierCards";
-    multipliers[multipliers["multiplieTimeLeft"] = 25] = "multiplieTimeLeft";
+    multipliers[multipliers["multiplieTimeLeft"] = 75] = "multiplieTimeLeft";
     multipliers[multipliers["multiplieTimeStart"] = 50] = "multiplieTimeStart";
-    multipliers[multipliers["multiplieMoves"] = 75] = "multiplieMoves";
+    multipliers[multipliers["multiplieMoves"] = 25] = "multiplieMoves";
 })(multipliers || (multipliers = {}));
 const end_screen_message = document.querySelector("#game_end .message");
 const messageParts = {

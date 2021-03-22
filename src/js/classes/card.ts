@@ -1,3 +1,5 @@
+import { gameCardsDiv } from "../variables";
+
 export interface interfaceCard {
     size: number;
     size_mobile_screen_landscape: number;
@@ -16,7 +18,6 @@ export class Card implements interfaceCard{
     ){};
     create():void{
         
-        const gameCards = document.querySelector("#game_cards") as HTMLDivElement;
 
         const card_background = document.createElement("DIV");
         card_background.classList.add("card_background")
@@ -37,7 +38,7 @@ export class Card implements interfaceCard{
         card.style.backgroundSize = `cover`;
         
         card_background.appendChild(card);
-        gameCards.appendChild(card_background)
+        gameCardsDiv.appendChild(card_background)
 
     }   
     changeCardsSize(card_background: any):void{

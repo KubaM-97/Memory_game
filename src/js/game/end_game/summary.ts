@@ -4,8 +4,8 @@ import { currentTime } from  ".././timer";
 import { turnCounter } from  ".././play";
 
 let totalSum: number = 0;
-const updateTotalSum: Generator<number> = updateTotalSumGenerator(0);
-updateTotalSum.next(0);
+let updateTotalSum: { next: (arg0: number) => void; };
+console.log(totalSum)
 
 function* updateTotalSumGenerator(x: number): any{
     totalSum+=yield
@@ -13,31 +13,46 @@ function* updateTotalSumGenerator(x: number): any{
     totalSum-=yield
     totalSum-=yield
 }
+export function hideAndClearSummarize(){
+    // for(const div in messageParts){
+    //     console.log(div)
+    //     // div.style.display = "none";
+    // }
+}
 
 export async function summary(): Promise<void>{
-    if( readyOptions.time === null ){
-        readyOptions.time = 0
-    }
+    totalSum = 0;
+    messageScores.totalPointsScore.innerHTML = `0`;
+    updateTotalSum = updateTotalSumGenerator(0);
+    updateTotalSum.next(0);
 
-    const timeLeft = currentTime | 0;
+    let cardsNumber: number = readyOptions.cardsNumber;
+    let timeStart: number = readyOptions.time! | 0;
+    let timeLeft: number = currentTime | 0;
+    let madeMoves: number = turnCounter;
 
-    const totalSegmentPointsCards =  await summarizePoints(readyOptions.cardsNumber, messageParts.cardsNumber, messageScores.cardsNumberScore, multipliers.multiplierCards);
+    const totalSegmentPointsCards =  await summarizePoints(cardsNumber, messageParts.cardsNumber, messageScores.cardsNumberScore, multipliers.multiplierCards);
     await summarizeTotalPoints(totalSum + totalSegmentPointsCards, totalSegmentPointsCards)  
 
     const totalSegmentPointsTimeLeft =  await summarizePoints(timeLeft, messageParts.timeLeft, messageScores.timeLeftScore, multipliers.multiplieTimeLeft); 
     await summarizeTotalPoints(totalSum + totalSegmentPointsTimeLeft, totalSegmentPointsTimeLeft)
    
-    const totalSegmentPointsTimeStart =  await summarizePoints(readyOptions.time, messageParts.timeStart, messageScores.timeStartScore, multipliers.multiplieTimeStart);
+    const totalSegmentPointsTimeStart =  await summarizePoints(timeStart, messageParts.timeStart, messageScores.timeStartScore, multipliers.multiplieTimeStart);
     await summarizeTotalPoints(totalSum - totalSegmentPointsTimeStart, totalSegmentPointsTimeStart)
 
-    const totalSegmentPointsMoves =  await summarizePoints(turnCounter, messageParts.madeMoves, messageScores.madeMovesScore, multipliers.multiplieMoves);
+    const totalSegmentPointsMoves =  await summarizePoints(madeMoves, messageParts.madeMoves, messageScores.madeMovesScore, multipliers.multiplieMoves);
     await summarizeTotalPoints(totalSum - totalSegmentPointsMoves, totalSegmentPointsMoves)
     
+    cardsNumber = 0;
+    timeStart =  0;
+    timeLeft = 0;
+    madeMoves = 0;
+
 }
 
 async function summarizePoints(x:number, messagePart: HTMLDivElement, messageScore: HTMLDivElement, multiplier: number): Promise<number>{
     messagePart.style.display = "flex";
-    messageScore.querySelector(":scope > .score")!.innerHTML = `0 x 50 = `;
+    messageScore.querySelector(":scope > .score")!.innerHTML = `0 x ${multiplier} = `;
     let i: number = 0;
     return await new Promise ((resolve, reject)=>{
         const incrementScore = setInterval(()=>{

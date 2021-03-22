@@ -1,8 +1,10 @@
 import { timeCounter, loseVideo, loseSound, message_lose, end_screen_message } from "../../variables";
-import { showVideo, hideVideo,  showEndButtons } from  "../end_game";
+import { showVideo, hideVideo,  showEndButtons, clearPreviousGame } from  "./index";
 export async function losingProcedure(){
     
+
     timeCounter.innerHTML = "0";
+    clearPreviousGame();
     
     showVideo(loseVideo)
 }

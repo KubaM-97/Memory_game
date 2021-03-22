@@ -1,5 +1,6 @@
 import { interfaceCard, Card } from "./../classes/card";
 import { readyOptions } from "../menu/options";
+import { gameCardsDiv } from "../variables";
 
 export const gameCards: string[] = []
 
@@ -34,8 +35,17 @@ function getCards(){
 }
 export async function initGame():Promise<void>{
 
+    
+    gameCardsDiv.innerHTML = "";
+
     await getCards()
-        console.log(window.screen.width)
+
+
+    gameCards.splice(0,gameCards.length);
+
+    console.log(originCards)
+    console.log("Przed initGame: Karty do gry: ",gameCards)
+
     while (gameCards.length < originCards.length*2) {
     
         const i: number = Math.floor(Math.random() * originCards.length);
@@ -49,4 +59,5 @@ export async function initGame():Promise<void>{
         }
     
     }
+    console.log("Po initGame: Karty do gry: ",gameCards)
 }

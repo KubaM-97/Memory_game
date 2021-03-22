@@ -7,6 +7,7 @@ export let currentTime: number;
 
 export async function startTimer(){
 
+    console.log(readyOptions.time, currentTime)
     if( readyOptions.time !== null){
     
         //shows timer

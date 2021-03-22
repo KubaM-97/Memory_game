@@ -10,6 +10,9 @@ let firstCardIndex: number = 0;
 
 export function mainGame(){
 
+    turnCounter = 0;
+    scoreCounter.innerHTML = `${turnCounter}`
+    
     totalPairs = gameCards.length / 2
 
     //catches all cards

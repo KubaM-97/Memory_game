@@ -47,6 +47,9 @@ export const loseSound = new Audio("audio/lose.mp3") as HTMLAudioElement;
 export const audios: HTMLAudioElement[] = [backgroundSound, cardSound, winSound, loseSound];
 export const backgroundSoundIndex: number = audios.findIndex(audio => audio == backgroundSound);
 
+// game
+export const gameCardsDiv = document.querySelector("#game_cards") as HTMLDivElement;
+
 //videos
 export const winVideo = document.createElement("VIDEO") as HTMLVideoElement;
 winVideo.setAttribute("src", "video/win.mp4");
@@ -65,9 +68,9 @@ export let timeCounter = document.getElementById("timeCounter") as HTMLDivElemen
 
 export enum multipliers{
     multiplierCards = 150,
-    multiplieTimeLeft = 25,
+    multiplieTimeLeft = 75,
     multiplieTimeStart = 50,
-    multiplieMoves = 75
+    multiplieMoves = 25
 }
 
 export const end_screen_message = document.querySelector("#game_end .message") as HTMLDivElement;
