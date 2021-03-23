@@ -1,7 +1,7 @@
 // menu
-export const play = document.querySelector(".main_button#play") as HTMLDivElement;
-export const options = document.querySelector(".main_button#options") as HTMLDivElement;
-export const bestScores = document.querySelector(".main_button#best_scores") as HTMLDivElement;
+export const playButton = document.querySelector("button.main_button#play") as HTMLButtonElement;
+export const optionsButton = document.querySelector("button.main_button#options") as HTMLButtonElement;
+export const bestScoresButton = document.querySelector("button.main_button#best_scores") as HTMLButtonElement;
 
 //options
 export enum enumCardsNumber{

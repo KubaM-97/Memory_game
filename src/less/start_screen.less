@@ -22,24 +22,30 @@
     }
     section.main_buttons{
         margin: 90px 0;
-        & .main_button{
+        div{
             margin: 50px auto;
-            padding: 20px;
-            background-color: @main-button-background-color;
-            color: @main-button-font-color;
-            width: 70%;
-            transform: skew(-15deg);
-            font-size: 1.5rem;
-            cursor: pointer;
-            &:hover{
-                background-color: @main-button-hover-background-color;
-                color: @main-button-hover-font-color;
-            }
-            span{
-                display: inline-block;
-                transform: skew(15deg);
+            button.main_button{
+                padding: 20px;
+                background-color: @main-button-background-color;
+                color: @main-button-font-color;
+                width: 70%;
+                transform: skew(-15deg);
+                font-size: 1.5rem;
+                font-family: inherit;
+                cursor: pointer;
+                span{
+                    display: inline-block;
+                    transform: skew(15deg);
+                }
+                &.active{
+                    // animation: active 2.7s infinite;
+                    // border: 7px solid pink;
+                    background-color: @main-button-hover-background-color;
+                    color: @main-button-hover-font-color;
+                }
             }
         }
+        
     }
     .switch_sound{
         position: absolute;

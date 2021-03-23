@@ -73,7 +73,7 @@ async function summarizePoints(x:number, messagePart: HTMLDivElement, messageSco
                 messageScore.querySelector(":scope > .score_full")!.innerHTML = `${i * multiplier} points`
                 resolve(i * multiplier);
             }
-        }, 45)
+        }, 50)
     })
 }
 
@@ -97,8 +97,9 @@ async function summarizeTotalPoints(totalSumWithValueToUpdate: number, valueToUp
                 await updateTotalSum.next(valueToUpdate)
                 messageScores.totalPointsScore.style.animation = "none";
                 resolve()
+                
             }
-        }, 20)
+        }, 1)
     })
  
 

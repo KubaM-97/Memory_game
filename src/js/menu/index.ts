@@ -1,26 +1,19 @@
-import { play, options, bestScores, switchSoundButton } from "../variables";
+import { playButton, optionsButton, bestScoresButton, switchSoundButton } from "../variables";
 import { switchSoundFunction } from "./sound";
-import { changeView } from "./door";
-import { initGame } from "../game/init_game";
-import { mainGame } from "../game/play";
-import { startTimer } from  "./../game/timer"; 
-// import "../game/end_game";
+import { play, options, bestScores, windowMouseOver, windowKeyboard, removeClassActive } from "./navigation";
 
-play.addEventListener("click", async () => {
-    await initGame(); 
-    await mainGame();
-    await changeView("game_start", "game_board");
-    await startTimer();
-})
-
-options.addEventListener("click", function(){
-    changeView("game_start", "game_options");
-})
-
-bestScores.addEventListener("click", function(){
-    changeView("game_start", "game_bestScores");
-})
-
+playButton.addEventListener("click", play)
+optionsButton.addEventListener("click", options)
+bestScoresButton.addEventListener("click", bestScores)
 switchSoundButton.addEventListener("click", switchSoundFunction);
 
 
+export const buttons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [playButton, optionsButton, bestScoresButton];
+
+buttons.forEach(button => {
+    button.addEventListener("mouseover", function(){
+        windowMouseOver(this)
+    })
+})
+
+window.addEventListener("keydown", windowKeyboard);
