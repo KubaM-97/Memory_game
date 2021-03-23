@@ -2,7 +2,7 @@
 
 
 #game_end{
-     display: none;
+    display: none;
     text-align: center;
     font-size: 3em;
     position: relative;
@@ -14,6 +14,7 @@
         .message{
             font-size: 2.8rem;
             margin-top: 80px;
+            height: 100%;
             .message_lose{
                 font-size: 3.3em;
                 padding-top: 10px;
@@ -21,39 +22,45 @@
                 color: red;
                 display: none;
             }
-            .message_segment{
-                display: none;
-                justify-content: space-between;
-                align-items: center;
-                width: 90%;
-                margin: auto;
-                color: green;
-                &#timeStart, &#madeMoves{
-                    color: red;
-                }
-                &#totalPoints{
+            .message_statistics{
+                // background-color: red;
+                min-height: 50%;
+                .message_segment{
                     display: none;
-                    position: absolute;
-                    bottom: 40%;
-                    font-size: 4.5rem;
-                    color: green;
+                    justify-content: space-between;
+                    align-items: center;
                     width: 90%;
-                    text-align: center;
+                    margin: auto;
+                    color: green;
+                    &#timeStart, &#madeMoves{
+                        color: red;
+                    }
+                    
                     .message_segment_description{
                         width: 40%;
                     } 
                     .message_segment_score{
-                        width: 50%;
+                        width: 57%;
                     }
                 }
-                
+            }
+            
+            #totalPoints{
+                display: none;
+                margin-top: 20px;
+                // position: absolute;
+                // bottom: 40%;
+                font-size: 4.5rem;
+                width: 90%;
+                text-align: center;
                 .message_segment_description{
                     width: 40%;
                 } 
                 .message_segment_score{
-                    width: 57%;
+                    width: 50%;
                 }
             }
+            
             text-align: left;
             margin: 30px;
             text-shadow: @end-message-text-shadow-color;

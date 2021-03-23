@@ -1,5 +1,5 @@
 import "../audio/card.mp3";
-import "../audio/forest.mp3";
+import "../audio/background.mp3";
 import "../audio/lose.mp3";
 import "../audio/win.mp3";
 

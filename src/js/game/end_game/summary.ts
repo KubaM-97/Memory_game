@@ -10,6 +10,7 @@ console.log(totalSum)
 function* updateTotalSumGenerator(x: number): any{
     totalSum+=yield
     totalSum+=yield
+    totalSum+=yield
     totalSum-=yield
     totalSum-=yield
 }
@@ -28,6 +29,7 @@ export async function summary(): Promise<number>{
 
     let cardsNumber: number = readyOptions.cardsNumber;
     let timeStart: number = readyOptions.time! | 0;
+    let timeBonus: number = readyOptions.bonusTime;
     let timeLeft: number = currentTime | 0;
     let madeMoves: number = turnCounter;
 
@@ -37,6 +39,9 @@ export async function summary(): Promise<number>{
     const totalSegmentPointsTimeLeft =  await summarizePoints(timeLeft, messageParts.timeLeft, messageScores.timeLeftScore, multipliers.multiplieTimeLeft); 
     await summarizeTotalPoints(totalSum + totalSegmentPointsTimeLeft, totalSegmentPointsTimeLeft)
    
+    const totalSegmentPointsTimeBonus =  await summarizePoints(timeBonus, messageParts.timeBonus, messageScores.timeBonusScore, multipliers.multiplieTimeBonus);
+    await summarizeTotalPoints(totalSum + totalSegmentPointsTimeBonus, totalSegmentPointsTimeBonus)
+
     const totalSegmentPointsTimeStart =  await summarizePoints(timeStart, messageParts.timeStart, messageScores.timeStartScore, multipliers.multiplieTimeStart);
     await summarizeTotalPoints(totalSum - totalSegmentPointsTimeStart, totalSegmentPointsTimeStart)
 
@@ -45,6 +50,7 @@ export async function summary(): Promise<number>{
     
     cardsNumber = 0;
     timeStart =  0;
+    timeBonus = 0;
     timeLeft = 0;
     madeMoves = 0;
 
@@ -77,12 +83,12 @@ async function summarizeTotalPoints(totalSumWithValueToUpdate: number, valueToUp
         let x = totalSum;
         const incrementTotalScore = await setInterval( async ()=>{
             if(x < totalSumWithValueToUpdate){
-                messageScores.totalPointsScore.innerHTML = `${x + 25}`
-                x+=25
+                messageScores.totalPointsScore.innerHTML = `${x + 5}`
+                x+=5
             }
             else if(x > totalSumWithValueToUpdate){
-                messageScores.totalPointsScore.innerHTML = `${x - 25}`
-                x-=25
+                messageScores.totalPointsScore.innerHTML = `${x - 5}`
+                x-=5
                 messageScores.totalPointsScore.style.animation = "squintingTimer .4s infinite"
             }
             else{

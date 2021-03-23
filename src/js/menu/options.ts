@@ -25,6 +25,7 @@ optTimerDiv.children[0].addEventListener("click", function(this: any){
 
     clock.style.display = "none";
     readyOptions.time = null;
+    readyOptions.bonusTime = 0;
 })
 optTimerDiv.children[1].addEventListener("click", function(this: any){
 
@@ -42,6 +43,8 @@ minusTime.addEventListener("click", function(){
     clockMinutes.innerHTML = ` ${ minutes } `
     let seconds: number = enumTimer[`opt${enumIndex}`] % 60
     seconds < 10 ? clockSeconds.innerHTML = ` 0${ seconds } ` : clockSeconds.innerHTML = ` ${ seconds } `;
+    readyOptions.bonusTime = 11 - enumIndex;
+    console.log(readyOptions.bonusTime)
     
 })
 plusTime.addEventListener("click", function(){
@@ -51,15 +54,19 @@ plusTime.addEventListener("click", function(){
     clockMinutes.innerHTML = ` ${ minutes } `
     let seconds: number = enumTimer[`opt${enumIndex}`] % 60
     seconds < 10 ? clockSeconds.innerHTML = ` 0${ seconds } ` : clockSeconds.innerHTML = ` ${ seconds } `;
+    readyOptions.bonusTime = 11 - enumIndex;
+    console.log(readyOptions.bonusTime)
 })
 
 interface options_interface {
     cardsNumber: number;
     time: null|number;
+    bonusTime: number
 }
 export const readyOptions: options_interface = {
     cardsNumber: 16,
     time: null,
+    bonusTime: 11 - enumIndex
 }
 
 optButton.addEventListener("click", function(){

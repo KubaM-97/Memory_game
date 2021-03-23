@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
     mode: "development",
@@ -72,6 +73,7 @@ module.exports = {
             patterns: [
                 { from: "src/images", to: "images" }
             ],
-        })
+        }),
+        new CompressionPlugin(),
     ]
 }

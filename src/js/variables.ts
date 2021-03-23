@@ -39,7 +39,7 @@ export const doorRight = document.querySelector("#right_door") as HTMLDivElement
 //sounds
 export const switchSoundButton = document.querySelector(".switch_sound") as HTMLDivElement;
 
-export const backgroundSound = new Audio("audio/forest.mp3") as HTMLAudioElement;
+export const backgroundSound = new Audio("audio/background.mp3") as HTMLAudioElement;
 export const cardSound = new Audio("audio/card.mp3") as HTMLAudioElement;
 export const winSound = new Audio("audio/win.mp3") as HTMLAudioElement;
 export const loseSound = new Audio("audio/lose.mp3") as HTMLAudioElement;
@@ -67,10 +67,11 @@ export let timeCounter = document.getElementById("timeCounter") as HTMLDivElemen
 //end screen
 
 export enum multipliers{
-    multiplierCards = 150,
-    multiplieTimeLeft = 75,
-    multiplieTimeStart = 50,
-    multiplieMoves = 25
+    multiplierCards = 200,
+    multiplieTimeLeft = 5,
+    multiplieTimeBonus = 100,
+    multiplieTimeStart = 10,
+    multiplieMoves = 20
 }
 
 export const end_screen_message = document.querySelector("#game_end .message") as HTMLDivElement;
@@ -79,6 +80,7 @@ export const messageParts = {
     cardsNumber: document.querySelector("#game_end .message #cardsNumber") as HTMLDivElement,
     timeStart: document.querySelector("#game_end .message #timeStart") as HTMLDivElement,
     timeLeft: document.querySelector("#game_end .message #timeLeft") as HTMLDivElement,
+    timeBonus: document.querySelector("#game_end .message #timeBonus") as HTMLDivElement,
     madeMoves: document.querySelector("#game_end .message #madeMoves") as HTMLDivElement,
     totalPoints: document.querySelector("#game_end .message #totalPoints") as HTMLDivElement,
 }
@@ -86,6 +88,7 @@ export const messageParts = {
 export const cardsNumber = document.querySelector("#game_end .message #cardsNumber") as HTMLDivElement;
 export const timeStart = document.querySelector("#game_end .message #timeStart") as HTMLDivElement;
 export const timeLeft = document.querySelector("#game_end .message #timeLeft") as HTMLDivElement;
+export const timeBonus = document.querySelector("#game_end .message #timeBonus") as HTMLDivElement;
 export const madeMoves = document.querySelector("#game_end .message #madeMoves") as HTMLDivElement;
 export const totalPoints = document.querySelector("#game_end .message #totalPoints") as HTMLDivElement;
 
@@ -93,6 +96,7 @@ export const messageScores = {
     cardsNumberScore: cardsNumber.querySelector(":scope > .message_segment_score") as HTMLDivElement,
     timeStartScore: timeStart.querySelector(":scope > .message_segment_score") as HTMLDivElement,
     timeLeftScore: timeLeft.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+    timeBonusScore: timeBonus.querySelector(":scope > .message_segment_score") as HTMLDivElement,
     madeMovesScore: madeMoves.querySelector(":scope > .message_segment_score") as HTMLDivElement,
     totalPointsScore: totalPoints.querySelector(":scope > .message_segment_score .score_full") as HTMLDivElement,
 }
