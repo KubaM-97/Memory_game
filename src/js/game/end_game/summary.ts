@@ -5,7 +5,6 @@ import { turnCounter } from  ".././play";
 
 let totalSum: number = 0;
 let updateTotalSum: { next: (arg0: number) => void; };
-console.log(totalSum)
 
 function* updateTotalSumGenerator(x: number): any{
     totalSum+=yield
@@ -13,12 +12,6 @@ function* updateTotalSumGenerator(x: number): any{
     totalSum+=yield
     totalSum-=yield
     totalSum-=yield
-}
-export function hideAndClearSummarize(){
-    // for(const div in messageParts){
-    //     console.log(div)
-    //     // div.style.display = "none";
-    // }
 }
 
 export async function summary(): Promise<number>{
@@ -35,7 +28,7 @@ export async function summary(): Promise<number>{
 
     const totalSegmentPointsCards =  await summarizePoints(cardsNumber, messageParts.cardsNumber, messageScores.cardsNumberScore, multipliers.multiplierCards);
     await summarizeTotalPoints(totalSum + totalSegmentPointsCards, totalSegmentPointsCards)  
-
+    
     const totalSegmentPointsTimeLeft =  await summarizePoints(timeLeft, messageParts.timeLeft, messageScores.timeLeftScore, multipliers.multiplieTimeLeft); 
     await summarizeTotalPoints(totalSum + totalSegmentPointsTimeLeft, totalSegmentPointsTimeLeft)
    
@@ -61,7 +54,7 @@ async function summarizePoints(x:number, messagePart: HTMLDivElement, messageSco
     messagePart.style.display = "flex";
     messageScore.querySelector(":scope > .score")!.innerHTML = `0 x ${multiplier} = `;
     let i: number = 0;
-    return await new Promise ((resolve, reject)=>{
+    return new Promise ((resolve, reject)=>{
         const incrementScore = setInterval(()=>{
             if(i < x){
                 i++
@@ -79,9 +72,9 @@ async function summarizePoints(x:number, messagePart: HTMLDivElement, messageSco
 
 async function summarizeTotalPoints(totalSumWithValueToUpdate: number, valueToUpdate: number): Promise<void>{
     
-    return await new Promise (async (resolve, reject)=>{
+    return new Promise ((resolve, reject)=>{
         let x = totalSum;
-        const incrementTotalScore = await setInterval( async ()=>{
+        const incrementTotalScore = setInterval( async ()=>{
             if(x < totalSumWithValueToUpdate){
                 messageScores.totalPointsScore.innerHTML = `${x + 5}`
                 x+=5

@@ -7,7 +7,6 @@ export let currentTime: number;
 
 export async function startTimer(){
 
-    console.log(readyOptions.time, currentTime)
     if( readyOptions.time !== null){
     
         //shows timer
@@ -33,5 +32,9 @@ export async function startTimer(){
                 clearInterval(startTimer);
             }
         },1000)
+    }
+    else{
+        //hides timer
+        timer.style.display = "none" ;
     }
 }

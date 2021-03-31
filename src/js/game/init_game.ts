@@ -8,6 +8,7 @@ let originCards: string[];
 let size: number;
 let size_mobile_screen_landscape: number;
 let size_mobile_screen_portrait: number;
+
 function getCards(){
     switch(readyOptions.cardsNumber){
         case 16:{
@@ -33,6 +34,7 @@ function getCards(){
         }
     }
 }
+
 export async function initGame():Promise<void>{
 
     
@@ -43,8 +45,6 @@ export async function initGame():Promise<void>{
 
     gameCards.splice(0,gameCards.length);
 
-    console.log(originCards)
-    console.log("Przed initGame: Karty do gry: ",gameCards)
 
     while (gameCards.length < originCards.length*2) {
     
@@ -59,5 +59,4 @@ export async function initGame():Promise<void>{
         }
     
     }
-    console.log("Po initGame: Karty do gry: ",gameCards)
 }

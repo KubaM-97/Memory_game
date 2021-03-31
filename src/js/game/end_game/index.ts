@@ -43,7 +43,6 @@ export function hideVideo(sound:HTMLAudioElement){
 }
 
 export function showEndButtons(){
-
     end_screen_buttons.style.display = "flex";
     end_screen_buttons.style.animation = "show 2s";
     end_screen_buttons.style.animationFillMode = "forwards";

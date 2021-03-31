@@ -44,7 +44,6 @@ minusTime.addEventListener("click", function(){
     let seconds: number = enumTimer[`opt${enumIndex}`] % 60
     seconds < 10 ? clockSeconds.innerHTML = ` 0${ seconds } ` : clockSeconds.innerHTML = ` ${ seconds } `;
     readyOptions.bonusTime = 11 - enumIndex;
-    console.log(readyOptions.bonusTime)
     
 })
 plusTime.addEventListener("click", function(){
@@ -55,7 +54,6 @@ plusTime.addEventListener("click", function(){
     let seconds: number = enumTimer[`opt${enumIndex}`] % 60
     seconds < 10 ? clockSeconds.innerHTML = ` 0${ seconds } ` : clockSeconds.innerHTML = ` ${ seconds } `;
     readyOptions.bonusTime = 11 - enumIndex;
-    console.log(readyOptions.bonusTime)
 })
 
 interface options_interface {

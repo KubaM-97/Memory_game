@@ -1,6 +1,7 @@
-import { winSound, winVideo, message_lose, messageParts} from "../../variables";
+import { winSound, winVideo,  messageParts, pointsScreen, nicknameScreen, spanPoints, inputPoints, buttonNicknamePoints} from "../../variables";
 import { showVideo, hideVideo, showEndButtons, clearPreviousGame } from  "./index";
-import { hideAndClearSummarize, summary } from  "./summary";
+import {  summary } from  "./summary";
+import { changeView } from "../../menu/door";
 // winningProcedure()
 export async function winningProcedure(){
     clearPreviousGame();
@@ -12,24 +13,21 @@ winVideo.addEventListener("ended", async function(){
     hideVideo(winSound);
 
     messageParts.totalPoints.style.display = "flex";
-    hideAndClearSummarize();
+    
+    pointsScreen.style.animation = "show 2s";
     const playerTotalScore = await summary();
     if(playerTotalScore > 2000){
-        for(const div in messageParts){
-            if(div !== "totalPoints"){
-                messageParts[div].style.animation = "hide 2s";
-                messageParts[div].style.animationFillMode = "forwards";
-            } 
-        }
-        const totalDescr = messageParts.totalPoints.querySelector(".message_segment_description") as HTMLDivElement;
-        totalDescr.style.animation = "hide 2s";
-        totalDescr.style.animationFillMode = "forwards";
-
-        const totalScore = document.querySelector("#totalPoints .message_segment_score") as HTMLDivElement;
         
-        totalScore.style.animation = "bestScore 2s";
-        totalScore.style.animationFillMode = "forwards";
+        pointsScreen.style.animation = "hide 2s";
+        pointsScreen.style.animationFillMode = "forwards";
 
+        nicknameScreen.style.display = "block";
+        nicknameScreen.style.animation = "show 2s 2s";
+        nicknameScreen.style.animationFillMode = "forwards";
+        
+        spanPoints.innerHTML = "" + playerTotalScore;
+
+        inputPoints.focus()
     }
     else{
         showEndButtons();
@@ -40,4 +38,15 @@ winVideo.addEventListener("ended", async function(){
 
 
 
+buttonNicknamePoints.addEventListener("click", function(){
+    noteBestScore(inputPoints.value)
+    changeView("game_end", "game_start");
+    inputPoints.value = "";
+    messageParts.totalPoints.style.display = "none";
+    nicknameScreen.style.display = "none";
+})
+
+function noteBestScore(playerNick: string): void{
+    console.log(playerNick);
+}
 

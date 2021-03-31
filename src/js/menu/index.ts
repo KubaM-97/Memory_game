@@ -1,14 +1,15 @@
-import { playButton, optionsButton, bestScoresButton, switchSoundButton } from "../variables";
+import { playMenuButton, optionsMenuButton, bestScoresMenuButton, switchSoundButton } from "../variables";
 import { switchSoundFunction } from "./sound";
 import { play, options, bestScores, windowMouseOver, windowKeyboard, removeClassActive } from "./navigation";
+import "./bestScore";
 
-playButton.addEventListener("click", play)
-optionsButton.addEventListener("click", options)
-bestScoresButton.addEventListener("click", bestScores)
+playMenuButton.addEventListener("click", play)
+optionsMenuButton.addEventListener("click", options)
+bestScoresMenuButton.addEventListener("click", bestScores)
 switchSoundButton.addEventListener("click", switchSoundFunction);
 
 
-export const buttons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [playButton, optionsButton, bestScoresButton];
+export const buttons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [playMenuButton, optionsMenuButton, bestScoresMenuButton];
 
 buttons.forEach(button => {
     button.addEventListener("mouseover", function(){

@@ -1,7 +1,8 @@
 // menu
-export const playButton = document.querySelector("button.main_button#play") as HTMLButtonElement;
-export const optionsButton = document.querySelector("button.main_button#options") as HTMLButtonElement;
-export const bestScoresButton = document.querySelector("button.main_button#best_scores") as HTMLButtonElement;
+export const gameStart = document.querySelector("#game_start") as HTMLDivElement;
+export const playMenuButton = document.querySelector("button.main_button#play") as HTMLButtonElement;
+export const optionsMenuButton = document.querySelector("button.main_button#options") as HTMLButtonElement;
+export const bestScoresMenuButton = document.querySelector("button.main_button#bestScores") as HTMLButtonElement;
 
 //options
 export enum enumCardsNumber{
@@ -29,7 +30,10 @@ export const clockMinutes = document.querySelector("#game_options .clock span.cl
 export const clockSeconds = document.querySelector("#game_options .clock span.clockTimeSeconds") as HTMLButtonElement;
 export const minusTime = document.querySelector("#game_options .updateTime #minusTime") as HTMLButtonElement;
 export const plusTime = document.querySelector("#game_options .updateTime #plusTime") as HTMLButtonElement;
-export const optButton= document.querySelector("#game_options .buttons button") as HTMLButtonElement;
+export const optButton = document.querySelector("#game_options .buttons button") as HTMLButtonElement;
+
+//best scores
+export const bestScoresButton = document.querySelector("#game_bestScores .buttons button") as HTMLButtonElement;
 
 //door
 export const overlay = document.querySelector("#overlay") as HTMLDivElement;
@@ -102,7 +106,14 @@ export const messageScores = {
 }
 
 
+export const summary = document.querySelector("#game_end .summary") as HTMLDivElement;
 export const message_lose = document.querySelector("#game_end .message_lose") as HTMLDivElement;
-export const end_screen_buttons = document.querySelector("#game_end .buttons") as HTMLDivElement;
+export const end_screen_buttons = document.querySelector("#game_end>.buttons") as HTMLDivElement;
 export const main_menu = document.querySelector(".main_menu") as HTMLButtonElement;
 export const try_again = document.querySelector(".try_again") as HTMLButtonElement;
+
+export const pointsScreen = document.querySelector(".summary") as HTMLDivElement;
+export const nicknameScreen = document.querySelector(".nickname") as HTMLDivElement;
+export const spanPoints = document.querySelector("span.score_points") as HTMLSpanElement;
+export const inputPoints = document.querySelector(".nickname input[type='text']") as HTMLInputElement;
+export const buttonNicknamePoints = document.querySelector(".nickname .buttons button") as HTMLButtonElement;
