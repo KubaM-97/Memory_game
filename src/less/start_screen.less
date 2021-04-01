@@ -1,17 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Stick&display=swap');
 @import "./door.less";
-@import "./variables.less";
 
 .header-font{
-    color: @header-font-color;
+    color: #colors[@header-font-color];
     letter-spacing: 5px;
 }
 #game_start{
-    // display: none;
     text-align: center;
     font-size: 1.5em;
     opacity: .9;
-    width: 70%;
+    width: percentage(.7);
     margin: auto;
     padding-top: 30px;
     header{
@@ -26,8 +23,8 @@
             margin: 50px auto;
             button.main_button{
                 padding: 20px;
-                background-color: @main-button-background-color;
-                color: @main-button-font-color;
+                background-color: #colors[@main-button-background-color];
+                color: #colors[@main-button-font-color];
                 width: 70%;
                 transform: skew(-15deg);
                 font-size: 1.5rem;
@@ -38,10 +35,8 @@
                     transform: skew(15deg);
                 }
                 &.active{
-                    // animation: active 2.7s infinite;
-                    // border: 7px solid pink;
-                    background-color: @main-button-hover-background-color;
-                    color: @main-button-hover-font-color;
+                    background-color: #colors[@main-button-hover-background-color];
+                    color: #colors[@main-button-hover-font-color];
                 }
             }
         }
@@ -51,7 +46,7 @@
         position: absolute;
         bottom: 30px;
         right: 50px;
-        background-color: @switchsound-button-background-color;
+        background-color: #colors[@switchsound-button-background-color];
         padding: 10px 10px 5px;
         cursor: pointer;
         img{
@@ -62,7 +57,7 @@
     
 }
 
-@media all and (orientation: landscape) and (max-device-width: 800px){
+@media @mobile_landscape{
     #game_start{
         header{
             font-size: 15px;
@@ -70,11 +65,8 @@
         section.main_buttons{
             margin: 30px 0;
             div{
-                // padding: 13px;
                 margin: 30px 0;
                 & .main_button{
-                    // margin: 30px auto;
-                    // padding: 10px;
                     font-size: 1.1rem !important;
                     width: 90%;
                 }
@@ -83,7 +75,7 @@
         }
     }
 }
-@media all and (orientation: portrait) and (max-device-width: 800px){
+@media @mobile_portrait{
     #game_start{
         header{
             font-size: 1.2em;
@@ -91,8 +83,6 @@
         section.main_buttons{
             div{
                 & .main_button{
-                    // margin: 55px auto;
-                    // padding: 20px;
                     font-size: 1.9rem !important;
                     width: 90%;
                 }
@@ -100,12 +90,6 @@
            
         }
         .switch_sound{
-            position: absolute;
-            bottom: 30px;
-            right: 50px;
-            background-color: @switchsound-button-background-color;
-            padding: 10px 10px 5px;
-            cursor: pointer;
             img{
                 width: 64px;
             }

@@ -24,7 +24,7 @@ export async function showVideo(video: HTMLVideoElement){
     divVideo.style.animation = "show 2s";
 
     video.play();
-    video.playbackRate = 11.9;
+    video.playbackRate = 1.4;
 
     timer.style.animation = "none";
         

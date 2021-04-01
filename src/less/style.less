@@ -1,3 +1,4 @@
+@import "variables/variables.less";
 @import "./start_screen";
 @import "./play";
 @import "./options";
@@ -24,20 +25,14 @@ a{
     }
 }
 .container{
-    border: 11px solid black;
+    .center();
+    .border(11px, black);
     overflow: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 1100px;
     height: 800px;
 }
 .game{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    .center();
     height: 100%;
     background-image: url(../images/wooden.jpg);
     background-size: cover;
@@ -56,7 +51,7 @@ a{
     display: none;
 }
 
-@media all and (orientation: landscape) and (max-device-width: 800px) {
+@media @mobile_landscape {
     .container{
         top: 50%;
         width: 65%;
@@ -64,7 +59,7 @@ a{
     }
 }
 
-@media all and (orientation: portrait) and (max-device-width: 800px) {
+@media @mobile_portrait {
     .container{
         top: 40%;
         width: 95%;

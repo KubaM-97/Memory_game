@@ -1,5 +1,3 @@
-@import "./variables.less";
-
 @keyframes show{
     from{opacity: 0;}
     to{opacity: 1;}
@@ -10,14 +8,13 @@
 }
 @keyframes squintingTimer{
     from {color: inherit}
-    to {color: @score-squinting-stats-font-color}
+    to {color: #colors[@score-squinting-stats-font-color]}
 }
 @keyframes bestScore{
     from {
         font-size: inherit;
     }
     to{
-        // background-color: blue;
         width: 100%;
         font-size: 6.5rem;
         top: 45%;
@@ -28,14 +25,11 @@
 
 @keyframes active{
     from{
-        // border: 7px solid transparent;
         content: ""
     }
     to{
-        // border: 7px solid pink;
         content: "t";
         position: absolute;
         left: 10%;
-        
     }
 }
