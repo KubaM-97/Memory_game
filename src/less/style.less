@@ -1,0 +1,68 @@
+@import "variables/variables.less";
+@import "./start_screen";
+@import "./play";
+@import "./options";
+@import "./best_scores";
+@import "./end_screen";
+@import "./animations";
+
+html{
+    height: 100%;
+}
+body{
+    background-color: green;
+    background-image: url(../images/background-forest.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Stick', sans-serif;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+    &:hover{
+        color: gold;
+    }
+}
+.container{
+    .center();
+    .border(11px, black);
+    overflow: hidden;
+    width: 1100px;
+    height: 800px;
+}
+.game{
+    .center();
+    height: 100%;
+    background-image: url(../images/wooden.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+#overlay{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    z-index: 9999;
+    display: none;
+}
+
+@media @mobile_landscape {
+    .container{
+        top: 50%;
+        width: 65%;
+        max-height: 95%;
+    }
+}
+
+@media @mobile_portrait {
+    .container{
+        top: 40%;
+        width: 95%;
+        height: 900px;
+    }
+}

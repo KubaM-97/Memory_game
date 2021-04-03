@@ -1,0 +1,35 @@
+@keyframes show{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+@keyframes hide{
+    from{opacity: 1;}
+    to{opacity: 0; cursor: default}
+}
+@keyframes squintingTimer{
+    from {color: inherit}
+    to {color: #colors[@score-squinting-stats-font-color]}
+}
+@keyframes bestScore{
+    from {
+        font-size: inherit;
+    }
+    to{
+        width: 100%;
+        font-size: 6.5rem;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%; -50%);
+    }
+}
+
+@keyframes active{
+    from{
+        content: ""
+    }
+    to{
+        content: "t";
+        position: absolute;
+        left: 10%;
+    }
+}

@@ -1,0 +1,98 @@
+@import "./door.less";
+
+.header-font{
+    color: #colors[@header-font-color];
+    letter-spacing: 5px;
+}
+#game_start{
+    text-align: center;
+    font-size: 1.5em;
+    opacity: .9;
+    width: percentage(.7);
+    margin: auto;
+    padding-top: 30px;
+    header{
+        .header-font;
+        & *{
+            margin: 4px auto;
+        }
+    }
+    section.main_buttons{
+        margin: 90px 0;
+        div{
+            margin: 50px auto;
+            button.main_button{
+                padding: 20px;
+                background-color: #colors[@main-button-background-color];
+                color: #colors[@main-button-font-color];
+                width: 70%;
+                transform: skew(-15deg);
+                font-size: 1.5rem;
+                font-family: inherit;
+                cursor: pointer;
+                span{
+                    display: inline-block;
+                    transform: skew(15deg);
+                }
+                &.active{
+                    background-color: #colors[@main-button-hover-background-color];
+                    color: #colors[@main-button-hover-font-color];
+                }
+            }
+        }
+        
+    }
+    .switch_sound{
+        position: absolute;
+        bottom: 30px;
+        right: 50px;
+        background-color: #colors[@switchsound-button-background-color];
+        padding: 10px 10px 5px;
+        cursor: pointer;
+        img{
+            width: 32px;
+        }
+    }
+    
+    
+}
+
+@media @mobile_landscape{
+    #game_start{
+        header{
+            font-size: 15px;
+        }
+        section.main_buttons{
+            margin: 30px 0;
+            div{
+                margin: 30px 0;
+                & .main_button{
+                    font-size: 1.1rem !important;
+                    width: 90%;
+                }
+            }
+            
+        }
+    }
+}
+@media @mobile_portrait{
+    #game_start{
+        header{
+            font-size: 1.2em;
+        }
+        section.main_buttons{
+            div{
+                & .main_button{
+                    font-size: 1.9rem !important;
+                    width: 90%;
+                }
+            }
+           
+        }
+        .switch_sound{
+            img{
+                width: 64px;
+            }
+        }
+    }
+}
