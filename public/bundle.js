@@ -1439,6 +1439,22 @@ function unmuteBackgroundSound() {
 
 /***/ }),
 
+/***/ "./src/js/test2.ts":
+/*!*************************!*\
+  !*** ./src/js/test2.ts ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "aa": () => (/* binding */ aa)
+/* harmony export */ });
+console.log("test22");
+const aa = 12;
+
+
+/***/ }),
+
 /***/ "./src/js/variables.ts":
 /*!*****************************!*\
   !*** ./src/js/variables.ts ***!
@@ -1681,14 +1697,17 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _less_style_less__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../less/style.less */ "./src/less/style.less");
 /* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu */ "./src/js/menu/index.ts");
-/* harmony import */ var _menu_sound__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu/sound */ "./src/js/menu/sound.ts");
+/* harmony import */ var _test2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./test2 */ "./src/js/test2.ts");
+/* harmony import */ var _menu_sound__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu/sound */ "./src/js/menu/sound.ts");
 //styles
 
 //game
 
+
+console.log(_test2__WEBPACK_IMPORTED_MODULE_2__.aa);
 //starts playing background music
 
-(0,_menu_sound__WEBPACK_IMPORTED_MODULE_2__.unmuteBackgroundSound)();
+(0,_menu_sound__WEBPACK_IMPORTED_MODULE_3__.unmuteBackgroundSound)();
 
 })();
 
