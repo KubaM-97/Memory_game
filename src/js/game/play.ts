@@ -9,7 +9,6 @@ export let totalPairs: number;
 let firstCardIndex: number = 0;
 
 export function mainGame(){
-
     turnCounter = 0;
     scoreCounter.innerHTML = `${turnCounter}`
     

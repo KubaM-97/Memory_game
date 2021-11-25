@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+exports.__esModule = true; 
 require("../css/style.css");
 //hard, timer, moves_limit, 
 var origin_js_1 = require("./origin.js");

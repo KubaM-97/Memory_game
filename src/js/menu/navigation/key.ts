@@ -25,7 +25,7 @@ export function ArrowUp(button: HTMLButtonElement): void{
     }
 }
 
-export function Enter(button: HTMLButtonElement, play: any, options: any, bestScore: any): void{
+export function Enter(button: HTMLButtonElement, play: any, options: any, bestScores: any): void{
     const id: string = button.id;
     eval(`${id}()`)
 }

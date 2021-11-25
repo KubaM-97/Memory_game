@@ -5,4 +5,3 @@ import "../audio/win.mp3";
 
 
 import "../video/lose.mp4";
-import "../video/win.mp4";

@@ -5,6 +5,7 @@
     <title>Cards</title>
 </head>
 <body>            
+    <script src="bundle.js" defer></script>
     <main>
         <div id="overlay"></div>
         
@@ -19,7 +20,7 @@
                     <header>
                         <h1>Happy Tree Friends</h1>
                         <h2>Memory game</h2>
-                        <h5>Based on animated series for kids 
+                        <h5>Based on animated series for kids
                             <a href="https://www.mondomedia.com/channel/HappyTreeFriends" target="_blank">[link]</a>
                         </h5>    
                     </header>
@@ -194,7 +195,6 @@
                     <div id="score">Moves: <br><span id="scoreCounter">0</span></div>
                 </div>
                 <div id="game_end">
-                    <div class="video"></div>
                     <div class="summary">
                         <div class="message">
 
@@ -243,10 +243,17 @@
                                 </div>
                             </div>
 
+                            <div class="buttons buttons_end_lose" style="display: none;">
+                                <button class="button main_menu">Main menu</button>
+                                <button class="button try_again">Try again</button>
+                            </div>
+                            <div class="buttons buttons_end_win" style="display: none;">
+                                <button class="button go">Go</button>
+                            </div>
                         </div>
                                                       
                     </div>
-                    <div class="nickname">
+                    <div class="nickname" style="display:none">
                         <span class="score_congratulations">
                             <h2>Congratulations!</h2>
                             <h3>Type nickname</h3>
@@ -256,33 +263,27 @@
                             <span class="score_points"></span> points
                         </p>
 
-                        <!-- <form action=""> -->
-                            <span class="score_nickname">
-                                <input type="text" name="nickname" id="playerNickname">
-                                <input type="hidden" name="points" id="playerPoints">
-                            </span>
-                            <div class="buttons">
-                                <button>GO TO MENU</button>
-                            </div>
-                        <!-- </form> -->
+                        <span class="score_nickname">
+                            <input type="text" name="nickname" id="playerNickname" maxlength="12">
+                            <input type="hidden" name="points" id="playerPoints">
+                        </span>
 
                     </div>
                     
-                    <div class="message_lose">Game Over! You die!</div>
-                    
-                    <div class="buttons">
-                        <div class="button"> 
-                            <button class="main_menu">Main menu</button>
-                        </div>
-                        <div class="button"> 
-                            <button class="try_again">Try again</button>
+
+                    <div class="lose">
+                        <div class="video"></div>
+
+                        <div class="message_lose">Game Over! You die!</div>
+                        
+                        <div class="buttons buttons_end_lose" style="display: none;">
+                            <button class="button main_menu2">Main menu2</button>
+                            <button class="button try_again2">Try again</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </main>    
-    <script src="bundle.js"></script>
 </body>
 </html>

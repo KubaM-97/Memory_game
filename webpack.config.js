@@ -12,8 +12,30 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve(__dirname, "public")
     },
+    // target: "node",
+    // node: {
+    //   __dirname: false,
+    // },
     module: {
+        // loaders: [
+        //     {
+        //         test: /\.js$/,
+        //         loader: "transform?brfs"
+        //     }
+        // ],
         rules: [
+            {
+                // test: /\.js$/,
+                // use: "transform?brfs"
+            },
+            {
+                test: /\.txt$/i,
+                use: 'raw-loader',
+              },
+                {
+                  test: /\.node$/,
+                  loader: "node-loader",
+                },
             {
                 test: /\.ts$/,
                 use: 'ts-loader',
@@ -24,7 +46,7 @@ module.exports = {
                 use: ["style-loader", "css-loader"]
             },
             {
-              test: /\.(png|jpe?g|gif)$/i,
+              test: /\.(png|jpe?g|gif|txt)$/i,
               loader: 'file-loader',
               options: {
                 outputPath: 'images',
@@ -66,7 +88,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".ts", ".js"]
+        extensions: [".ts", ".js"],
+        fallback: {
+            fs: false
+          }
     },
     plugins:[
         new CopyWebpackPlugin({

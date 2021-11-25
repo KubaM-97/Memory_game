@@ -1,31 +1,56 @@
-
-#game_bestScores{
+#game_bestScores {
     display: none;
     font-size: 1.5rem;
     width: 100%;
     height: 100%;
-    .tableScores{
-        padding-top: 50px;    
-        table{
+
+    .tableScores {
+        padding-top: 50px;
+        text-align: center;
+
+        table {
             margin: auto;
             width: 90%;
             border-collapse: collapse;
-            tbody{
+            color: #colors[@header-font-color];
+
+            tbody {
                 width: 90%;
-                td{
-                    padding:  10px 50px;
-                    .border(1px, white); 
+
+                td {
+                    padding: 10px 50px;
+                    .border(1px, white);
                 }
-                td:first-child{
+
+                td:first-child {
                     padding-right: 40px;
                 }
             }
         }
     }
- 
-    .buttons{
+
+    .buttons {
         .buttons;
-        bottom: 5%;
-        left: 34%;
+        bottom: 10%;
+        right: 0;
+        text-align: center;
+
+        button {
+            font-size: 1.2em;
+        }
+    }
+}
+
+@media @mobile_landscape {
+    #game_bestScores {
+        .tableScores {
+            font-size: .7em;
+        }
+        .buttons {
+            bottom: 5%;
+            button {
+                font-size: 1rem;
+            }
+        }
     }
 }
