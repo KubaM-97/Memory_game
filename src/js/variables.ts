@@ -3,6 +3,7 @@ export const gameStart = document?.querySelector("#game_start") as HTMLDivElemen
 export const playMenuButton = document?.querySelector("button.main_button#play") as HTMLButtonElement;
 export const optionsMenuButton = document?.querySelector("button.main_button#options") as HTMLButtonElement;
 export const bestScoresMenuButton = document?.querySelector("button.main_button#bestScores") as HTMLButtonElement;
+export const switchSoundImage = document.querySelector(".switch_sound>img") as HTMLImageElement;
 
 //options
 export enum enumCardsNumber{
@@ -52,7 +53,7 @@ export const audios: HTMLAudioElement[] = [backgroundSound, cardSound, winSound,
 export const backgroundSoundIndex: number = audios.findIndex(audio => audio == backgroundSound);
 
 // game
-export const gameCardsDiv = document?.querySelector("#game_cards") as HTMLDivElement;
+export const gameCards = document?.querySelector("#game_cards") as HTMLDivElement;
 
 //videos
 export const winVideo = document?.createElement("VIDEO") as HTMLVideoElement;

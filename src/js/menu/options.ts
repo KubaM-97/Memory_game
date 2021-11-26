@@ -1,8 +1,6 @@
 import { enumCardsNumber, enumTimer, optCardsNumberDiv, optTimerDiv, clock, clockMinutes, clockSeconds, minusTime, plusTime, optButton } from "../variables";
 import { changeView } from "./door";
 
-
-
 let enumIndex:number = 3;
 const enumLength: number = Object.keys(enumTimer).length / 2;
 

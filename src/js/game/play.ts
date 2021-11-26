@@ -1,5 +1,5 @@
 import { scoreCounter, cardSound } from "../variables";
-import { gameCards } from "./init_game";
+import { allGameCards } from "./init_game";
 import { winningProcedure } from "./end_game/win";
 
 let oneVisible: boolean = false;
@@ -12,10 +12,10 @@ export function mainGame(){
     turnCounter = 0;
     scoreCounter.innerHTML = `${turnCounter}`
     
-    totalPairs = gameCards.length / 2
+    totalPairs = allGameCards.length / 2
 
     //catches all cards
-    const playableCardsBackground: NodeListOf<Element> = document.querySelectorAll(".card_background");
+    const playableCardsBackground: NodeListOf<Element> = document.querySelectorAll(".card_reverse");
     const playableCards: NodeListOf<Element> = document.querySelectorAll(".card");
     
     playableCards.forEach( (playableCard, index) => {
@@ -26,7 +26,7 @@ export function mainGame(){
     
                 cardSound.play();
                 blockRevealMoreThanTwoCards = true;
-                (playableCard as HTMLDivElement).style.backgroundImage = `url(./images/cards/${gameCards[index]}.png)`
+                (playableCard as HTMLDivElement).style.backgroundImage = `url(./images/cards/${allGameCards[index]}.png)`
     
                 if (oneVisible == false) {
                     firstCardIndex = index;
@@ -37,7 +37,7 @@ export function mainGame(){
                     turnCounter++;
                     scoreCounter.innerHTML = `${turnCounter}`
     
-                    if (gameCards[firstCardIndex] == gameCards[index] && firstCardIndex != index) {
+                    if (allGameCards[firstCardIndex] == allGameCards[index] && firstCardIndex != index) {
     
                         setTimeout(() => { hitPair(playableCardsBackground[index] as HTMLDivElement, playableCardsBackground[firstCardIndex] as HTMLDivElement) }, 500);
                         
