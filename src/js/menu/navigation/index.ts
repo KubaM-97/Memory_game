@@ -1,4 +1,4 @@
-import { buttons } from "../index";
+import { menuButtons } from "../index";
 import { changeView } from "../door";
 import { initGame } from "../../game/init_game";
 import { mainGame } from "../../game/play";
@@ -22,19 +22,19 @@ export function bestScores(): void{
 }
 
 
-export function windowMouseOver(button: HTMLButtonElement):void{
+export function windowMouseOver(menuButton: HTMLButtonElement):void{
     removeClassActive()
-    button.classList.add("active")
+    menuButton.classList.add("active")
 }
 
 export function removeClassActive():void{
-    buttons.forEach(button => {
-        button.classList.remove("active")
+    menuButtons.forEach(menuButton => {
+        menuButton.classList.remove("active")
     });
 }
 
 
-export function windowKeyboard(e: KeyboardEvent):void{
+export function navigationKeyboard(e: KeyboardEvent):void{
 
     if( gameStart.style.display != "none"){
 
@@ -43,7 +43,6 @@ export function windowKeyboard(e: KeyboardEvent):void{
         switch(e.key){
 
             case "ArrowDown":
-
                 ArrowDown(button)
                 break;
 

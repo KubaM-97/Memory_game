@@ -1,15 +1,5 @@
 [
     {
-        "id": "5",
-        "nickname": "avada",
-        "points": "40000"
-    },
-    {
-        "id": "6",
-        "nickname": "avada",
-        "points": "40000"
-    },
-    {
         "id": "7",
         "nickname": "avada",
         "points": "40000"
@@ -21,6 +11,16 @@
     },
     {
         "id": "9",
+        "nickname": "avada",
+        "points": "40000"
+    },
+    {
+        "id": "10",
+        "nickname": "avada",
+        "points": "40000"
+    },
+    {
+        "id": "10",
         "nickname": "avada",
         "points": "40000"
     },

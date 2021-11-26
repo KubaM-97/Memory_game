@@ -1,5 +1,5 @@
 import { multipliers, messageParts, messageScores} from "../../variables";
-import { readyOptions } from "../../menu/options";
+import { selectedOptions } from "../../menu/options";
 import { currentTime } from  ".././timer";
 import { turnCounter } from  ".././play";
 
@@ -20,9 +20,9 @@ export async function summary(): Promise<number>{
     updateTotalSum = updateTotalSumGenerator(0);
     updateTotalSum.next(0);
 
-    let cardsNumber: number = readyOptions.cardsNumber;
-    let timeStart: number = readyOptions.time! | 0;
-    let timeBonus: number = readyOptions.bonusTime;
+    let cardsNumber: number = selectedOptions.cardsNumber;
+    let timeStart: number = selectedOptions.time! | 0;
+    let timeBonus: number = selectedOptions.selectedTime;
     let timeLeft: number = currentTime | 0;
     let madeMoves: number = turnCounter;
 

@@ -1,15 +1,14 @@
-import { lose, timeCounter, loseVideo, loseSound, message_lose, end_screen_message, end_screen_lose_buttons, endScreenLose, endScreenLoseMM, endScreenLoseTA } from "../../variables";
-import { showVideo, hideVideo,  showEndLoseButtons, clearPreviousGame } from  "./index";
+import { lose, timeCounter, loseVideo, loseSound, messageLose, end_screen_message, endScreenLoseButtons, endScreenLose, endScreenLoseMM, endScreenLoseTA } from "../../variables";
+import { showVideo, hideVideo, clearPreviousGame } from  "./index";
 import { changeView } from "../../menu/door";
 import { startTimer } from  ".././timer";
 import { initGame } from ".././init_game";
 import { mainGame } from ".././play";
-// losingProcedure()
+
 export async function losingProcedure(){
     lose.style.display = 'block'
     timeCounter.innerHTML = "0";
     clearPreviousGame();
-    
     showVideo(loseVideo)
 }
 
@@ -20,14 +19,9 @@ loseVideo.addEventListener("ended", function(){
     endScreenLose.style.display = "flex";
     endScreenLose.style.animation = "show 2s";
     endScreenLose.style.animationFillMode = "forwards";
-    // end_screen_lose_buttons.style.display = "flex";
-    // end_screen_lose_buttons.style.animation = "show 2s";
-    // end_screen_lose_buttons.style.animationFillMode = "forwards";
-    message_lose.style.display = "flex";
-    message_lose.style.animation = "show 2s";
-    message_lose.style.animationFillMode = "forwards";
-
-    // showEndLoseButtons();
+    messageLose.style.display = "flex";
+    messageLose.style.animation = "show 2s";
+    messageLose.style.animationFillMode = "forwards";
     
 })
 

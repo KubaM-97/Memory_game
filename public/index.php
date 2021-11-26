@@ -190,8 +190,8 @@
                             </div>
 
                             <div class="buttons buttons_end_lose" style="display: none;">
-                                <button class="button main_menu">Main menu</button>
-                                <button class="button try_again">Try again</button>
+                                <button class="button mainMenu">Main menu</button>
+                                <button class="button tryAgain">Try again</button>
                             </div>
                             <div class="buttons buttons_end_win" style="display: none;">
                                 <button class="button go">Go</button>
@@ -223,8 +223,8 @@
                         <div class="message_lose">Game Over! You die!</div>
                         
                         <div class="buttons buttons_end_lose" style="display: none;">
-                            <button class="button main_menu2">Main menu2</button>
-                            <button class="button try_again2">Try again</button>
+                            <button class="button mainMenu2">Main menu2</button>
+                            <button class="button tryAgain2">Try again</button>
                         </div>
                     </div>
                 </div>

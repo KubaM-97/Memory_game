@@ -1,20 +1,18 @@
-import { playMenuButton, optionsMenuButton, bestScoresMenuButton, switchSoundButton } from "../variables";
+import { menuButtonPlay, menuButtonOptions, menuButtonBestScores, menuButtonToggleSound } from "../variables";
 import { toggleAudio } from "./sound";
-import { play, options, bestScores, windowMouseOver, windowKeyboard, removeClassActive } from "./navigation/index";
-import "./bestScore";
+import { play, options, bestScores, windowMouseOver, navigationKeyboard } from "./navigation/index";
 
-playMenuButton?.addEventListener("click", play)
-optionsMenuButton?.addEventListener("click", options)
-bestScoresMenuButton?.addEventListener("click", bestScores)
-switchSoundButton?.addEventListener("click", toggleAudio);
+menuButtonPlay?.addEventListener("click", play)
+menuButtonOptions?.addEventListener("click", options)
+menuButtonBestScores?.addEventListener("click", bestScores)
+menuButtonToggleSound?.addEventListener("click", toggleAudio);
 
+export const menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [menuButtonPlay, menuButtonOptions, menuButtonBestScores];
 
-export const buttons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [playMenuButton, optionsMenuButton, bestScoresMenuButton];
-
-buttons.forEach(button => {
+menuButtons.forEach(button => {
     button?.addEventListener("mouseover", function(){
         windowMouseOver(this)
     })
 })
 
-window.addEventListener("keydown", windowKeyboard);
+window.addEventListener("keydown", navigationKeyboard);

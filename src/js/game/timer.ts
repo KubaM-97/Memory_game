@@ -1,18 +1,17 @@
 import { timer, timeCounter } from "../variables";
 import { totalPairs } from "./play";
-import { readyOptions } from "../menu/options";
+import { selectedOptions } from "../menu/options";
 import { losingProcedure } from "./end_game/lose";
 
 export let currentTime: number;
 
 export async function startTimer(){
 
-    if( readyOptions.time !== null){
+    if( selectedOptions.time !== null){
     
-        //shows timer
         timer.style.display = "block" ;
 
-        currentTime  = readyOptions.time;
+        currentTime  = selectedOptions.time;
         timeCounter.innerHTML = currentTime.toString();
         
         const startTimer = setInterval( async function() {
@@ -24,7 +23,6 @@ export async function startTimer(){
                 timer.style.animationDirection = "alternate";
             }
             if(currentTime == -1) {
-
                 clearInterval(startTimer);
                 losingProcedure();
             }
@@ -34,7 +32,6 @@ export async function startTimer(){
         },1000)
     }
     else{
-        //hides timer
         timer.style.display = "none" ;
     }
 }

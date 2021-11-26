@@ -1,5 +1,5 @@
 import { interfaceCard, Card } from "./../classes/card";
-import { readyOptions } from "../menu/options";
+import { selectedOptions } from "../menu/options";
 import { gameCards } from "../variables";
 
 export const allGameCards: string[] = []
@@ -10,7 +10,7 @@ let size_mobile_landscape: number;
 let size_mobile_portrait: number;
 
 function getCards(){
-    switch(readyOptions.cardsNumber){
+    switch(selectedOptions.cardsNumber){
         case 16:{
             originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky"];
             size = 170;
@@ -48,8 +48,8 @@ export async function initGame():Promise<void>{
     while (allGameCards.length < originCards.length*2) {
     
         const i: number = Math.floor(Math.random() * originCards.length);
-        const isThereTwoSuchCards: string[] = allGameCards.filter(el => el === originCards[i]);
-        if (isThereTwoSuchCards.length == 2) {
+        const isThereTwoSameCards: string[] = allGameCards.filter(el => el === originCards[i]);
+        if (isThereTwoSameCards.length == 2) {
             continue
         } else {
             allGameCards.push(originCards[i]);

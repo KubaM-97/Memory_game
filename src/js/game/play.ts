@@ -3,7 +3,7 @@ import { allGameCards } from "./init_game";
 import { winningProcedure } from "./end_game/win";
 
 let oneVisible: boolean = false;
-let blockRevealMoreThanTwoCards: boolean = false;
+let blockRevealCard: boolean = false;
 export let turnCounter: number = 0;
 export let totalPairs: number;
 let firstCardIndex: number = 0;
@@ -14,7 +14,7 @@ export function mainGame(){
     
     totalPairs = allGameCards.length / 2
 
-    //catches all cards
+    // gets all cards
     const playableCardsBackground: NodeListOf<Element> = document.querySelectorAll(".card_reverse");
     const playableCards: NodeListOf<Element> = document.querySelectorAll(".card");
     
@@ -22,16 +22,16 @@ export function mainGame(){
         
         playableCard.addEventListener("click", function(this: any) {
     
-            if ((playableCard as HTMLDivElement).style.opacity !== "0" && blockRevealMoreThanTwoCards == false) {
+            if ((playableCard as HTMLDivElement).style.opacity !== "0" && blockRevealCard == false) {
     
                 cardSound.play();
-                blockRevealMoreThanTwoCards = true;
+                blockRevealCard = true;
                 (playableCard as HTMLDivElement).style.backgroundImage = `url(./images/cards/${allGameCards[index]}.png)`
     
                 if (oneVisible == false) {
                     firstCardIndex = index;
                     oneVisible = true;
-                    blockRevealMoreThanTwoCards = false
+                    blockRevealCard = false
                 }
                 else {
                     turnCounter++;
@@ -54,7 +54,7 @@ export function mainGame(){
 
 function hitPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
     
-    blockRevealMoreThanTwoCards = false;
+    blockRevealCard = false;
     
     card1.style.opacity = "0";
     card2.style.opacity = "0"; 
@@ -70,5 +70,5 @@ function missedPair(card1: HTMLDivElement, card2: HTMLDivElement): void{
     card1.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
     card2.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
 
-    blockRevealMoreThanTwoCards = false;
+    blockRevealCard = false;
 }

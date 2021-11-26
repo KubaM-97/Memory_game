@@ -630,7 +630,7 @@ const init_game_1 = __webpack_require__(/*! .././init_game */ "./src/js/game/ini
 const play_1 = __webpack_require__(/*! .././play */ "./src/js/game/play.ts");
 function clearPreviousGame() {
     variables_1.divVideo.innerHTML = "";
-    variables_1.message_lose.style.display = "none";
+    variables_1.messageLose.style.display = "none";
     for (const div in variables_1.messageParts) {
         variables_1.messageParts[div].style.display = "none";
     }
@@ -639,7 +639,7 @@ exports.clearPreviousGame = clearPreviousGame;
 function showVideo(video) {
     return __awaiter(this, void 0, void 0, function* () {
         yield door_1.changeView("game_board", "game_end");
-        variables_1.end_screen_lose_buttons.style.display = "none";
+        variables_1.endScreenLoseButtons.style.display = "none";
         variables_1.divVideo.style.display = "block";
         variables_1.divVideo.appendChild(video);
         variables_1.divVideo.style.animation = "show 2s";
@@ -657,24 +657,22 @@ function hideVideo(sound) {
 }
 exports.hideVideo = hideVideo;
 function showEndLoseButtons() {
-    console.log('showEndLoseButtons');
-    variables_1.end_screen_lose_buttons.style.display = "flex";
-    variables_1.end_screen_lose_buttons.style.animation = "show 2s";
-    variables_1.end_screen_lose_buttons.style.animationFillMode = "forwards";
+    variables_1.endScreenLoseButtons.style.display = "flex";
+    variables_1.endScreenLoseButtons.style.animation = "show 2s";
+    variables_1.endScreenLoseButtons.style.animationFillMode = "forwards";
 }
 exports.showEndLoseButtons = showEndLoseButtons;
 function showEndWinButton() {
-    console.log('showEndWinButton');
-    variables_1.end_screen_win_button.style.display = "flex";
-    variables_1.end_screen_win_button.style.animation = "show 2s";
-    variables_1.end_screen_win_button.style.animationFillMode = "forwards";
+    variables_1.endScreenWinButton.style.display = "flex";
+    variables_1.endScreenWinButton.style.animation = "show 2s";
+    variables_1.endScreenWinButton.style.animationFillMode = "forwards";
 }
 exports.showEndWinButton = showEndWinButton;
-variables_1.main_menu === null || variables_1.main_menu === void 0 ? void 0 : variables_1.main_menu.addEventListener("click", function () {
+variables_1.mainMenu === null || variables_1.mainMenu === void 0 ? void 0 : variables_1.mainMenu.addEventListener("click", function () {
     door_1.changeView("game_end", "game_start");
-    variables_1.end_screen_lose_buttons.style.display = "none";
+    variables_1.endScreenLoseButtons.style.display = "none";
 });
-variables_1.try_again === null || variables_1.try_again === void 0 ? void 0 : variables_1.try_again.addEventListener("click", function () {
+variables_1.tryAgain === null || variables_1.tryAgain === void 0 ? void 0 : variables_1.tryAgain.addEventListener("click", function () {
     return __awaiter(this, void 0, void 0, function* () {
         yield init_game_1.initGame();
         yield play_1.mainGame();
@@ -710,7 +708,6 @@ const door_1 = __webpack_require__(/*! ../../menu/door */ "./src/js/menu/door.ts
 const timer_1 = __webpack_require__(/*! .././timer */ "./src/js/game/timer.ts");
 const init_game_1 = __webpack_require__(/*! .././init_game */ "./src/js/game/init_game.ts");
 const play_1 = __webpack_require__(/*! .././play */ "./src/js/game/play.ts");
-// losingProcedure()
 function losingProcedure() {
     return __awaiter(this, void 0, void 0, function* () {
         variables_1.lose.style.display = 'block';
@@ -725,13 +722,9 @@ variables_1.loseVideo.addEventListener("ended", function () {
     variables_1.endScreenLose.style.display = "flex";
     variables_1.endScreenLose.style.animation = "show 2s";
     variables_1.endScreenLose.style.animationFillMode = "forwards";
-    // end_screen_lose_buttons.style.display = "flex";
-    // end_screen_lose_buttons.style.animation = "show 2s";
-    // end_screen_lose_buttons.style.animationFillMode = "forwards";
-    variables_1.message_lose.style.display = "flex";
-    variables_1.message_lose.style.animation = "show 2s";
-    variables_1.message_lose.style.animationFillMode = "forwards";
-    // showEndLoseButtons();
+    variables_1.messageLose.style.display = "flex";
+    variables_1.messageLose.style.animation = "show 2s";
+    variables_1.messageLose.style.animationFillMode = "forwards";
 });
 variables_1.endScreenLoseMM.addEventListener("click", function () {
     door_1.changeView("game_end", "game_start");
@@ -787,9 +780,9 @@ function summary() {
         variables_1.messageScores.totalPointsScore.innerHTML = `0`;
         updateTotalSum = updateTotalSumGenerator(0);
         updateTotalSum.next(0);
-        let cardsNumber = options_1.readyOptions.cardsNumber;
-        let timeStart = options_1.readyOptions.time | 0;
-        let timeBonus = options_1.readyOptions.bonusTime;
+        let cardsNumber = options_1.selectedOptions.cardsNumber;
+        let timeStart = options_1.selectedOptions.time | 0;
+        let timeBonus = options_1.selectedOptions.selectedTime;
         let timeLeft = timer_1.currentTime | 0;
         let madeMoves = play_1.turnCounter;
         const totalSegmentPointsCards = yield summarizePoints(cardsNumber, variables_1.messageParts.cardsNumber, variables_1.messageScores.cardsNumberScore, variables_1.multipliers.multiplierCards);
@@ -881,7 +874,6 @@ const variables_1 = __webpack_require__(/*! ../../variables */ "./src/js/variabl
 const index_1 = __webpack_require__(/*! ./index */ "./src/js/game/end_game/index.ts");
 const summary_1 = __webpack_require__(/*! ./summary */ "./src/js/game/end_game/summary.ts");
 const door_1 = __webpack_require__(/*! ../../menu/door */ "./src/js/menu/door.ts");
-// winningProcedure()
 function showTypeNickNamePanel(playerTotalScore) {
     variables_1.pointsScreen.style.animation = "hide 2s";
     variables_1.pointsScreen.style.animationFillMode = "forwards";
@@ -907,11 +899,9 @@ function winningProcedure() {
         const playerTotalScore = yield summary_1.summary();
         if (playerTotalScore > 2000) {
             index_1.showEndWinButton();
-            console.log(variables_1.end_screen_win_button);
-            variables_1.end_screen_win_button.addEventListener('click', function () {
+            variables_1.endScreenWinButton.addEventListener('click', function () {
                 showTypeNickNamePanel(playerTotalScore);
             });
-            // end_screen_win_button.addEventListener('click', () => showTypeNickNamePanel(playerTotalScore))
             window.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter')
                     showTypeNickNamePanel(playerTotalScore);
@@ -923,26 +913,6 @@ function winningProcedure() {
     });
 }
 exports.winningProcedure = winningProcedure;
-variables_1.winVideo === null || variables_1.winVideo === void 0 ? void 0 : variables_1.winVideo.addEventListener("ended", function () {
-    return __awaiter(this, void 0, void 0, function* () {
-        index_1.hideVideo(variables_1.winSound);
-        variables_1.messageParts.totalPoints.style.display = "flex";
-        variables_1.pointsScreen.style.animation = "show 2s";
-        const playerTotalScore = yield summary_1.summary();
-        if (playerTotalScore > 2000) {
-            variables_1.pointsScreen.style.animation = "hide 2s";
-            variables_1.pointsScreen.style.animationFillMode = "forwards";
-            variables_1.nicknameScreen.style.display = "block";
-            variables_1.nicknameScreen.style.animation = "show 2s 2s";
-            variables_1.nicknameScreen.style.animationFillMode = "forwards";
-            variables_1.spanPoints.innerHTML = "" + playerTotalScore;
-            variables_1.inputPoints.focus();
-        }
-        else {
-            index_1.showEndLoseButtons();
-        }
-    });
-});
 function hideNicknameScreen(playerTotalScore) {
     noteBestScore(variables_1.inputPoints.value, playerTotalScore);
     door_1.changeView("game_end", "game_start");
@@ -950,8 +920,6 @@ function hideNicknameScreen(playerTotalScore) {
     variables_1.messageParts.totalPoints.style.display = "none";
     variables_1.nicknameScreen.style.display = "none";
 }
-// buttonNicknamePoints?.addEventListener("click", function () {
-// })
 function noteBestScore(playerNick, playerTotalScore) {
     console.log(playerNick, playerTotalScore);
 }
@@ -986,7 +954,7 @@ let size;
 let size_mobile_landscape;
 let size_mobile_portrait;
 function getCards() {
-    switch (options_1.readyOptions.cardsNumber) {
+    switch (options_1.selectedOptions.cardsNumber) {
         case 16: {
             originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky"];
             size = 170;
@@ -1017,8 +985,8 @@ function initGame() {
         exports.allGameCards.splice(0, exports.allGameCards.length);
         while (exports.allGameCards.length < originCards.length * 2) {
             const i = Math.floor(Math.random() * originCards.length);
-            const isThereTwoSuchCards = exports.allGameCards.filter(el => el === originCards[i]);
-            if (isThereTwoSuchCards.length == 2) {
+            const isThereTwoSameCards = exports.allGameCards.filter(el => el === originCards[i]);
+            if (isThereTwoSameCards.length == 2) {
                 continue;
             }
             else {
@@ -1047,26 +1015,26 @@ const variables_1 = __webpack_require__(/*! ../variables */ "./src/js/variables.
 const init_game_1 = __webpack_require__(/*! ./init_game */ "./src/js/game/init_game.ts");
 const win_1 = __webpack_require__(/*! ./end_game/win */ "./src/js/game/end_game/win.ts");
 let oneVisible = false;
-let blockRevealMoreThanTwoCards = false;
+let blockRevealCard = false;
 exports.turnCounter = 0;
 let firstCardIndex = 0;
 function mainGame() {
     exports.turnCounter = 0;
     variables_1.scoreCounter.innerHTML = `${exports.turnCounter}`;
     exports.totalPairs = init_game_1.allGameCards.length / 2;
-    //catches all cards
+    // gets all cards
     const playableCardsBackground = document.querySelectorAll(".card_reverse");
     const playableCards = document.querySelectorAll(".card");
     playableCards.forEach((playableCard, index) => {
         playableCard.addEventListener("click", function () {
-            if (playableCard.style.opacity !== "0" && blockRevealMoreThanTwoCards == false) {
+            if (playableCard.style.opacity !== "0" && blockRevealCard == false) {
                 variables_1.cardSound.play();
-                blockRevealMoreThanTwoCards = true;
+                blockRevealCard = true;
                 playableCard.style.backgroundImage = `url(./images/cards/${init_game_1.allGameCards[index]}.png)`;
                 if (oneVisible == false) {
                     firstCardIndex = index;
                     oneVisible = true;
-                    blockRevealMoreThanTwoCards = false;
+                    blockRevealCard = false;
                 }
                 else {
                     exports.turnCounter++;
@@ -1087,7 +1055,7 @@ function mainGame() {
 }
 exports.mainGame = mainGame;
 function hitPair(card1, card2) {
-    blockRevealMoreThanTwoCards = false;
+    blockRevealCard = false;
     card1.style.opacity = "0";
     card2.style.opacity = "0";
     card1.children[0].style.opacity = "0";
@@ -1098,7 +1066,7 @@ function hitPair(card1, card2) {
 function missedPair(card1, card2) {
     card1.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
     card2.style.backgroundImage = `url(./images/cards/HTFLogo.png)`;
-    blockRevealMoreThanTwoCards = false;
+    blockRevealCard = false;
 }
 
 
@@ -1128,10 +1096,9 @@ const options_1 = __webpack_require__(/*! ../menu/options */ "./src/js/menu/opti
 const lose_1 = __webpack_require__(/*! ./end_game/lose */ "./src/js/game/end_game/lose.ts");
 function startTimer() {
     return __awaiter(this, void 0, void 0, function* () {
-        if (options_1.readyOptions.time !== null) {
-            //shows timer
+        if (options_1.selectedOptions.time !== null) {
             variables_1.timer.style.display = "block";
-            exports.currentTime = options_1.readyOptions.time;
+            exports.currentTime = options_1.selectedOptions.time;
             variables_1.timeCounter.innerHTML = exports.currentTime.toString();
             const startTimer = setInterval(function () {
                 return __awaiter(this, void 0, void 0, function* () {
@@ -1152,69 +1119,11 @@ function startTimer() {
             }, 1000);
         }
         else {
-            //hides timer
             variables_1.timer.style.display = "none";
         }
     });
 }
 exports.startTimer = startTimer;
-
-
-/***/ }),
-
-/***/ "./src/js/menu/bestScore.ts":
-/*!**********************************!*\
-  !*** ./src/js/menu/bestScore.ts ***!
-  \**********************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-const variables_1 = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
-variables_1.bestScoresButton === null || variables_1.bestScoresButton === void 0 ? void 0 : variables_1.bestScoresButton.addEventListener("click", function () {
-    return __awaiter(this, void 0, void 0, function* () {
-        // await changeView("game_bestScores", "game_start")
-        const xhttp = new XMLHttpRequest();
-        xhttp.onload = function () {
-            const x = document.querySelector(".tableScores");
-            x.innerHTML = this.responseText;
-        };
-        xhttp.open("GET", "wrap.php", true);
-        xhttp.send();
-    });
-});
-variables_1.bestScoresButton === null || variables_1.bestScoresButton === void 0 ? void 0 : variables_1.bestScoresButton.addEventListener("dblclick", function () {
-    return __awaiter(this, void 0, void 0, function* () {
-        //ważne prepare()
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'add.php', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onload = function () {
-            // do something to response
-            console.log(this.responseText);
-        };
-        xhr.send('nickname=avada&points=40000');
-        //    const xhttp = new XMLHttpRequest();
-        //     xhttp.onload = function() {
-        //         console.log('dbl');
-        //         console.log(this.responseText);
-        //         // const x = document.querySelector(".tableScores") as HTMLDivElement;
-        //         // x.innerHTML = this.responseText;
-        //     }
-        //     // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //     xhttp.open("GET", "add.php", true);
-        //     xhttp.send();
-    });
-});
 
 
 /***/ }),
@@ -1261,22 +1170,21 @@ exports.changeView = changeView;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.buttons = void 0;
+exports.menuButtons = void 0;
 const variables_1 = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
 const sound_1 = __webpack_require__(/*! ./sound */ "./src/js/menu/sound.ts");
 const index_1 = __webpack_require__(/*! ./navigation/index */ "./src/js/menu/navigation/index.ts");
-__webpack_require__(/*! ./bestScore */ "./src/js/menu/bestScore.ts");
-variables_1.playMenuButton === null || variables_1.playMenuButton === void 0 ? void 0 : variables_1.playMenuButton.addEventListener("click", index_1.play);
-variables_1.optionsMenuButton === null || variables_1.optionsMenuButton === void 0 ? void 0 : variables_1.optionsMenuButton.addEventListener("click", index_1.options);
-variables_1.bestScoresMenuButton === null || variables_1.bestScoresMenuButton === void 0 ? void 0 : variables_1.bestScoresMenuButton.addEventListener("click", index_1.bestScores);
-variables_1.switchSoundButton === null || variables_1.switchSoundButton === void 0 ? void 0 : variables_1.switchSoundButton.addEventListener("click", sound_1.toggleAudio);
-exports.buttons = [variables_1.playMenuButton, variables_1.optionsMenuButton, variables_1.bestScoresMenuButton];
-exports.buttons.forEach(button => {
+variables_1.menuButtonPlay === null || variables_1.menuButtonPlay === void 0 ? void 0 : variables_1.menuButtonPlay.addEventListener("click", index_1.play);
+variables_1.menuButtonOptions === null || variables_1.menuButtonOptions === void 0 ? void 0 : variables_1.menuButtonOptions.addEventListener("click", index_1.options);
+variables_1.menuButtonBestScores === null || variables_1.menuButtonBestScores === void 0 ? void 0 : variables_1.menuButtonBestScores.addEventListener("click", index_1.bestScores);
+variables_1.menuButtonToggleSound === null || variables_1.menuButtonToggleSound === void 0 ? void 0 : variables_1.menuButtonToggleSound.addEventListener("click", sound_1.toggleAudio);
+exports.menuButtons = [variables_1.menuButtonPlay, variables_1.menuButtonOptions, variables_1.menuButtonBestScores];
+exports.menuButtons.forEach(button => {
     button === null || button === void 0 ? void 0 : button.addEventListener("mouseover", function () {
         index_1.windowMouseOver(this);
     });
 });
-window.addEventListener("keydown", index_1.windowKeyboard);
+window.addEventListener("keydown", index_1.navigationKeyboard);
 
 
 /***/ }),
@@ -1298,7 +1206,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.windowKeyboard = exports.removeClassActive = exports.windowMouseOver = exports.bestScores = exports.options = exports.play = void 0;
+exports.navigationKeyboard = exports.removeClassActive = exports.windowMouseOver = exports.bestScores = exports.options = exports.play = void 0;
 const index_1 = __webpack_require__(/*! ../index */ "./src/js/menu/index.ts");
 const door_1 = __webpack_require__(/*! ../door */ "./src/js/menu/door.ts");
 const init_game_1 = __webpack_require__(/*! ../../game/init_game */ "./src/js/game/init_game.ts");
@@ -1323,18 +1231,18 @@ function bestScores() {
     door_1.changeView("game_start", "game_bestScores");
 }
 exports.bestScores = bestScores;
-function windowMouseOver(button) {
+function windowMouseOver(menuButton) {
     removeClassActive();
-    button.classList.add("active");
+    menuButton.classList.add("active");
 }
 exports.windowMouseOver = windowMouseOver;
 function removeClassActive() {
-    index_1.buttons.forEach(button => {
-        button.classList.remove("active");
+    index_1.menuButtons.forEach(menuButton => {
+        menuButton.classList.remove("active");
     });
 }
 exports.removeClassActive = removeClassActive;
-function windowKeyboard(e) {
+function navigationKeyboard(e) {
     if (variables_1.gameStart.style.display != "none") {
         const button = document.querySelector(".main_button.active");
         switch (e.key) {
@@ -1351,7 +1259,7 @@ function windowKeyboard(e) {
         }
     }
 }
-exports.windowKeyboard = windowKeyboard;
+exports.navigationKeyboard = navigationKeyboard;
 
 
 /***/ }),
@@ -1369,24 +1277,24 @@ const index_1 = __webpack_require__(/*! ../index */ "./src/js/menu/index.ts");
 const index_2 = __webpack_require__(/*! ./index */ "./src/js/menu/navigation/index.ts");
 function ArrowDown(button) {
     index_2.removeClassActive();
-    for (let i = 0; i < index_1.buttons.length; i++) {
-        if (index_1.buttons[i] === button) {
-            i == 2 ? index_1.buttons[0].classList.add("active") : index_1.buttons[i + 1].classList.add("active");
+    for (let i = 0; i < index_1.menuButtons.length; i++) {
+        if (index_1.menuButtons[i] === button) {
+            i == 2 ? index_1.menuButtons[0].classList.add("active") : index_1.menuButtons[i + 1].classList.add("active");
         }
     }
 }
 exports.ArrowDown = ArrowDown;
 function ArrowUp(button) {
     index_2.removeClassActive();
-    for (let i = index_1.buttons.length - 1; i >= 0; i--) {
-        if (index_1.buttons[i] === button) {
-            i == 0 ? index_1.buttons[index_1.buttons.length - 1].classList.add("active") : index_1.buttons[i - 1].classList.add("active");
+    for (let i = index_1.menuButtons.length - 1; i >= 0; i--) {
+        if (index_1.menuButtons[i] === button) {
+            i == 0 ? index_1.menuButtons[index_1.menuButtons.length - 1].classList.add("active") : index_1.menuButtons[i - 1].classList.add("active");
         }
     }
 }
 exports.ArrowUp = ArrowUp;
-function Enter(button, play, options, bestScores) {
-    const id = button.id;
+function Enter(menuButton, play, options, bestScores) {
+    const id = menuButton.id;
     eval(`${id}()`);
 }
 exports.Enter = Enter;
@@ -1402,14 +1310,14 @@ exports.Enter = Enter;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.readyOptions = void 0;
+exports.selectedOptions = void 0;
 const variables_1 = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
 const door_1 = __webpack_require__(/*! ./door */ "./src/js/menu/door.ts");
 let enumIndex = 3;
 const enumLength = Object.keys(variables_1.enumTimer).length / 2;
 for (let i = 0; i < (variables_1.optCardsNumberDiv === null || variables_1.optCardsNumberDiv === void 0 ? void 0 : variables_1.optCardsNumberDiv.children.length); i++) {
     variables_1.optCardsNumberDiv === null || variables_1.optCardsNumberDiv === void 0 ? void 0 : variables_1.optCardsNumberDiv.children[i].addEventListener("click", function () {
-        exports.readyOptions.cardsNumber = variables_1.enumCardsNumber[`opt${i + 1}`];
+        exports.selectedOptions.cardsNumber = variables_1.enumCardsNumber[`opt${i + 1}`];
         for (let j = 0; j < (variables_1.optCardsNumberDiv === null || variables_1.optCardsNumberDiv === void 0 ? void 0 : variables_1.optCardsNumberDiv.children.length); j++) {
             variables_1.optCardsNumberDiv === null || variables_1.optCardsNumberDiv === void 0 ? void 0 : variables_1.optCardsNumberDiv.children[j].classList.remove("active");
         }
@@ -1420,38 +1328,38 @@ variables_1.optTimerDiv === null || variables_1.optTimerDiv === void 0 ? void 0 
     variables_1.optTimerDiv === null || variables_1.optTimerDiv === void 0 ? void 0 : variables_1.optTimerDiv.children[1].classList.remove("active");
     this.classList.add("active");
     variables_1.clock.style.display = "none";
-    exports.readyOptions.time = null;
-    exports.readyOptions.bonusTime = 0;
+    exports.selectedOptions.time = null;
+    exports.selectedOptions.selectedTime = 0;
 });
 variables_1.optTimerDiv === null || variables_1.optTimerDiv === void 0 ? void 0 : variables_1.optTimerDiv.children[1].addEventListener("click", function () {
     variables_1.optTimerDiv === null || variables_1.optTimerDiv === void 0 ? void 0 : variables_1.optTimerDiv.children[0].classList.remove("active");
     this.classList.add("active");
     variables_1.clock.style.display = "block";
-    exports.readyOptions.time = variables_1.enumTimer[`opt${enumIndex}`];
-    variables_1.clockSeconds.innerHTML = "" + exports.readyOptions.time;
+    exports.selectedOptions.time = variables_1.enumTimer[`opt${enumIndex}`];
+    variables_1.clockSeconds.innerHTML = "" + exports.selectedOptions.time;
 });
 variables_1.minusTime === null || variables_1.minusTime === void 0 ? void 0 : variables_1.minusTime.addEventListener("click", function () {
     enumIndex == 1 ? enumIndex = enumLength : enumIndex--;
-    exports.readyOptions.time = variables_1.enumTimer["opt".concat(enumIndex.toString())];
+    exports.selectedOptions.time = variables_1.enumTimer["opt".concat(enumIndex.toString())];
     const minutes = Math.floor(variables_1.enumTimer[`opt${enumIndex}`] / 60);
     variables_1.clockMinutes.innerHTML = ` ${minutes} `;
     let seconds = variables_1.enumTimer[`opt${enumIndex}`] % 60;
     seconds < 10 ? variables_1.clockSeconds.innerHTML = ` 0${seconds} ` : variables_1.clockSeconds.innerHTML = ` ${seconds} `;
-    exports.readyOptions.bonusTime = 11 - enumIndex;
+    exports.selectedOptions.selectedTime = 11 - enumIndex;
 });
 variables_1.plusTime === null || variables_1.plusTime === void 0 ? void 0 : variables_1.plusTime.addEventListener("click", function () {
     enumIndex == enumLength ? enumIndex = 1 : enumIndex++;
-    exports.readyOptions.time = variables_1.enumTimer[`opt${enumIndex}`];
+    exports.selectedOptions.time = variables_1.enumTimer[`opt${enumIndex}`];
     const minutes = Math.floor(variables_1.enumTimer[`opt${enumIndex}`] / 60);
     variables_1.clockMinutes.innerHTML = ` ${minutes} `;
     let seconds = variables_1.enumTimer[`opt${enumIndex}`] % 60;
     seconds < 10 ? variables_1.clockSeconds.innerHTML = ` 0${seconds} ` : variables_1.clockSeconds.innerHTML = ` ${seconds} `;
-    exports.readyOptions.bonusTime = 11 - enumIndex;
+    exports.selectedOptions.selectedTime = 11 - enumIndex;
 });
-exports.readyOptions = {
+exports.selectedOptions = {
     cardsNumber: 16,
     time: null,
-    bonusTime: 11 - enumIndex
+    selectedTime: 11 - enumIndex
 };
 variables_1.optButton === null || variables_1.optButton === void 0 ? void 0 : variables_1.optButton.addEventListener("click", function () {
     door_1.changeView("game_options", "game_start");
@@ -1472,13 +1380,13 @@ exports.unmuteAudio = exports.toggleAudio = void 0;
 const variables_1 = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
 function toggleAudio() {
     if (variables_1.switchSoundImage.src.includes("volume")) {
-        variables_1.switchSoundButton.innerHTML = `<img src="images/mute.png" alt="muted"/>`;
+        variables_1.menuButtonToggleSound.innerHTML = `<img src="images/mute.png" alt="muted"/>`;
         variables_1.audios.forEach(audio => {
             audio.muted = true;
         });
     }
     else {
-        variables_1.switchSoundButton.innerHTML = `<img src="images/volume.png" alt="volume"/>`;
+        variables_1.menuButtonToggleSound.innerHTML = `<img src="images/volume.png" alt="volume"/>`;
         variables_1.audios.forEach(audio => {
             audio.muted = false;
         });
@@ -1503,13 +1411,13 @@ exports.unmuteAudio = unmuteAudio;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.pointsScreen = exports.end_screen_win_button = exports.try_again = exports.main_menu = exports.end_screen_lose_buttons = exports.message_lose = exports.summary = exports.messageScores = exports.totalPoints = exports.madeMoves = exports.timeBonus = exports.timeLeft = exports.timeStart = exports.cardsNumber = exports.messageParts = exports.end_screen_message = exports.multipliers = exports.timeCounter = exports.timer = exports.scoreCounter = exports.divVideo = exports.loseVideo = exports.winVideo = exports.gameCards = exports.backgroundSoundIndex = exports.audios = exports.loseSound = exports.winSound = exports.cardSound = exports.backgroundSound = exports.switchSoundButton = exports.doorRight = exports.doorLeft = exports.overlay = exports.bestScoresButton = exports.optButton = exports.plusTime = exports.minusTime = exports.clockSeconds = exports.clockMinutes = exports.clock = exports.optTimerDiv = exports.optCardsNumberDiv = exports.enumTimer = exports.enumCardsNumber = exports.switchSoundImage = exports.bestScoresMenuButton = exports.optionsMenuButton = exports.playMenuButton = exports.gameStart = void 0;
-exports.endScreenLoseTA = exports.endScreenLoseMM = exports.endScreenLose = exports.lose = exports.buttonNicknamePoints = exports.inputPoints = exports.spanPoints = exports.nicknameScreen = void 0;
+exports.spanPoints = exports.nicknameScreen = exports.pointsScreen = exports.endScreenWinButton = exports.tryAgain = exports.mainMenu = exports.endScreenLoseButtons = exports.messageLose = exports.summary = exports.messageScores = exports.totalPoints = exports.madeMoves = exports.timeBonus = exports.timeLeft = exports.timeStart = exports.cardsNumber = exports.messageParts = exports.end_screen_message = exports.multipliers = exports.timeCounter = exports.timer = exports.scoreCounter = exports.divVideo = exports.loseVideo = exports.gameCards = exports.backgroundSoundIndex = exports.audios = exports.loseSound = exports.cardSound = exports.backgroundSound = exports.menuButtonToggleSound = exports.doorRight = exports.doorLeft = exports.overlay = exports.bestScoresButton = exports.optButton = exports.plusTime = exports.minusTime = exports.clockSeconds = exports.clockMinutes = exports.clock = exports.optTimerDiv = exports.optCardsNumberDiv = exports.enumTimer = exports.enumCardsNumber = exports.switchSoundImage = exports.menuButtonBestScores = exports.menuButtonOptions = exports.menuButtonPlay = exports.gameStart = void 0;
+exports.endScreenLoseTA = exports.endScreenLoseMM = exports.endScreenLose = exports.lose = exports.inputPoints = void 0;
 // menu
 exports.gameStart = document === null || document === void 0 ? void 0 : document.querySelector("#game_start");
-exports.playMenuButton = document === null || document === void 0 ? void 0 : document.querySelector("button.main_button#play");
-exports.optionsMenuButton = document === null || document === void 0 ? void 0 : document.querySelector("button.main_button#options");
-exports.bestScoresMenuButton = document === null || document === void 0 ? void 0 : document.querySelector("button.main_button#bestScores");
+exports.menuButtonPlay = document === null || document === void 0 ? void 0 : document.querySelector("button.main_button#play");
+exports.menuButtonOptions = document === null || document === void 0 ? void 0 : document.querySelector("button.main_button#options");
+exports.menuButtonBestScores = document === null || document === void 0 ? void 0 : document.querySelector("button.main_button#bestScores");
 exports.switchSoundImage = document.querySelector(".switch_sound>img");
 //options
 var enumCardsNumber;
@@ -1546,17 +1454,15 @@ exports.overlay = document === null || document === void 0 ? void 0 : document.q
 exports.doorLeft = document === null || document === void 0 ? void 0 : document.querySelector("#left_door");
 exports.doorRight = document === null || document === void 0 ? void 0 : document.querySelector("#right_door");
 //sounds
-exports.switchSoundButton = document === null || document === void 0 ? void 0 : document.querySelector(".switch_sound");
+exports.menuButtonToggleSound = document === null || document === void 0 ? void 0 : document.querySelector(".switch_sound");
 exports.backgroundSound = new Audio("audio/background.mp3");
 exports.cardSound = new Audio("audio/card.mp3");
-exports.winSound = new Audio("audio/win.mp3");
 exports.loseSound = new Audio("audio/lose.mp3");
-exports.audios = [exports.backgroundSound, exports.cardSound, exports.winSound, exports.loseSound];
+exports.audios = [exports.backgroundSound, exports.cardSound, exports.loseSound];
 exports.backgroundSoundIndex = exports.audios.findIndex(audio => audio == exports.backgroundSound);
-// game
+//game
 exports.gameCards = document === null || document === void 0 ? void 0 : document.querySelector("#game_cards");
-//videos
-exports.winVideo = document === null || document === void 0 ? void 0 : document.createElement("VIDEO");
+//video
 exports.loseVideo = document === null || document === void 0 ? void 0 : document.createElement("VIDEO");
 exports.loseVideo.setAttribute("src", "video/lose.mp4");
 exports.divVideo = document === null || document === void 0 ? void 0 : document.querySelector(".video");
@@ -1597,23 +1503,19 @@ exports.messageScores = {
     totalPointsScore: exports.totalPoints === null || exports.totalPoints === void 0 ? void 0 : exports.totalPoints.querySelector(":scope > .message_segment_score .score_full"),
 };
 exports.summary = document === null || document === void 0 ? void 0 : document.querySelector("#game_end .summary");
-exports.message_lose = document === null || document === void 0 ? void 0 : document.querySelector("#game_end .message_lose");
-exports.end_screen_lose_buttons = document === null || document === void 0 ? void 0 : document.querySelector(".buttons_end_lose");
-exports.main_menu = document === null || document === void 0 ? void 0 : document.querySelector(".main_menu");
-exports.try_again = document === null || document === void 0 ? void 0 : document.querySelector(".try_again");
-exports.end_screen_win_button = document === null || document === void 0 ? void 0 : document.querySelector(".buttons_end_win");
-console.log(exports.main_menu);
+exports.messageLose = document === null || document === void 0 ? void 0 : document.querySelector("#game_end .message_lose");
+exports.endScreenLoseButtons = document === null || document === void 0 ? void 0 : document.querySelector(".buttons_end_lose");
+exports.mainMenu = document === null || document === void 0 ? void 0 : document.querySelector(".mainMenu");
+exports.tryAgain = document === null || document === void 0 ? void 0 : document.querySelector(".tryAgain");
+exports.endScreenWinButton = document === null || document === void 0 ? void 0 : document.querySelector(".buttons_end_win");
 exports.pointsScreen = document === null || document === void 0 ? void 0 : document.querySelector(".summary");
 exports.nicknameScreen = document === null || document === void 0 ? void 0 : document.querySelector(".nickname");
 exports.spanPoints = document === null || document === void 0 ? void 0 : document.querySelector("span.score_points");
 exports.inputPoints = document === null || document === void 0 ? void 0 : document.querySelector(".nickname input[type='text']");
-exports.buttonNicknamePoints = document === null || document === void 0 ? void 0 : document.querySelector(".nickname .buttons button");
-// export const endScreenLose = document?.querySelector(".end_screen_lose .buttons_end_lose") as HTMLButtonElement;
 exports.lose = document === null || document === void 0 ? void 0 : document.querySelector(".lose");
 exports.endScreenLose = document === null || document === void 0 ? void 0 : document.querySelector(".lose .buttons_end_lose");
-exports.endScreenLoseMM = exports.endScreenLose === null || exports.endScreenLose === void 0 ? void 0 : exports.endScreenLose.querySelector(".main_menu2");
-exports.endScreenLoseTA = exports.endScreenLose === null || exports.endScreenLose === void 0 ? void 0 : exports.endScreenLose.querySelector(".try_again2");
-console.log(exports.endScreenLose, exports.endScreenLoseMM, exports.endScreenLoseTA);
+exports.endScreenLoseMM = exports.endScreenLose === null || exports.endScreenLose === void 0 ? void 0 : exports.endScreenLose.querySelector(".mainMenu2");
+exports.endScreenLoseTA = exports.endScreenLose === null || exports.endScreenLose === void 0 ? void 0 : exports.endScreenLose.querySelector(".tryAgain2");
 
 
 /***/ })

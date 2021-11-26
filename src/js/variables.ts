@@ -1,8 +1,8 @@
 // menu
 export const gameStart = document?.querySelector("#game_start") as HTMLDivElement;
-export const playMenuButton = document?.querySelector("button.main_button#play") as HTMLButtonElement;
-export const optionsMenuButton = document?.querySelector("button.main_button#options") as HTMLButtonElement;
-export const bestScoresMenuButton = document?.querySelector("button.main_button#bestScores") as HTMLButtonElement;
+export const menuButtonPlay = document?.querySelector("button.main_button#play") as HTMLButtonElement;
+export const menuButtonOptions = document?.querySelector("button.main_button#options") as HTMLButtonElement;
+export const menuButtonBestScores = document?.querySelector("button.main_button#bestScores") as HTMLButtonElement;
 export const switchSoundImage = document.querySelector(".switch_sound>img") as HTMLImageElement;
 
 //options
@@ -42,22 +42,19 @@ export const doorLeft = document?.querySelector("#left_door") as HTMLDivElement;
 export const doorRight = document?.querySelector("#right_door") as HTMLDivElement;
 
 //sounds
-export const switchSoundButton = document?.querySelector(".switch_sound") as HTMLDivElement;
+export const menuButtonToggleSound = document?.querySelector(".switch_sound") as HTMLDivElement;
 
 export const backgroundSound = new Audio("audio/background.mp3") as HTMLAudioElement;
 export const cardSound = new Audio("audio/card.mp3") as HTMLAudioElement;
-export const winSound = new Audio("audio/win.mp3") as HTMLAudioElement;
 export const loseSound = new Audio("audio/lose.mp3") as HTMLAudioElement;
 
-export const audios: HTMLAudioElement[] = [backgroundSound, cardSound, winSound, loseSound];
+export const audios: HTMLAudioElement[] = [backgroundSound, cardSound, loseSound];
 export const backgroundSoundIndex: number = audios.findIndex(audio => audio == backgroundSound);
 
-// game
+//game
 export const gameCards = document?.querySelector("#game_cards") as HTMLDivElement;
 
-//videos
-export const winVideo = document?.createElement("VIDEO") as HTMLVideoElement;
-
+//video
 export const loseVideo = document?.createElement("VIDEO") as HTMLVideoElement;
 loseVideo.setAttribute("src", "video/lose.mp4");
 
@@ -105,21 +102,17 @@ export const messageScores = {
 }
 
 export const summary = document?.querySelector("#game_end .summary") as HTMLDivElement;
-export const message_lose = document?.querySelector("#game_end .message_lose") as HTMLDivElement;
-export const end_screen_lose_buttons = document?.querySelector(".buttons_end_lose") as HTMLDivElement;
-export const main_menu = document?.querySelector(".main_menu") as HTMLButtonElement;
-export const try_again = document?.querySelector(".try_again") as HTMLButtonElement;
-export const end_screen_win_button = document?.querySelector(".buttons_end_win") as HTMLButtonElement;
-console.log(main_menu);
+export const messageLose = document?.querySelector("#game_end .message_lose") as HTMLDivElement;
+export const endScreenLoseButtons = document?.querySelector(".buttons_end_lose") as HTMLDivElement;
+export const mainMenu = document?.querySelector(".mainMenu") as HTMLButtonElement;
+export const tryAgain = document?.querySelector(".tryAgain") as HTMLButtonElement;
+export const endScreenWinButton = document?.querySelector(".buttons_end_win") as HTMLButtonElement;
 export const pointsScreen = document?.querySelector(".summary") as HTMLDivElement;
 export const nicknameScreen = document?.querySelector(".nickname") as HTMLDivElement;
 export const spanPoints = document?.querySelector("span.score_points") as HTMLSpanElement;
 export const inputPoints = document?.querySelector(".nickname input[type='text']") as HTMLInputElement;
-export const buttonNicknamePoints = document?.querySelector(".nickname .buttons button") as HTMLButtonElement;
 
-// export const endScreenLose = document?.querySelector(".end_screen_lose .buttons_end_lose") as HTMLButtonElement;
 export const lose = document?.querySelector(".lose") as HTMLButtonElement;
 export const endScreenLose = document?.querySelector(".lose .buttons_end_lose") as HTMLButtonElement;
-export const endScreenLoseMM = endScreenLose?.querySelector(".main_menu2") as HTMLButtonElement;
-export const endScreenLoseTA = endScreenLose?.querySelector(".try_again2") as HTMLButtonElement;
-console.log(endScreenLose, endScreenLoseMM, endScreenLoseTA);
+export const endScreenLoseMM = endScreenLose?.querySelector(".mainMenu2") as HTMLButtonElement;
+export const endScreenLoseTA = endScreenLose?.querySelector(".tryAgain2") as HTMLButtonElement;

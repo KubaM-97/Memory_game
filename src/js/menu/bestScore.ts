@@ -22,14 +22,4 @@ bestScoresButton?.addEventListener("dblclick", async function(){
         console.log(this.responseText);
     };
     xhr.send('nickname=avada&points=40000');
-//    const xhttp = new XMLHttpRequest();
-//     xhttp.onload = function() {
-//         console.log('dbl');
-//         console.log(this.responseText);
-//         // const x = document.querySelector(".tableScores") as HTMLDivElement;
-//         // x.innerHTML = this.responseText;
-//     }
-//     // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     xhttp.open("GET", "add.php", true);
-//     xhttp.send();
 }) 
