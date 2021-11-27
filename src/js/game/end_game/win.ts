@@ -1,5 +1,5 @@
 import { lose, messageParts, pointsScreen, nicknameScreen, spanPoints, inputPoints, endScreenWinButton } from "../../variables";
-import { showEndLoseButtons, showEndWinButton, clearPreviousGame } from "./index";
+import { showEndLoseButtons, showEndWinButton } from "./index";
 import { summary } from "./summary";
 import { changeView } from "../../menu/door";
 
@@ -20,8 +20,7 @@ function showTypeNickNamePanel(playerTotalScore: number) {
 }
 export async function winningProcedure() {
     lose.style.display = 'none'
-    clearPreviousGame();
-    await changeView("game_board", "game_end");
+    // await changeView("game_board", "game_end");
     messageParts.totalPoints.style.display = "flex";
 
     pointsScreen.style.display = "block"
@@ -44,7 +43,7 @@ export async function winningProcedure() {
 
 function hideNicknameScreen(playerTotalScore: number){
     noteBestScore(inputPoints.value, playerTotalScore)
-    changeView("game_end", "game_start");
+    //changeView("game_end", "game_start");
     inputPoints.value = "";
     messageParts.totalPoints.style.display = "none";
     nicknameScreen.style.display = "none";
@@ -53,3 +52,14 @@ function hideNicknameScreen(playerTotalScore: number){
 function noteBestScore(playerNick: string, playerTotalScore: number): void {
     console.log(playerNick, playerTotalScore);
 }
+// bestScoresButton?.addEventListener("dblclick", async function(){
+//     //ważne prepare()
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('POST', 'add.php', true);
+//     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//     xhr.onload = function () {
+//         // do something to response
+//         console.log(this.responseText);
+//     };
+//     xhr.send('nickname=avada&points=40000');
+// }) 

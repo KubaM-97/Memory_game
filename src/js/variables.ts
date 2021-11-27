@@ -1,8 +1,8 @@
 // menu
 export const gameStart = document?.querySelector("#game_start") as HTMLDivElement;
-export const menuButtonPlay = document?.querySelector("button.main_button#play") as HTMLButtonElement;
-export const menuButtonOptions = document?.querySelector("button.main_button#options") as HTMLButtonElement;
-export const menuButtonBestScores = document?.querySelector("button.main_button#bestScores") as HTMLButtonElement;
+export const menuButtonPlay = document?.querySelector("button.menu_button#play") as HTMLButtonElement;
+export const menuButtonOptions = document?.querySelector("button.menu_button#options") as HTMLButtonElement;
+export const menuButtonBestScores = document?.querySelector("button.menu_button#bestScores") as HTMLButtonElement;
 export const switchSoundImage = document.querySelector(".switch_sound>img") as HTMLImageElement;
 
 //options

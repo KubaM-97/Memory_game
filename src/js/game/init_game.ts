@@ -1,6 +1,6 @@
 import { interfaceCard, Card } from "./../classes/card";
 import { selectedOptions } from "../menu/options";
-import { gameCards } from "../variables";
+// import { gameCards } from "../variables";
 
 export const allGameCards: string[] = []
 
@@ -37,6 +37,7 @@ function getCards(){
 
 export async function initGame():Promise<void>{
 
+    const gameCards = document?.querySelector("#game_cards") as HTMLDivElement;
     
     gameCards.innerHTML = "";
 

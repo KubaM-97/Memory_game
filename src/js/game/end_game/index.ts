@@ -1,23 +1,17 @@
 
-import { timer, divVideo, messageLose, messageParts, end_screen_message, endScreenLoseButtons, endScreenWinButton, mainMenu, tryAgain } from "../../variables";
+import { timer, messageParts, end_screen_message, endScreenWinButton, mainMenu, tryAgain } from "../../variables";
 import { changeView } from "../../menu/door";
 import { startTimer } from  ".././timer";
 import { initGame } from ".././init_game";
 import { mainGame } from ".././play";
 
-export function clearPreviousGame(){
-    divVideo.innerHTML = "";
-    messageLose.style.display = "none";
-    for(const div in messageParts){
-        messageParts[div].style.display = "none";
-    }
-}
-
 export async function showVideo(video: HTMLVideoElement){
 
-    await changeView("game_board", "game_end");
+    // await changeView("game_board", "game_end"); 
+    const endScreenLoseButtons = document?.querySelector(".buttons_end_lose") as HTMLDivElement;
     
-    endScreenLoseButtons.style.display = "none";
+    // endScreenLoseButtons.style.display = "none";
+    const divVideo = document?.querySelector(".video") as HTMLDivElement;
 
     divVideo.style.display = "block";
     divVideo.appendChild(video);
@@ -26,13 +20,13 @@ export async function showVideo(video: HTMLVideoElement){
     video.play();
     video.playbackRate = 1.4;
 
-    timer.style.animation = "none";
         
 }
 
 export function hideVideo(sound:HTMLAudioElement){
 
     sound.play();
+    const divVideo = document?.querySelector(".video") as HTMLDivElement;
 
     divVideo.style.animation = "hide 2s";
     divVideo.style.animationFillMode = "forwards";
@@ -41,6 +35,8 @@ export function hideVideo(sound:HTMLAudioElement){
 }
 
 export function showEndLoseButtons(){
+    const endScreenLoseButtons = document?.querySelector(".buttons_end_lose") as HTMLDivElement;
+
     endScreenLoseButtons.style.display = "flex";
     endScreenLoseButtons.style.animation = "show 2s";
     endScreenLoseButtons.style.animationFillMode = "forwards";
@@ -53,14 +49,14 @@ export function showEndWinButton(){
 }
 
 mainMenu?.addEventListener("click", function(){
-    changeView("game_end", "game_start");
-    endScreenLoseButtons.style.display = "none";
+    changeView("menu");
+    // endScreenLoseButtons.style.display = "none";
 })
 
 tryAgain?.addEventListener("click", async function(){
     await initGame(); 
     await mainGame();
-    await changeView("game_start", "game_board");
+    await changeView("game");
     await startTimer();
 })
 

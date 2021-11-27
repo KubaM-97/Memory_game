@@ -1,4 +1,4 @@
-import { scoreCounter, cardSound } from "../variables";
+import { cardSound } from "../variables";
 import { allGameCards } from "./init_game";
 import { winningProcedure } from "./end_game/win";
 
@@ -10,6 +10,8 @@ let firstCardIndex: number = 0;
 
 export function mainGame(){
     turnCounter = 0;
+    const scoreCounter = document?.getElementById("scoreCounter") as HTMLDivElement
+
     scoreCounter.innerHTML = `${turnCounter}`
     
     totalPairs = allGameCards.length / 2

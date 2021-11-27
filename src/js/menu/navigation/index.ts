@@ -9,36 +9,36 @@ import { ArrowDown, ArrowUp, Enter } from  "./key";
 export async function play(): Promise<void>{
     await initGame(); 
     await mainGame();
-    await changeView("game_start", "game_board");
+    await changeView("game");
     await startTimer();
 }
 
 export function options(): void{
-    changeView("game_start", "game_options");
+    changeView("options");
 }
 
 export function bestScores(): void{
-    changeView("game_start", "game_bestScores");
+    changeView("best_scores");
 }
 
 
-export function windowMouseOver(menuButton: HTMLButtonElement):void{
+export function menuMouseKeyboard(menuButton: HTMLButtonElement):void{
     removeClassActive()
-    menuButton.classList.add("active")
+    menuButton?.classList.add("active")
 }
 
 export function removeClassActive():void{
     menuButtons.forEach(menuButton => {
-        menuButton.classList.remove("active")
+        menuButton?.classList.remove("active")
     });
 }
 
 
-export function navigationKeyboard(e: KeyboardEvent):void{
+export function menuNavigationKeyboard(e: KeyboardEvent):void{
+    const gameStart = document?.querySelector("#game_start") as HTMLDivElement
+    if(gameStart.style.display != "none"){
 
-    if( gameStart.style.display != "none"){
-
-        const button = document.querySelector(".main_button.active") as HTMLButtonElement;
+        const button = document.querySelector(".menu_button.active") as HTMLButtonElement;
        
         switch(e.key){
 

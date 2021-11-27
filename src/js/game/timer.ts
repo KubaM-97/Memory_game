@@ -2,11 +2,13 @@ import { timer, timeCounter } from "../variables";
 import { totalPairs } from "./play";
 import { selectedOptions } from "../menu/options";
 import { losingProcedure } from "./end_game/lose";
+import { changeView } from "../menu/door";
 
 export let currentTime: number;
 
 export async function startTimer(){
-
+    const timer = document?.getElementById("timer") as HTMLDivElement
+    const timeCounter = document?.getElementById("timeCounter") as HTMLDivElement
     if( selectedOptions.time !== null){
     
         timer.style.display = "block" ;
@@ -24,10 +26,15 @@ export async function startTimer(){
             }
             if(currentTime == -1) {
                 clearInterval(startTimer);
+                await changeView('lose')
                 losingProcedure();
+    timer.style.animation = "none";
+
             }
             if(totalPairs == 0) {
                 clearInterval(startTimer);
+    timer.style.animation = "none";
+
             }
         },1000)
     }

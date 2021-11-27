@@ -37,6 +37,7 @@ export class Card implements interfaceCard{
         card.style.backgroundSize = `cover`;
         
         card_reverse.appendChild(card);
+        const gameCards = document?.querySelector("#game_cards") as HTMLDivElement
         gameCards.appendChild(card_reverse)
 
     }   
