@@ -6,12 +6,12 @@ import { backToMenu } from "./";
 let enumIndex: number = 1;
 const enumLength: number = Object.keys(enumTimer).length / 2;
 
-interface options_interface {
+interface Options {
     cardsNumber: number;
     time: null | number;
     selectedTime: number
 }
-export const selectedOptions: options_interface = {
+export const selectedOptions: Options = {
     cardsNumber: 16,
     time: null,
     selectedTime: 11 - enumIndex
@@ -32,6 +32,18 @@ export async function menuButtonOptionsAction() {
     const optButton = document?.querySelector("#game_options .buttons button") as HTMLButtonElement;
     const backMenuButton = document?.querySelector(".panel button.back_menu") as HTMLButtonElement;
     initialOptions()
+    if(selectedOptions.cardsNumber === 16) optCardsNumberDiv?.children[0].classList.add("active")
+    else if(selectedOptions.cardsNumber === 20) optCardsNumberDiv?.children[1].classList.add("active")
+    else if(selectedOptions.cardsNumber === 24) optCardsNumberDiv?.children[2].classList.add("active")
+    if(selectedOptions.time === null ) optTimerDiv?.children[0].classList.add("active")
+    else {
+        optTimerDiv?.children[0].classList.remove("active");
+        optTimerDiv?.children[1].classList.add("active")
+
+        clock.style.display = "block";
+        selectedOptions.time = enumTimer[`opt${enumIndex}`];
+        clockSeconds.innerHTML = "" + selectedOptions.time
+    }
     for (let i: number = 0; i < optCardsNumberDiv?.children.length; i++) {
         optCardsNumberDiv?.children[i].addEventListener("click", function (this: any) {
 

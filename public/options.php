@@ -10,7 +10,7 @@ echo '
 
         <div class="options cardsNumber">
 
-            <div class="option active">
+            <div class="option">
                 <img src="./images/cards/lumpy.png" alt="x16">
                 <div class="optHint">x16</div>
             </div>
@@ -37,7 +37,7 @@ echo '
 
         <div class="options timer">
 
-            <div class="option timerNo active">
+            <div class="option timerNo">
                 <img src="./images/alarm_clock.png" alt="alarm_clock Yes">
             </div>
 

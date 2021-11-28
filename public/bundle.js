@@ -656,8 +656,7 @@ function showEndLoseButtons() {
     endScreenLoseButtons.style.animationFillMode = "forwards";
     mainMenu === null || mainMenu === void 0 ? void 0 : mainMenu.addEventListener("click", function () {
         return __awaiter(this, void 0, void 0, function* () {
-            yield door_1.changeView("menu");
-            menu_1.menuButtonsService();
+            menu_1.backToMenu();
         });
     });
     tryAgain === null || tryAgain === void 0 ? void 0 : tryAgain.addEventListener("click", function () {
@@ -728,13 +727,7 @@ function losingProcedure() {
             content.style.animation = "show 2s";
             content.style.animationFillMode = "forwards";
         });
-        backMenuButton === null || backMenuButton === void 0 ? void 0 : backMenuButton.addEventListener("click", function () {
-            return __awaiter(this, void 0, void 0, function* () {
-                console.log('ssssssss');
-                yield door_1.changeView("menu");
-                menu_1.menuButtonsService();
-            });
-        });
+        backMenuButton === null || backMenuButton === void 0 ? void 0 : backMenuButton.addEventListener("click", menu_1.backToMenu);
         tryAgainButton === null || tryAgainButton === void 0 ? void 0 : tryAgainButton.addEventListener("click", function () {
             return __awaiter(this, void 0, void 0, function* () {
                 yield door_1.changeView("game");
@@ -971,8 +964,7 @@ function xxx() {
 function hideNicknameScreen(inputPoints, playerTotalScore) {
     return __awaiter(this, void 0, void 0, function* () {
         noteBestScore(inputPoints.value, playerTotalScore);
-        yield door_1.changeView("menu");
-        menu_1.menuButtonsService();
+        menu_1.backToMenu();
     });
 }
 function noteBestScore(playerNick, playerTotalScore) {
@@ -1218,28 +1210,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.menuButtonBestScoresAction = void 0;
 const door_1 = __webpack_require__(/*! ./door */ "./src/js/menu/door.ts");
+const _1 = __webpack_require__(/*! ./ */ "./src/js/menu/index.ts");
 function menuButtonBestScoresAction() {
     return __awaiter(this, void 0, void 0, function* () {
         yield door_1.changeView('best_scores');
         const backMenuButton = document === null || document === void 0 ? void 0 : document.querySelector(".panel button.back_menu");
-        // backMenuButton?.addEventListener("click", async function(){
-        //     await changeView("menu");
-        //     menuButtonsService()
-        // })
-        backMenuButton === null || backMenuButton === void 0 ? void 0 : backMenuButton.addEventListener("click", function () {
-            return __awaiter(this, void 0, void 0, function* () {
-                //ważne prepare()
-                const playerNick = 'DUPSKO SOCZYSTE';
-                const playerTotalScore = 5000;
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'add.php', true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.onload = function () {
-                    console.log(this.responseText);
-                };
-                xhr.send(`nickname=${playerNick}&points=${playerTotalScore}`);
-            });
-        });
+        backMenuButton === null || backMenuButton === void 0 ? void 0 : backMenuButton.addEventListener("click", _1.backToMenu);
+        window.addEventListener("keypress", (e) => { console.log('bziuuuuuuuuu', e.key); });
+        window.addEventListener("keypress", (e) => { if (e.key === 'Escape' || e.key === 'Enter')
+            _1.backToMenu; });
     });
 }
 exports.menuButtonBestScoresAction = menuButtonBestScoresAction;
@@ -1301,30 +1280,40 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.backToMenu = exports.menuButtonsService = exports.menuButtons = void 0;
-const variables_1 = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
+exports.backToMenu = exports.menuButtonsService = void 0;
+// import { menuButtonPlay, menuButtonOptions, menuButtonBestScores, menuButtonToggleSound } from "../variables";
 const sound_1 = __webpack_require__(/*! ./sound */ "./src/js/menu/sound.ts");
 const index_1 = __webpack_require__(/*! ./navigation/index */ "./src/js/menu/navigation/index.ts");
 const door_1 = __webpack_require__(/*! ./door */ "./src/js/menu/door.ts");
 const play_1 = __webpack_require__(/*! ./play */ "./src/js/menu/play.ts");
 const options_1 = __webpack_require__(/*! ./options */ "./src/js/menu/options.ts");
 const bestScore_1 = __webpack_require__(/*! ./bestScore */ "./src/js/menu/bestScore.ts");
-variables_1.menuButtonPlay === null || variables_1.menuButtonPlay === void 0 ? void 0 : variables_1.menuButtonPlay.addEventListener("click", index_1.play);
-variables_1.menuButtonOptions === null || variables_1.menuButtonOptions === void 0 ? void 0 : variables_1.menuButtonOptions.addEventListener("click", index_1.options);
-variables_1.menuButtonBestScores === null || variables_1.menuButtonBestScores === void 0 ? void 0 : variables_1.menuButtonBestScores.addEventListener("click", index_1.bestScores);
-variables_1.menuButtonToggleSound === null || variables_1.menuButtonToggleSound === void 0 ? void 0 : variables_1.menuButtonToggleSound.addEventListener("click", sound_1.toggleAudio);
-exports.menuButtons = [variables_1.menuButtonPlay, variables_1.menuButtonOptions, variables_1.menuButtonBestScores];
-exports.menuButtons.forEach(button => {
-    button === null || button === void 0 ? void 0 : button.addEventListener("mouseover", function () {
-        (this);
-    });
-});
-window.addEventListener("keydown", index_1.menuNavigationKeyboard);
+// menuButtonPlay?.addEventListener("click", play)
+// menuButtonOptions?.addEventListener("click", options)
+// menuButtonBestScores?.addEventListener("click", bestScores)
+// menuButtonToggleSound?.addEventListener("click", toggleAudio);
+// export const menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [menuButtonPlay, menuButtonOptions, menuButtonBestScores];
+// menuButtons.forEach(button => {
+//     button?.addEventListener("mouseover", function(){
+//         (this)
+//     })
+// })
 function menuButtonsService() {
-    console.log('pppppppp');
     const menuButtonPlay = document === null || document === void 0 ? void 0 : document.querySelector("#menu_play");
     const menuButtonOptions = document === null || document === void 0 ? void 0 : document.querySelector("#menu_options");
     const menuButtonBestScores = document === null || document === void 0 ? void 0 : document.querySelector("#menu_bestScores");
+    const menuButtonToggleSound = document === null || document === void 0 ? void 0 : document.querySelector(".switch_sound");
+    menuButtonToggleSound === null || menuButtonToggleSound === void 0 ? void 0 : menuButtonToggleSound.addEventListener("click", sound_1.toggleAudio);
+    // if( gamestart istnieje escape nie działa){
+    // if( gamestart istnieje ){
+    // }
+    const menuButtons = [menuButtonPlay, menuButtonOptions, menuButtonBestScores];
+    window.addEventListener("keydown", () => index_1.menuNavigationKeyboard(menuButtons));
+    menuButtons.forEach(button => {
+        button === null || button === void 0 ? void 0 : button.addEventListener("mouseover", function () {
+            index_1.menuMouseNavigation(this, menuButtons);
+        });
+    });
     menuButtonPlay === null || menuButtonPlay === void 0 ? void 0 : menuButtonPlay.addEventListener('click', play_1.menuButtonPlayAction);
     menuButtonOptions === null || menuButtonOptions === void 0 ? void 0 : menuButtonOptions.addEventListener('click', options_1.menuButtonOptionsAction);
     menuButtonBestScores === null || menuButtonBestScores === void 0 ? void 0 : menuButtonBestScores.addEventListener('click', bestScore_1.menuButtonBestScoresAction);
@@ -1358,8 +1347,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.menuNavigationKeyboard = exports.removeClassActive = exports.menuMouseKeyboard = exports.bestScores = exports.options = exports.play = void 0;
-const index_1 = __webpack_require__(/*! ../index */ "./src/js/menu/index.ts");
+exports.menuNavigationKeyboard = exports.removeClassActive = exports.menuMouseNavigation = exports.bestScores = exports.options = exports.play = void 0;
 const door_1 = __webpack_require__(/*! ../door */ "./src/js/menu/door.ts");
 const init_game_1 = __webpack_require__(/*! ../../game/init_game */ "./src/js/game/init_game.ts");
 const play_1 = __webpack_require__(/*! ../../game/play */ "./src/js/game/play.ts");
@@ -1382,34 +1370,37 @@ function bestScores() {
     door_1.changeView("best_scores");
 }
 exports.bestScores = bestScores;
-function menuMouseKeyboard(menuButton) {
-    removeClassActive();
+function menuMouseNavigation(menuButton, menuButtons) {
+    // console.log('yyyyyyyyy', menuButton, menuButton.classList);
+    removeClassActive(menuButtons);
     menuButton === null || menuButton === void 0 ? void 0 : menuButton.classList.add("active");
 }
-exports.menuMouseKeyboard = menuMouseKeyboard;
-function removeClassActive() {
-    index_1.menuButtons.forEach(menuButton => {
+exports.menuMouseNavigation = menuMouseNavigation;
+function removeClassActive(menuButtons) {
+    menuButtons.forEach(menuButton => {
         menuButton === null || menuButton === void 0 ? void 0 : menuButton.classList.remove("active");
     });
 }
 exports.removeClassActive = removeClassActive;
-function menuNavigationKeyboard(e) {
-    const gameStart = document === null || document === void 0 ? void 0 : document.querySelector("#game_start");
-    if (gameStart.style.display != "none") {
-        const button = document.querySelector(".menu_button.active");
-        switch (e.key) {
-            case "ArrowDown":
-                key_1.ArrowDown(button);
-                break;
-            case "ArrowUp":
-                key_1.ArrowUp(button);
-                break;
-            case "Enter":
-                key_1.Enter(button, play, options, bestScores);
-                break;
-            default: null;
-        }
+function menuNavigationKeyboard(menuButtons) {
+    // const gameStart = document?.querySelector("#game_start") as HTMLDivElement
+    // if(gameStart.style.display != "none"){
+    console.log(event, menuButtons);
+    const button = document === null || document === void 0 ? void 0 : document.querySelector(".menu_button.active");
+    console.log(button);
+    switch (event.key) {
+        case "ArrowDown":
+            key_1.ArrowDown(button, menuButtons);
+            break;
+        case "ArrowUp":
+            key_1.ArrowUp(button, menuButtons);
+            break;
+        case "Enter":
+            key_1.Enter(button, play, options, bestScores);
+            break;
+        default: null;
     }
+    // }
 }
 exports.menuNavigationKeyboard = menuNavigationKeyboard;
 
@@ -1425,28 +1416,28 @@ exports.menuNavigationKeyboard = menuNavigationKeyboard;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Enter = exports.ArrowUp = exports.ArrowDown = void 0;
-const index_1 = __webpack_require__(/*! ../index */ "./src/js/menu/index.ts");
-const index_2 = __webpack_require__(/*! ./index */ "./src/js/menu/navigation/index.ts");
-function ArrowDown(button) {
-    index_2.removeClassActive();
-    for (let i = 0; i < index_1.menuButtons.length; i++) {
-        if (index_1.menuButtons[i] === button) {
-            i == 2 ? index_1.menuButtons[0].classList.add("active") : index_1.menuButtons[i + 1].classList.add("active");
+const index_1 = __webpack_require__(/*! ./index */ "./src/js/menu/navigation/index.ts");
+function ArrowDown(button, menuButtons) {
+    console.log('arrd', menuButtons.length, menuButtons[0]);
+    index_1.removeClassActive(menuButtons);
+    for (let i = 0; i < menuButtons.length; i++) {
+        if (menuButtons[i] === button) {
+            i == 2 ? menuButtons[0].classList.add("active") : menuButtons[i + 1].classList.add("active");
         }
     }
 }
 exports.ArrowDown = ArrowDown;
-function ArrowUp(button) {
-    index_2.removeClassActive();
-    for (let i = index_1.menuButtons.length - 1; i >= 0; i--) {
-        if (index_1.menuButtons[i] === button) {
-            i == 0 ? index_1.menuButtons[index_1.menuButtons.length - 1].classList.add("active") : index_1.menuButtons[i - 1].classList.add("active");
+function ArrowUp(button, menuButtons) {
+    index_1.removeClassActive(menuButtons);
+    for (let i = menuButtons.length - 1; i >= 0; i--) {
+        if (menuButtons[i] === button) {
+            i == 0 ? menuButtons[menuButtons.length - 1].classList.add("active") : menuButtons[i - 1].classList.add("active");
         }
     }
 }
 exports.ArrowUp = ArrowUp;
 function Enter(menuButton, play, options, bestScores) {
-    const id = menuButton.id;
+    const id = menuButton.id.replace("menu_", "");
     eval(`${id}()`);
 }
 exports.Enter = Enter;
@@ -1498,6 +1489,21 @@ function menuButtonOptionsAction() {
         const optButton = document === null || document === void 0 ? void 0 : document.querySelector("#game_options .buttons button");
         const backMenuButton = document === null || document === void 0 ? void 0 : document.querySelector(".panel button.back_menu");
         initialOptions();
+        if (exports.selectedOptions.cardsNumber === 16)
+            optCardsNumberDiv === null || optCardsNumberDiv === void 0 ? void 0 : optCardsNumberDiv.children[0].classList.add("active");
+        else if (exports.selectedOptions.cardsNumber === 20)
+            optCardsNumberDiv === null || optCardsNumberDiv === void 0 ? void 0 : optCardsNumberDiv.children[1].classList.add("active");
+        else if (exports.selectedOptions.cardsNumber === 24)
+            optCardsNumberDiv === null || optCardsNumberDiv === void 0 ? void 0 : optCardsNumberDiv.children[2].classList.add("active");
+        if (exports.selectedOptions.time === null)
+            optTimerDiv === null || optTimerDiv === void 0 ? void 0 : optTimerDiv.children[0].classList.add("active");
+        else {
+            optTimerDiv === null || optTimerDiv === void 0 ? void 0 : optTimerDiv.children[0].classList.remove("active");
+            optTimerDiv === null || optTimerDiv === void 0 ? void 0 : optTimerDiv.children[1].classList.add("active");
+            clock.style.display = "block";
+            exports.selectedOptions.time = variables_1.enumTimer[`opt${enumIndex}`];
+            clockSeconds.innerHTML = "" + exports.selectedOptions.time;
+        }
         for (let i = 0; i < (optCardsNumberDiv === null || optCardsNumberDiv === void 0 ? void 0 : optCardsNumberDiv.children.length); i++) {
             optCardsNumberDiv === null || optCardsNumberDiv === void 0 ? void 0 : optCardsNumberDiv.children[i].addEventListener("click", function () {
                 exports.selectedOptions.cardsNumber = variables_1.enumCardsNumber[`opt${i + 1}`];
@@ -1572,12 +1578,15 @@ const init_game_1 = __webpack_require__(/*! ../game/init_game */ "./src/js/game/
 const play_1 = __webpack_require__(/*! ../game/play */ "./src/js/game/play.ts");
 const door_1 = __webpack_require__(/*! ./door */ "./src/js/menu/door.ts");
 const timer_1 = __webpack_require__(/*! ../game/timer */ "./src/js/game/timer.ts");
+const _1 = __webpack_require__(/*! . */ "./src/js/menu/index.ts");
 function menuButtonPlayAction() {
     return __awaiter(this, void 0, void 0, function* () {
         yield door_1.changeView("game");
         yield init_game_1.initGame();
         yield play_1.mainGame();
         yield timer_1.startTimer();
+        window.addEventListener("keypress", (e) => { if (e.key === 'Escape')
+            _1.backToMenu; });
     });
 }
 exports.menuButtonPlayAction = menuButtonPlayAction;
@@ -1596,14 +1605,16 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.unmuteAudio = exports.toggleAudio = void 0;
 const variables_1 = __webpack_require__(/*! ../variables */ "./src/js/variables.ts");
 function toggleAudio() {
-    if (variables_1.switchSoundImage.src.includes("volume")) {
-        variables_1.menuButtonToggleSound.innerHTML = `<img src="images/mute.png" alt="muted"/>`;
+    const switchSoundImage = document.querySelector(".switch_sound>img");
+    const menuButtonToggleSound = document === null || document === void 0 ? void 0 : document.querySelector(".switch_sound");
+    if (switchSoundImage.src.includes("volume")) {
+        menuButtonToggleSound.innerHTML = `<img src="images/mute.png" alt="muted"/>`;
         variables_1.audios.forEach(audio => {
             audio.muted = true;
         });
     }
     else {
-        variables_1.menuButtonToggleSound.innerHTML = `<img src="images/volume.png" alt="volume"/>`;
+        menuButtonToggleSound.innerHTML = `<img src="images/volume.png" alt="volume"/>`;
         variables_1.audios.forEach(audio => {
             audio.muted = false;
         });

@@ -4,7 +4,7 @@ import { changeView } from "../../menu/door";
 import { startTimer } from  ".././timer";
 import { initGame } from ".././init_game";
 import { mainGame } from ".././play";
-import { menuButtonsService } from "../../menu";
+import { backToMenu, menuButtonsService } from "../../menu";
 
 export async function losingProcedure(){
     const endScreenLose = document?.querySelector(".buttons_end_lose") as HTMLButtonElement;
@@ -20,12 +20,7 @@ export async function losingProcedure(){
         content.style.animation = "show 2s";
         content.style.animationFillMode = "forwards";
     })
-    backMenuButton?.addEventListener("click", async function(){
-        console.log('ssssssss');
-        await changeView("menu");
-        menuButtonsService()
-
-    })
+    backMenuButton?.addEventListener("click", backToMenu)
     
     tryAgainButton?.addEventListener("click", async function(){
         await changeView("game");

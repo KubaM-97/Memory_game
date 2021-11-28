@@ -2,7 +2,7 @@ import { lose, messageParts, pointsScreen, nicknameScreen, spanPoints, inputPoin
 import { showEndLoseButtons, showEndWinButton } from "./index";
 import { summary } from "./summary";
 import { changeView } from "../../menu/door";
-import { menuButtonsService } from "../../menu";
+import { backToMenu, menuButtonsService } from "../../menu";
 
 function showTypeNickNamePanel(playerTotalScore: number) {
      const pointsScreen = document?.querySelector(".summary") as HTMLDivElement;
@@ -74,8 +74,8 @@ xhr.send();
 }
 async function hideNicknameScreen(inputPoints: any, playerTotalScore: number){
     noteBestScore(inputPoints.value, playerTotalScore)
-    await changeView("menu");
-    menuButtonsService()
+    backToMenu()
+
 
 }
 

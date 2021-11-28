@@ -22,32 +22,33 @@ export function bestScores(): void{
 }
 
 
-export function menuMouseKeyboard(menuButton: HTMLButtonElement):void{
-    removeClassActive()
+export function menuMouseNavigation(menuButton: HTMLButtonElement, menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement]):void{
+    // console.log('yyyyyyyyy', menuButton, menuButton.classList);
+    removeClassActive(menuButtons)
     menuButton?.classList.add("active")
 }
 
-export function removeClassActive():void{
+export function removeClassActive(menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement]):void{
     menuButtons.forEach(menuButton => {
         menuButton?.classList.remove("active")
     });
 }
 
 
-export function menuNavigationKeyboard(e: KeyboardEvent):void{
-    const gameStart = document?.querySelector("#game_start") as HTMLDivElement
-    if(gameStart.style.display != "none"){
-
-        const button = document.querySelector(".menu_button.active") as HTMLButtonElement;
-       
-        switch(e.key){
+export function menuNavigationKeyboard(menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement]):void{
+    // const gameStart = document?.querySelector("#game_start") as HTMLDivElement
+    // if(gameStart.style.display != "none"){
+    console.log(event, menuButtons);
+    const button = document?.querySelector(".menu_button.active") as HTMLButtonElement;
+       console.log(button);
+        switch(event.key){
 
             case "ArrowDown":
-                ArrowDown(button)
+                ArrowDown(button, menuButtons)
                 break;
 
             case "ArrowUp":
-                ArrowUp(button)
+                ArrowUp(button, menuButtons)
                 break;
             
             case "Enter":
@@ -57,6 +58,6 @@ export function menuNavigationKeyboard(e: KeyboardEvent):void{
             default: null
 
         }
-    }
+    // }
     
 }

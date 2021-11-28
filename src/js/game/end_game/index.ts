@@ -3,7 +3,7 @@ import { changeView } from "../../menu/door";
 import { startTimer } from  ".././timer";
 import { initGame } from ".././init_game";
 import { mainGame } from ".././play";
-import { menuButtonsService } from "../../menu";
+import { backToMenu, menuButtonsService } from "../../menu";
 
 export async function showVideo(video: HTMLVideoElement){
 
@@ -38,8 +38,7 @@ export function showEndLoseButtons(){
     endScreenLoseButtons.style.animation = "show 2s";
     endScreenLoseButtons.style.animationFillMode = "forwards";
     mainMenu?.addEventListener("click", async function(){
-        await changeView("menu");
-        menuButtonsService()
+        backToMenu()
     })
     
     tryAgain?.addEventListener("click", async function(){
