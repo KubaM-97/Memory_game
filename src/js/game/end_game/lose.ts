@@ -4,14 +4,13 @@ import { changeView } from "../../menu/door";
 import { startTimer } from  ".././timer";
 import { initGame } from ".././init_game";
 import { mainGame } from ".././play";
+import { menuButtonsService } from "../../menu";
 
 export async function losingProcedure(){
     const endScreenLose = document?.querySelector(".buttons_end_lose") as HTMLButtonElement;
     const backMenuButton = endScreenLose?.querySelector(".mainMenu") as HTMLButtonElement;
     const tryAgainButton = endScreenLose?.querySelector(".tryAgain") as HTMLButtonElement;
-    // const timeCounter = document?.getElementById("timeCounter") as HTMLDivElement
-
-    // timeCounter.innerHTML = "0";
+  
     showVideo(loseVideo)
     loseVideo.addEventListener("ended", function(){
         hideVideo(loseSound)
@@ -21,8 +20,11 @@ export async function losingProcedure(){
         content.style.animation = "show 2s";
         content.style.animationFillMode = "forwards";
     })
-    backMenuButton?.addEventListener("click", function(){
-        changeView("menu");
+    backMenuButton?.addEventListener("click", async function(){
+        console.log('ssssssss');
+        await changeView("menu");
+        menuButtonsService()
+
     })
     
     tryAgainButton?.addEventListener("click", async function(){

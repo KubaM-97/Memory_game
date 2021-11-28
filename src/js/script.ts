@@ -10,7 +10,6 @@ xhttp.onload = function() {
 xhttp.open("GET", "menu.php", true);
 xhttp.send();
 
-
 // game
 import "./menu"; 
 import { unmuteAudio } from "./menu/sound";

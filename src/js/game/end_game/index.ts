@@ -1,16 +1,12 @@
 
-import { timer, messageParts, end_screen_message, endScreenWinButton, mainMenu, tryAgain } from "../../variables";
 import { changeView } from "../../menu/door";
 import { startTimer } from  ".././timer";
 import { initGame } from ".././init_game";
 import { mainGame } from ".././play";
+import { menuButtonsService } from "../../menu";
 
 export async function showVideo(video: HTMLVideoElement){
 
-    // await changeView("game_board", "game_end"); 
-    const endScreenLoseButtons = document?.querySelector(".buttons_end_lose") as HTMLDivElement;
-    
-    // endScreenLoseButtons.style.display = "none";
     const divVideo = document?.querySelector(".video") as HTMLDivElement;
 
     divVideo.style.display = "block";
@@ -19,7 +15,6 @@ export async function showVideo(video: HTMLVideoElement){
 
     video.play();
     video.playbackRate = 1.4;
-
         
 }
 
@@ -36,27 +31,39 @@ export function hideVideo(sound:HTMLAudioElement){
 
 export function showEndLoseButtons(){
     const endScreenLoseButtons = document?.querySelector(".buttons_end_lose") as HTMLDivElement;
+    const mainMenu = document?.querySelector(".main_menu") as HTMLDivElement;
+    const tryAgain = document?.querySelector(".try_again") as HTMLDivElement;
 
     endScreenLoseButtons.style.display = "flex";
     endScreenLoseButtons.style.animation = "show 2s";
     endScreenLoseButtons.style.animationFillMode = "forwards";
+    mainMenu?.addEventListener("click", async function(){
+        await changeView("menu");
+        menuButtonsService()
+    })
+    
+    tryAgain?.addEventListener("click", async function(){
+        await initGame(); 
+        await mainGame();
+        await changeView("game");
+        await startTimer();
+    })
 }
 
 export function showEndWinButton(){
+    const endScreenWinButton = document?.querySelector(".buttons_end_win") as HTMLDivElement;
+    const go = document?.querySelector(".go") as HTMLDivElement;
+
     endScreenWinButton.style.display = "flex";
     endScreenWinButton.style.animation = "show 2s";
     endScreenWinButton.style.animationFillMode = "forwards";
+    go?.addEventListener("click", async function(){
+        const nickNamePanel = document?.querySelector(".nickname") as HTMLDivElement;
+        nickNamePanel.style.display="block";
+        nickNamePanel.style.animation = "show 1s"
+        nickNamePanel.style.animationFillMode = "forwards"
+    })
 }
 
-mainMenu?.addEventListener("click", function(){
-    changeView("menu");
-    // endScreenLoseButtons.style.display = "none";
-})
 
-tryAgain?.addEventListener("click", async function(){
-    await initGame(); 
-    await mainGame();
-    await changeView("game");
-    await startTimer();
-})
 

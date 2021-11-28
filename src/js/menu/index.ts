@@ -22,6 +22,7 @@ menuButtons.forEach(button => {
 window.addEventListener("keydown", menuNavigationKeyboard);
 
 export function menuButtonsService(){
+    console.log('pppppppp');
     const menuButtonPlay = document?.querySelector("#menu_play") as HTMLDivElement;
     const menuButtonOptions = document?.querySelector("#menu_options") as HTMLDivElement;
     const menuButtonBestScores = document?.querySelector("#menu_bestScores") as HTMLDivElement;
