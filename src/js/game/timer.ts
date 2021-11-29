@@ -1,5 +1,5 @@
 import { totalPairs } from "./play";
-import { selectedOptions } from "../menu/optionsSettings";
+import { selectedOptions } from "../menu/options";
 import { losingProcedure } from "./end_game/lose";
 import { changeView } from "../menu/gate";
 

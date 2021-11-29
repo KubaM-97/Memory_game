@@ -1,14 +1,14 @@
 <?php
 echo '
-<div id="game_options">
+<div id="page_options">
 
-    <div class="option_step">
+    <div class="options_step">
 
         <div class="option_description">
             <span>Cards Number</span>
         </div>
 
-        <div class="options cardsNumber">
+        <div class="options optCardsNumber">
 
             <button class="option">
                 <img src="./images/cards/lumpy.png" alt="x16">
@@ -29,13 +29,13 @@ echo '
 
     </div>
 
-    <div class="option_step">
+    <div class="options_step">
 
         <div class="option_description">
             <span>Timer</span>
         </div>
 
-        <div class="options timer">
+        <div class="options optTimer">
 
             <button class="option timerNo">
                 <img src="./images/alarm_clock.png" alt="alarm_clock Yes">
@@ -45,22 +45,21 @@ echo '
                 <img src="./images/alarm_clock.png" alt="alarm_clock No">
             </button>
 
-            <button class="clock"> 
-                <img src="./images/clock.png" alt="clock">
-                <span class="clockTime">  
+            <div class="timer"> 
+                <img src="./images/timerScreen.png" alt="timer">
+                <div class="timerDevice">  
 
-                    <span class="updateTime minusTime">
+                    <span class="setTimer minusTime">
                         <button id="minusTime">-</button>  
                     </span>
 
-                    <div class="clockTimeDisplay">
+                    <div class="timerScreen">
                         <span class="clockTimeMinutes">0</span>
                         :
                         <span class="clockTimeSeconds">25</span>
                     </div>
                 
-
-                    <span class="updateTime plusTime">
+                    <span class="setTimer plusTime">
                         <button id="plusTime">+</button> 
                     </span>
                 </span>                     
@@ -71,10 +70,11 @@ echo '
 
     </div>
 
-    <div class="buttons">
-        <button class="back_menu">SAVE & QUIT</button>
-    </div>
-
 </div>
+
+<div class="buttons">
+    <button class="back_menu">SAVE & QUIT</button>
+</div>
+
 '
 ?>

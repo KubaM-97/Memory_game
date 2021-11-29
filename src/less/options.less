@@ -1,90 +1,97 @@
-.option{
-    display: inline-block;
-    width: 120px;
-    height: 120px;
-    position: relative;
-    cursor: pointer;
-    margin: 0 10px;
-    border-radius: 6px;
-    opacity: .55;
-}
-
-#game_options{
+#page_options {
     width: 90%;
     margin: 100px auto;
-    .option_step{
+
+    .options_step {
+
+        .border(7px, rgb(194, 145, 117), 20px);
         display: flex;
         justify-content: center;
         align-items: center;
-        .border(7px, rgb(194, 145, 117), 20px);
         backdrop-filter: brightness(160%);
         padding: 12px;
         margin: 40px auto;
-        .option_description{
+
+        .option_description {
             display: inline-block;
             width: 43%;
             text-align: center;
             font-size: 2.2em;
         }
-        .options{
+
+        .options {
+
             display: inline-flex;
             justify-content: flex-start;
             align-items: center;
             width: 65%;
-            .option{
+
+            .option {
+
                 .option;
-                .border(7px, black); 
+                .border(7px, black);
                 background-image: #gradient[@card-background-color];
-                img{
+
+                img {
                     width: 100%;
                 }
-                .optHint{
+
+                .optHint {
                     position: absolute;
                     bottom: -10px;
                     right: -10px;
-                    font-size: 2.7em;
+                    font-size: 3.1em;
                     font-weight: 700;
                     color: rgb(179, 118, 84);
                     font-family: 'RocknRoll One', sans-serif;
                     text-shadow: 2px 2px 2px rgb(0, 0, 0);
                 }
+
             }
-            .timerNo{
+
+            .timerNo {
                 .option;
                 background-image: none;
                 background-color: rgba(241, 47, 47, 0.8);
             }
-            .timerYes{
+
+            .timerYes {
                 .option;
                 background-image: none;
                 background-color: rgba(96, 212, 96, .8);
             }
-            .clock{
+
+            .timer {
                 position: relative;
                 width: 265px;
                 display: none;
-                img{
+
+                img {
                     width: 100%;
                 }
-                .clockTime{
+
+                .timerDevice {
+                    .center();
                     width: 100%;
                     text-align: center;
-                    .center();
                     font-size: 2.5rem;
                     font-family: 'Orbitron', sans-serif;
                     letter-spacing: 1.2px;
                     color: #colors[@clockTime-color];
-                    .clockTimeDisplay{
+
+                    .timerScreen {
                         width: 56%;
                         display: inline-block;
                         margin: auto;
                     }
-                    .updateTime{
-                        width: 7%;;
+
+                    .setTimer {
+                        width: 7%;
                         font-size: 2.5rem;
                         display: inline-block;
                         margin: auto;
-                        & button{
+
+                        & button {
                             background-color: transparent;
                             outline: none;
                             border: none;
@@ -96,65 +103,78 @@
                     }
                 }
             }
-            .active{
+
+            .active {
                 .border(7px, rgb(255, 187, 0));
                 opacity: 1;
             }
         }
     }
-    .buttons{
+
+    .buttons {
         .buttons;
-        font-size: 1.8em;
     }
 }
-@media @mobile_landscape{
-    #game_options{
+
+@media @mobile_landscape {
+    #page_options {
         margin-top: 30px;
-        .option_step{
-            .option_description{
+
+        .option_step {
+            .option_description {
                 font-size: 1.6em;
                 width: 20%;
                 text-align: left;
             }
-            .options{
+
+            .options {
                 width: 80%;
-                .option{
+
+                .option {
                     width: 92px !important;
                     height: 92px !important;
-                    .optHint{
+
+                    .optHint {
                         font-size: 1.6em;
                     }
                 }
-                .clock{
+
+                .timer {
                     width: 170px;
-                    .clockTime{
+
+                    .clockTime {
                         font-size: 1.5rem;
-                        .updateTime{
+
+                        .updateTime {
                             font-size: 1.8rem;
                         }
                     }
                 }
             }
         }
-        .buttons{
-            bottom: 5%;
-            button{
+
+        .buttons {
+            button {
                 font-size: .5em;
             }
         }
     }
 }
-@media @mobile_portrait{
-    #game_options{
-        .option_step{
+
+@media @mobile_portrait {
+    #page_options {
+        .option_step {
             margin: 100px auto;
-            .option_description{
+
+            .option_description {
                 width: 20%;
                 text-align: left;
             }
-            .options{
+
+            .options {
                 width: 70%;
-                .clock{
+
+                .timer {
                     width: 260px;
                 }
             }

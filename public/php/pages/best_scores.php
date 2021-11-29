@@ -19,6 +19,7 @@ foreach ($oldResults as $key=>$player) {
 };
 echo ' </tbody>
     </table>
+
 </div>
 
 <div class="buttons">
