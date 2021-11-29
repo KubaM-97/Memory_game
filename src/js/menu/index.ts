@@ -1,42 +1,27 @@
-// import { menuButtonPlay, menuButtonOptions, menuButtonBestScores, menuButtonToggleSound } from "../variables";
 import { toggleAudio } from "./sound";
-import { play, options, bestScores, menuMouseNavigation, menuNavigationKeyboard } from "./navigation/index";
-import { changeView } from './door';
+import { menuMouseNavigation, menuNavigationKeyboard } from "./navigation/index";
+import { changeView } from './gate';
 import { menuButtonPlayAction } from './play';
 import { menuButtonOptionsAction } from './options';
 import { menuButtonBestScoresAction } from './bestScore';
 
-// menuButtonPlay?.addEventListener("click", play)
-// menuButtonOptions?.addEventListener("click", options)
-// menuButtonBestScores?.addEventListener("click", bestScores)
-// menuButtonToggleSound?.addEventListener("click", toggleAudio);
+export function menuButtonsService() {
 
-// export const menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [menuButtonPlay, menuButtonOptions, menuButtonBestScores];
+    const menuButtonPlay = document?.querySelector("#menu_play") as HTMLButtonElement;
+    const menuButtonOptions = document?.querySelector("#menu_options") as HTMLButtonElement;
+    const menuButtonBestScores = document?.querySelector("#menu_bestScores") as HTMLButtonElement;
+    const menuButtonToggleSound = document?.querySelector(".switch_sound") as HTMLDivElement;
+    menuButtonToggleSound?.addEventListener("click", toggleAudio);
 
-// menuButtons.forEach(button => {
-//     button?.addEventListener("mouseover", function(){
-//         (this)
-//     })
-// })
+    // if( gamestart istnieje escape nie działa){
+    // if( gamestart istnieje ){
 
-
-export function menuButtonsService(){
-    
- const menuButtonPlay = document?.querySelector("#menu_play") as HTMLButtonElement;
- const menuButtonOptions = document?.querySelector("#menu_options") as HTMLButtonElement;
- const menuButtonBestScores = document?.querySelector("#menu_bestScores") as HTMLButtonElement;
- const menuButtonToggleSound = document?.querySelector(".switch_sound") as HTMLDivElement;
-menuButtonToggleSound?.addEventListener("click", toggleAudio);
-
-// if( gamestart istnieje escape nie działa){
-// if( gamestart istnieje ){
-
-// }
+    // }
     const menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [menuButtonPlay, menuButtonOptions, menuButtonBestScores];
-    window.addEventListener("keydown", ()=>menuNavigationKeyboard(menuButtons));
+    window.addEventListener("keydown", () => menuNavigationKeyboard(menuButtons));
 
     menuButtons.forEach(button => {
-        button?.addEventListener("mouseover", function(){
+        button?.addEventListener("mouseover", function () {
             menuMouseNavigation(this, menuButtons)
         })
     })

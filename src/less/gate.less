@@ -1,5 +1,4 @@
-
-.door(){
+.gate(){
     position: absolute;
     z-index: 1000;
     width: 100%;
@@ -9,40 +8,8 @@
     display: inline-block;
     margin: auto;
 }
-@keyframes closeTheDoorLeft{
-    from{
-        left: -100%
-    }
-    to{
-        left: -45%
-    }
-}
-@keyframes closeTheDoorRight{
-    from{
-        right: -100%
-    }
-    to{
-        right: -45%
-    }
-}
-@keyframes openTheDoorLeft{
-    from{
-        left: -45%
-    }
-    to{
-        left: -100%
-    }
-}
-@keyframes openTheDoorRight{
-    from{
-        right: -45%
-    }
-    to{
-        right: -100%
-    }
-}
-#left_door{
-    .door;
+#left_gate{
+    .gate;
     background-color: black;
     left: -100%;
     clip-path: polygon(0 0, 100% 0, 
@@ -51,9 +18,9 @@
     90% (100%/9*7), 100% (100%/9*8),
     90% 100%, 0 100%);
 }
-#left_door::before{
+#left_gate::before{
     content: "";
-    .door;
+    .gate;
     right: 10px;
     z-index: 999;
     clip-path: polygon(0 0, 100% 0, 
@@ -61,10 +28,10 @@
     100% (100%/9*4), 90% (100%/9*5), 100% (100%/9*6),
     90% (100%/9*7), 100% (100%/9*8),
     90% 100%, 0 100%);
-    background-image: url(../images/door.jpg);
+    background-image: url(../images/gate.jpg);
 }
-#right_door{
-    .door;
+#right_gate{
+    .gate;
     background-color: black;
     right: -100%;
     clip-path: polygon(10% 0, 100% 0,
@@ -74,9 +41,9 @@
     10% (100%/9*2), 0 (100%/9*1)
     );
 }
-#right_door::before{
+#right_gate::before{
     content: "";
-    .door;
+    .gate;
     width: 97%;
     left: 10px;
     z-index: 999;
@@ -86,5 +53,5 @@
     0 (100%/9*5), 10% (100%/9*4), 0% (100%/9*3),
     10% (100%/9*2), 0 (100%/9*1)
     );
-    background-image: url(../images/door.jpg);
+    background-image: url(../images/gate.jpg);
 }

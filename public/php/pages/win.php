@@ -2,38 +2,36 @@
 echo '
 <div class="win">
     <div class="summary">
-        <div class="message">
-
-            <div class="message_statistics">
-                <div class="message_segment" id="cardsNumber">
+            <div class="total_statistics">
+                <div class="statisitcs" id="cardsNumber">
                     <div class="message_segment_description">Cards number: </div>
                     <div class="message_segment_score">
                         <span class="score"></span>
                         <span class="score_full"></span>
                     </div>
                 </div>
-                <div class="message_segment" id="timeLeft">
+                <div class="statisitcs" id="timeLeft">
                     <div class="message_segment_description">Time left: </div>
                     <div class="message_segment_score">
                         <span class="score"></span>
                         <span class="score_full"></span>
                     </div>
                 </div>
-                <div class="message_segment" id="timeBonus">
+                <div class="statisitcs" id="timeBonus">
                     <div class="message_segment_description">Time bonus: </div>
                     <div class="message_segment_score">
                         <span class="score"></span>
                         <span class="score_full"></span>
                     </div>
                 </div>
-                <div class="message_segment" id="timeStart">
+                <div class="statisitcs" id="timeInitial">
                     <div class="message_segment_description">Time start: </div>
                     <div class="message_segment_score">
                         <span class="score"></span>
                         <span class="score_full"></span>
                     </div>
                 </div>
-                <div class="message_segment" id="madeMoves">
+                <div class="statisitcs" id="madeMoves">
                     <div class="message_segment_description">Made moves: </div>
                     <div class="message_segment_score">
                         <span class="score"></span>
@@ -42,7 +40,7 @@ echo '
                 </div>
             </div>
             
-            <div class="message_segment" id="totalPoints">
+            <div class="statisitcs" id="totalPoints">
                 <div class="message_segment_description">Total: </div>
                 <div class="message_segment_score">
                     <span class="score_full">0</span> points
@@ -58,7 +56,6 @@ echo '
                 <button class="button go">Go</button>
             </div>
             
-        </div>                     
     </div>
     <div class="nickname" style="display:none">
 

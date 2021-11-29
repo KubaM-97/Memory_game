@@ -1,25 +1,5 @@
 [
     {
-        "id": "61a3a054ea31d",
-        "nickname": "DUPSKO SOCZYSTE",
-        "points": 5000
-    },
-    {
-        "id": "61a3a0573d0e6",
-        "nickname": "DUPSKO SOCZYSTE",
-        "points": 5000
-    },
-    {
-        "id": "61a3a057cf3e2",
-        "nickname": "DUPSKO SOCZYSTE",
-        "points": 5000
-    },
-    {
-        "id": "61a3a058039d8",
-        "nickname": "DUPSKO SOCZYSTE",
-        "points": 5000
-    },
-    {
         "id": "1",
         "nickname": "Player1",
         "points": 4000
@@ -48,5 +28,25 @@
         "id": "6",
         "nickname": "Player6",
         "points": 2750
+    },
+    {
+        "id": "7",
+        "nickname": "Player7",
+        "points": 2475
+    },
+    {
+        "id": "8",
+        "nickname": "Player8",
+        "points": 2400
+    },
+    {
+        "id": "9",
+        "nickname": "Player9",
+        "points": 2200
+    },
+    {
+        "id": "10",
+        "nickname": "Player10",
+        "points": 2000
     }
 ]

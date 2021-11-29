@@ -1,6 +1,6 @@
 import { initGame } from "../game/init_game";
 import { mainGame } from "../game/play";
-import { changeView } from  "./door"; 
+import { changeView } from  "./gate"; 
 import { startTimer } from  "../game/timer"; 
 import { backToMenu } from ".";
 export async function menuButtonPlayAction(){

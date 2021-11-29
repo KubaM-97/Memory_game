@@ -10,20 +10,20 @@ echo '
 
         <div class="options cardsNumber">
 
-            <div class="option">
+            <button class="option">
                 <img src="./images/cards/lumpy.png" alt="x16">
                 <div class="optHint">x16</div>
-            </div>
+            </button>
 
-            <div class="option">
+            <button class="option">
                 <img src="./images/cards/lifty&shifty.png" alt="x20">
                 <div class="optHint">x20</div>
-            </div>
+            </button>
 
-            <div class="option">
+            <button class="option">
                 <img src="./images/cards/splendid.png" alt="x24">
                 <div class="optHint">x24</div>
-            </div>
+            </button>
 
         </div>
 
@@ -37,15 +37,15 @@ echo '
 
         <div class="options timer">
 
-            <div class="option timerNo">
+            <button class="option timerNo">
                 <img src="./images/alarm_clock.png" alt="alarm_clock Yes">
-            </div>
+            </button>
 
-            <div class="option timerYes">
+            <button class="option timerYes">
                 <img src="./images/alarm_clock.png" alt="alarm_clock No">
-            </div>
+            </button>
 
-            <div class="clock"> 
+            <button class="clock"> 
                 <img src="./images/clock.png" alt="clock">
                 <span class="clockTime">  
 

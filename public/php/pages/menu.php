@@ -1,5 +1,5 @@
 <?php 
-echo '<div id="game_start">
+echo '<div id="page_menu">
     <header>
         <h1>Happy Tree Friends</h1>
         <h2>Memory game</h2>

@@ -72,6 +72,6 @@ score.addEventListener("click", function (e) {
     alert(56);
     console.log(e.target.value);
     // if(e.key=="enter"){
-    //     alert("ENTER")
+    //     alert("enter")
     // }
 });

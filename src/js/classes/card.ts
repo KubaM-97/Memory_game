@@ -1,5 +1,3 @@
-import { gameCards } from "../variables";
-
 export interface interfaceCard {
     size: number;
     size_mobile_landscape: number;

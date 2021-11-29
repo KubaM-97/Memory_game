@@ -1,8 +1,7 @@
-import { timer, timeCounter } from "../variables";
 import { totalPairs } from "./play";
-import { selectedOptions } from "../menu/options";
+import { selectedOptions } from "../menu/optionsSettings";
 import { losingProcedure } from "./end_game/lose";
-import { changeView } from "../menu/door";
+import { changeView } from "../menu/gate";
 
 export let currentTime: number;
 

@@ -1,90 +1,89 @@
-import { multipliers, messageParts} from "../../variables";
-import { selectedOptions } from "../../menu/options";
-import { currentTime } from  ".././timer";
-import { turnCounter } from  ".././play";
+import { selectedOptions } from "../../menu/optionsSettings";
+import { currentTime } from ".././timer";
+import { turnCounter } from ".././play";
+
+enum multipliers {
+    multiplierCards = 200,
+    multiplieTimeLeft = 5,
+    multiplieTimeBonus = 100,
+    multiplieTimeInitial = 10,
+    multiplieMoves = 20
+}
 
 let totalSum: number = 0;
 let updateTotalSum: { next: (arg0: number) => void; };
 
-function* updateTotalSumGenerator(x: number): any{
-    totalSum+=yield
-    totalSum+=yield
-    totalSum+=yield
-    totalSum-=yield
-    totalSum-=yield
+function* updateTotalSumGenerator(x: number): any {
+    totalSum += yield
+    totalSum += yield
+    totalSum += yield
+    totalSum -= yield
+    totalSum -= yield
 }
 
-export async function summary(): Promise<number>{
+export async function summary(): Promise<number> {
     totalSum = 0;
-     const messageParts = {
-        cardsNumber: document?.querySelector(".message #cardsNumber") as HTMLDivElement,
-        timeStart: document?.querySelector(".message #timeStart") as HTMLDivElement,
-        timeLeft: document?.querySelector(".message #timeLeft") as HTMLDivElement,
-        timeBonus: document?.querySelector(".message #timeBonus") as HTMLDivElement,
-        madeMoves: document?.querySelector(".message #madeMoves") as HTMLDivElement,
-        totalPoints: document?.querySelector(".message #totalPoints") as HTMLDivElement,
-    }
-    const cardsNumber2 = document?.querySelector(".message #cardsNumber") as HTMLDivElement;
-     const timeStart2 = document?.querySelector(".message #timeStart") as HTMLDivElement;
-     const timeLeft2 = document?.querySelector(".message #timeLeft") as HTMLDivElement;
-     const timeBonus2 = document?.querySelector(".message #timeBonus") as HTMLDivElement;
-     const madeMoves2 = document?.querySelector(".message #madeMoves") as HTMLDivElement;
-     const totalPoints = document?.querySelector(".message #totalPoints") as HTMLDivElement;
+    const cardsNumber = document?.querySelector(".message #cardsNumber") as HTMLDivElement;
+    const timeInitial = document?.querySelector(".message #timeInitial") as HTMLDivElement;
+    const timeLeft = document?.querySelector(".message #timeLeft") as HTMLDivElement;
+    const timeBonus = document?.querySelector(".message #timeBonus") as HTMLDivElement;
+    const madeMoves = document?.querySelector(".message #madeMoves") as HTMLDivElement;
+    const totalPoints = document?.querySelector(".message #totalPoints") as HTMLDivElement;
 
     const messageScores = {
-    cardsNumberScore: cardsNumber2?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-    timeStartScore: timeStart2?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-    timeLeftScore: timeLeft2?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-    timeBonusScore: timeBonus2?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-    madeMovesScore: madeMoves2?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-    totalPointsScore: totalPoints?.querySelector(":scope > .message_segment_score .score_full") as HTMLDivElement,
-}
+        cardsNumberScore: cardsNumber?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+        timeInitialScore: timeInitial?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+        timeLeftScore: timeLeft?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+        timeBonusScore: timeBonus?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+        madeMovesScore: madeMoves?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
+        totalPointsScore: totalPoints?.querySelector(":scope > .message_segment_score .score_full") as HTMLDivElement,
+    }
     messageScores.totalPointsScore.innerHTML = `0`;
     updateTotalSum = updateTotalSumGenerator(0);
     updateTotalSum.next(0);
 
-    let cardsNumber: number = selectedOptions.cardsNumber;
-    let timeStart: number = selectedOptions.time! | 0;
-    let timeBonus: number = selectedOptions.selectedTime;
-    let timeLeft: number = currentTime | 0;
-    let madeMoves: number = turnCounter;
+    let cardsNumberScored: number = selectedOptions.cardsNumber;
+    let timeInitialScored: number = selectedOptions.time! | 0;
+    let timeBonusScored: number = selectedOptions.selectedTime;
+    let timeLeftScored: number = currentTime | 0;
+    let madeMovesScored: number = turnCounter;
 
-    const totalSegmentPointsCards =  await summarizePoints(cardsNumber, cardsNumber2, messageScores.cardsNumberScore, multipliers.multiplierCards);
-    await summarizeTotalPoints(totalSum + totalSegmentPointsCards, totalSegmentPointsCards, messageScores)  
-    
-    const totalSegmentPointsTimeLeft =  await summarizePoints(timeLeft, timeLeft2, messageScores.timeLeftScore, multipliers.multiplieTimeLeft); 
+    const totalSegmentPointsCards = await summarizePoints(cardsNumberScored, cardsNumber, messageScores.cardsNumberScore, multipliers.multiplierCards);
+    await summarizeTotalPoints(totalSum + totalSegmentPointsCards, totalSegmentPointsCards, messageScores)
+
+    const totalSegmentPointsTimeLeft = await summarizePoints(timeLeftScored, timeLeft, messageScores.timeLeftScore, multipliers.multiplieTimeLeft);
     await summarizeTotalPoints(totalSum + totalSegmentPointsTimeLeft, totalSegmentPointsTimeLeft, messageScores)
-   
-    const totalSegmentPointsTimeBonus =  await summarizePoints(timeBonus, timeBonus2, messageScores.timeBonusScore, multipliers.multiplieTimeBonus);
+
+    const totalSegmentPointsTimeBonus = await summarizePoints(timeBonusScored, timeBonus, messageScores.timeBonusScore, multipliers.multiplieTimeBonus);
     await summarizeTotalPoints(totalSum + totalSegmentPointsTimeBonus, totalSegmentPointsTimeBonus, messageScores)
 
-    const totalSegmentPointsTimeStart =  await summarizePoints(timeStart, timeStart2, messageScores.timeStartScore, multipliers.multiplieTimeStart);
-    await summarizeTotalPoints(totalSum - totalSegmentPointsTimeStart, totalSegmentPointsTimeStart, messageScores)
+    const totalSegmentPointstimeInitial = await summarizePoints(timeInitialScored, timeInitial, messageScores.timeInitialScore, multipliers.multiplieTimeInitial);
+    await summarizeTotalPoints(totalSum - totalSegmentPointstimeInitial, totalSegmentPointstimeInitial, messageScores)
 
-    const totalSegmentPointsMoves =  await summarizePoints(madeMoves, madeMoves2, messageScores.madeMovesScore, multipliers.multiplieMoves);
+    const totalSegmentPointsMoves = await summarizePoints(madeMovesScored, madeMoves, messageScores.madeMovesScore, multipliers.multiplieMoves);
     await summarizeTotalPoints(totalSum - totalSegmentPointsMoves, totalSegmentPointsMoves, messageScores)
-    
-    cardsNumber = 0;
-    timeStart =  0;
-    timeBonus = 0;
-    timeLeft = 0;
-    madeMoves = 0;
+
+    // cardsNumberScored = 0;
+    // timeInitialScored = 0;
+    // timeBonusScored = 0;
+    // timeLeftScored = 0;
+    // madeMovesScored = 0;
 
     return totalSum
 }
 
-async function summarizePoints(x:number, messagePart: HTMLDivElement, messageScore: HTMLDivElement, multiplier: number): Promise<number>{
+async function summarizePoints(x: number, messagePart: HTMLDivElement, messageScore: HTMLDivElement, multiplier: number): Promise<number> {
     messagePart.style.display = "flex";
     messageScore.querySelector(":scope > .score")!.innerHTML = `0 x ${multiplier} = `;
     let i: number = 0;
-    return new Promise ((resolve, reject)=>{
-        const incrementScore = setInterval(()=>{
-            if(i < x){
+    return new Promise((resolve, reject) => {
+        const incrementScore = setInterval(() => {
+            if (i < x) {
                 i++
-                messageScore.querySelector(":scope > .score")!.innerHTML = `${i} x ${multiplier} = `;  
-    
-            } 
-            else{
+                messageScore.querySelector(":scope > .score")!.innerHTML = `${i} x ${multiplier} = `;
+
+            }
+            else {
                 clearInterval(incrementScore);
                 messageScore.querySelector(":scope > .score_full")!.innerHTML = `${i * multiplier} points`
                 resolve(i * multiplier);
@@ -93,30 +92,30 @@ async function summarizePoints(x:number, messagePart: HTMLDivElement, messageSco
     })
 }
 
-async function summarizeTotalPoints(totalSumWithValueToUpdate: number, valueToUpdate: number, messageScores: any): Promise<void>{
-    
-    return new Promise ((resolve, reject)=>{
+async function summarizeTotalPoints(totalSumWithValueToUpdate: number, valueToUpdate: number, messageScores: any): Promise<void> {
+
+    return new Promise((resolve, reject) => {
         let x = totalSum;
-        const incrementTotalScore = setInterval( async ()=>{
-            if(x < totalSumWithValueToUpdate){
+        const incrementTotalScore = setInterval(async () => {
+            if (x < totalSumWithValueToUpdate) {
                 messageScores.totalPointsScore.innerHTML = `${x + 5}`
-                x+=5
+                x += 5
             }
-            else if(x > totalSumWithValueToUpdate){
+            else if (x > totalSumWithValueToUpdate) {
                 messageScores.totalPointsScore.innerHTML = `${x - 5}`
-                x-=5
+                x -= 5
                 messageScores.totalPointsScore.style.animation = "squintingTimer .4s infinite"
             }
-            else{
-                
+            else {
+
                 clearInterval(incrementTotalScore)
                 await updateTotalSum.next(valueToUpdate)
                 messageScores.totalPointsScore.style.animation = "none";
                 resolve()
-                
+
             }
         }, 1)
     })
- 
+
 
 }

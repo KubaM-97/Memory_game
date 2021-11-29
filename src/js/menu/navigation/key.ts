@@ -1,8 +1,6 @@
-import { menuButtons } from "../index";
-import { removeClassActive } from "./index";
+import { menuNavigationKeyboard, removeClassActive } from "./index";
 
-export function ArrowDown(button: HTMLButtonElement, menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement]): void{
-console.log('arrd', menuButtons.length, menuButtons[0]);
+export function arrowDown(button: HTMLButtonElement, menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement]): void{
     removeClassActive(menuButtons);
     
     for(let i=0; i<menuButtons.length; i++){ 
@@ -11,7 +9,7 @@ console.log('arrd', menuButtons.length, menuButtons[0]);
         }
     }
 }
-export function ArrowUp(button: HTMLButtonElement, menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement]): void{
+export function arrowUp(button: HTMLButtonElement, menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement]): void{
 
     removeClassActive(menuButtons);
     
@@ -22,7 +20,11 @@ export function ArrowUp(button: HTMLButtonElement, menuButtons: [HTMLButtonEleme
     }
 }
 
-export function Enter(menuButton: HTMLButtonElement, play: any, options: any, bestScores: any): void{
-    const id: string = menuButton.id.replace("menu_", "");
-    eval(`${id}()`)
+export function enter(menuButton: HTMLButtonElement, play: Function, options: Function, bestScores: Function): void{
+    // window.removeEventListener("keydown", menuNavigationKeyboard);
+    if(document.querySelector('#page_menu')){
+
+        const id: string = menuButton.id.replace("menu_", "");
+        eval(`${id}()`)
+    }
 }

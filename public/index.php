@@ -12,10 +12,9 @@
         <div class="container">
             
             <div class="game">
-                <div class="door" id="left_door"></div>            
-                <div class="door" id="right_door"></div>  
-
-                <div class="panel"></div>
+                <div class="gate" id="left_gate"></div>            
+                <div class="gate" id="right_gate"></div>  
+                <div class="page"></div>
             </div>
         </div>
     </main>    

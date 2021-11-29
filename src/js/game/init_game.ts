@@ -1,6 +1,5 @@
 import { interfaceCard, Card } from "./../classes/card";
-import { selectedOptions } from "../menu/options";
-// import { gameCards } from "../variables";
+import { selectedOptions } from "../menu/optionsSettings";
 
 export const allGameCards: string[] = []
 
@@ -44,7 +43,6 @@ export async function initGame():Promise<void>{
     await getCards()
 
     allGameCards.splice(0,allGameCards.length);
-
 
     while (allGameCards.length < originCards.length*2) {
     

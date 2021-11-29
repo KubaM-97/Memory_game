@@ -1,5 +1,5 @@
 
-import { changeView } from "../../menu/door";
+import { changeView } from "../../menu/gate";
 import { startTimer } from  ".././timer";
 import { initGame } from ".././init_game";
 import { mainGame } from ".././play";

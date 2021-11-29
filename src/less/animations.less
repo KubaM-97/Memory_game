@@ -1,35 +1,70 @@
-@keyframes show{
-    from{opacity: 0;}
-    to{opacity: 1;}
-}
-@keyframes hide{
-    from{opacity: 1;}
-    to{opacity: 0; cursor: default}
-}
-@keyframes squintingTimer{
-    from {color: inherit}
-    to {color: #colors[@score-squinting-stats-font-color]}
-}
-@keyframes bestScore{
+@keyframes show {
     from {
-        font-size: inherit;
+        opacity: 0;
     }
-    to{
-        width: 100%;
-        font-size: 6.5rem;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%; -50%);
+
+    to {
+        opacity: 1;
     }
 }
 
-@keyframes active{
-    from{
-        content: ""
+@keyframes hide {
+    from {
+        opacity: 1;
     }
-    to{
-        content: "t";
-        position: absolute;
-        left: 10%;
+
+    to {
+        opacity: 0;
+        cursor: default
+    }
+}
+
+@keyframes squintingTimer {
+    from {
+        color: inherit
+    }
+
+    to {
+        color: #colors[@score-squinting-stats-font-color]
+    }
+}
+
+@keyframes closeTheGateLeft {
+    from {
+        left: -100%
+    }
+
+    to {
+        left: -45%
+    }
+}
+
+@keyframes closeTheGateRight {
+    from {
+        right: -100%
+    }
+
+    to {
+        right: -45%
+    }
+}
+
+@keyframes openTheGateLeft {
+    from {
+        left: -45%
+    }
+
+    to {
+        left: -100%
+    }
+}
+
+@keyframes openTheGateRight {
+    from {
+        right: -45%
+    }
+
+    to {
+        right: -100%
     }
 }
