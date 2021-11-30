@@ -1,37 +1,40 @@
-import { toggleAudio } from "./sound";
-import { menuMouseNavigation, menuNavigationKeyboard } from "./navigation/index";
-import { changeView } from './gate';
-import { menuButtonPlayAction } from './play';
-import { menuButtonOptionsAction } from './options';
-import { menuButtonBestScoresAction } from './bestScore';
+import { changeView } from '../gate';
 
-export function menuButtonsService() {
+import { menuButtonPlayAction } from './buttons/play';
+import { menuButtonOptionsAction } from './buttons/options';
+import { menuButtonBestScoresAction } from './buttons/bestScore';
+import { toggleAudio } from "./buttons/sound";
+
+import { menuKeyboardNavigation } from "./navigation/keyboardNavigation";
+import { menuMouseNavigation } from "./navigation/mouseNavigation";
+
+export function menuButtonsService(): void {
 
     const menuButtonPlay = document?.querySelector("#menu_play") as HTMLButtonElement;
     const menuButtonOptions = document?.querySelector("#menu_options") as HTMLButtonElement;
     const menuButtonBestScores = document?.querySelector("#menu_bestScores") as HTMLButtonElement;
     const menuButtonToggleSound = document?.querySelector(".switch_sound") as HTMLDivElement;
+    
+    menuButtonPlay?.addEventListener('click', menuButtonPlayAction);
+    menuButtonOptions?.addEventListener('click', menuButtonOptionsAction);
+    menuButtonBestScores?.addEventListener('click', menuButtonBestScoresAction);
     menuButtonToggleSound?.addEventListener("click", toggleAudio);
 
-    // if( gamestart istnieje escape nie działa){
-    // if( gamestart istnieje ){
+    menuButtonPlay?.addEventListener('mouseover', () => menuMouseNavigation(menuButtonPlay));
+    menuButtonOptions?.addEventListener('mouseover', () => menuMouseNavigation(menuButtonOptions));
+    menuButtonBestScores?.addEventListener('mouseover', () => menuMouseNavigation(menuButtonBestScores));
 
-    // }
-    const menuButtons: [HTMLButtonElement, HTMLButtonElement, HTMLButtonElement] = [menuButtonPlay, menuButtonOptions, menuButtonBestScores];
-    window.addEventListener("keydown", () => menuNavigationKeyboard(menuButtons));
-
-    menuButtons.forEach(button => {
-        button?.addEventListener("mouseover", function () {
-            menuMouseNavigation(this, menuButtons)
-        })
-    })
-
-    menuButtonPlay?.addEventListener('click', menuButtonPlayAction)
-    menuButtonOptions?.addEventListener('click', menuButtonOptionsAction)
-    menuButtonBestScores?.addEventListener('click', menuButtonBestScoresAction)
+    window.addEventListener("keydown", menuKeyboardNavigation);
+    
 }
 
-export async function backToMenu() {
-    await changeView('menu');
-    menuButtonsService()
+export async function backToMenu(): Promise<void> {
+    const isPagePlayExists: boolean = !!document.querySelector('#page_play')
+    const isPageOptionsExists: boolean = !!document.querySelector('#page_options')
+    const isPageBestScoresExists: boolean = !!document.querySelector('#page_best_scores')
+
+    if (isPagePlayExists || isPageOptionsExists || isPageBestScoresExists) {
+        await changeView('menu');
+        menuButtonsService()
+    }
 }

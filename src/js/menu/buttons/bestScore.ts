@@ -1,5 +1,5 @@
-import { changeView } from "./gate";
-import { backToMenu } from "./";
+import { changeView } from "../../gate";
+import { backToMenu } from "..";
 
 export async function menuButtonBestScoresAction(){
     await changeView('best_scores');

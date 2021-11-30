@@ -1,4 +1,4 @@
-import { overlay, gateLeft, gateRight } from "../variables"
+import { overlay, gateLeft, gateRight } from "./variables"
 
 export function changeView(filename: string){
     return new Promise<void>((resolve, reject) =>{

@@ -1,6 +1,6 @@
 import { showEndLoseButtons, showEndWinButton } from "./index";
 import { summary } from "./summary";
-import { changeView } from "../../menu/gate";
+import { changeView } from "../../gate";
 import { backToMenu } from "../../menu";
 
 function showTypeNickNamePanel(playerTotalScore: number) {

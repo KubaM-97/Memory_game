@@ -1,5 +1,5 @@
-import { changeView } from "./gate";
-import { backToMenu } from "./";
+import { changeView } from "../../gate";
+import { backToMenu } from "..";
 
 interface Options {
     cardsNumber: number;
@@ -73,11 +73,10 @@ export async function menuButtonOptionsAction() {
     const clockSeconds = document?.querySelector(".timer span.clockTimeSeconds") as HTMLButtonElement;
     const minusTime = document?.querySelector(".setTimer.minusTime") as HTMLButtonElement;
     const plusTime = document?.querySelector(".setTimer.plusTime") as HTMLButtonElement;
+    const backMenuButton = document?.querySelector("button.back_menu") as HTMLButtonElement;
 
     setInitialOptions(optionsCardsNumber, optionsTimer, timer);
     setTimer(clockMinutes, clockSeconds);
-
-    const backMenuButton = document?.querySelector("button.back_menu") as HTMLButtonElement;
 
     const cardsOptions = Array.from(optionsCardsNumber.children);
 
@@ -119,4 +118,7 @@ export async function menuButtonOptionsAction() {
     });
 
     backMenuButton?.addEventListener("click", backToMenu)
+
+    window.addEventListener("keyup", (e) => { if(e.key==='Escape') backToMenu()})
+
 }

@@ -1,7 +1,7 @@
 import { totalPairs } from "./play";
-import { selectedOptions } from "../menu/options";
+import { selectedOptions } from "../menu/buttons/options";
 import { losingProcedure } from "./end_game/lose";
-import { changeView } from "../menu/gate";
+import { changeView } from "../gate";
 
 export let currentTime: number;
 
@@ -16,6 +16,8 @@ export async function startTimer() {
         timeCounter.innerHTML = currentTime.toString();
 
         const startTimer = setInterval(async function () {
+            window.addEventListener("keyup", (e) => { if(e.key==='Escape') clearInterval(startTimer)})
+            
             currentTime--;
             timeCounter.innerHTML = currentTime.toString();
 

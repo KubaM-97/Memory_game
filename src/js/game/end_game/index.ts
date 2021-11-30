@@ -1,9 +1,6 @@
 
-import { changeView } from "../../menu/gate";
-import { startTimer } from  ".././timer";
-import { initGame } from ".././init_game";
-import { mainGame } from ".././play";
-import { backToMenu, menuButtonsService } from "../../menu";
+import { backToMenu } from "../../menu";
+import { menuButtonPlayAction } from "../../menu/buttons/play";
 
 export async function showVideo(video: HTMLVideoElement){
 
@@ -41,11 +38,8 @@ export function showEndLoseButtons(){
         backToMenu()
     })
     
-    tryAgain?.addEventListener("click", async function(){
-        await initGame(); 
-        await mainGame();
-        await changeView("game");
-        await startTimer();
+    tryAgain?.addEventListener("click", function(){
+        menuButtonPlayAction()
     })
 }
 

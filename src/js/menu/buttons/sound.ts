@@ -1,11 +1,10 @@
 
-import { audios, backgroundSoundIndex } from "../variables";
+import { audios, backgroundSoundIndex } from "../../variables";
 
 export function toggleAudio(){
 const switchSoundImage = document.querySelector(".switch_sound>img") as HTMLImageElement;
 const menuButtonToggleSound = document?.querySelector(".switch_sound") as HTMLDivElement;
 
-    
     if(switchSoundImage.src.includes("volume")){
         menuButtonToggleSound.innerHTML = `<img src="images/mute.png" alt="muted"/>`
         audios.forEach( audio => {

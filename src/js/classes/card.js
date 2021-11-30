@@ -10,7 +10,7 @@ var Card = /** @class */ (function () {
     }
     ;
     Card.prototype.create = function () {
-        var gameBoard = document.querySelector("#game_board");
+        var gameBoard = document.querySelector("#page_play");
         var card = document.createElement("DIV");
         card.classList.add("card");
         card.style.width = this.width + "px";

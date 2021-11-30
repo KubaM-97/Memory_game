@@ -1,6 +1,6 @@
 import "../less/style.less";
 
-import { unmuteAudio } from "./menu/sound";
+import { unmuteAudio } from "./menu/buttons/sound";
 unmuteAudio();
 
 import { menuButtonsService } from './menu';

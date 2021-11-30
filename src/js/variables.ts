@@ -14,4 +14,3 @@ export const backgroundSoundIndex: number = audios.findIndex(audio => audio == b
 //video
 export const loseVideo = document?.createElement("VIDEO") as HTMLVideoElement;
 loseVideo.setAttribute("src", "video/lose.mp4");
-

@@ -1,4 +1,4 @@
-import { selectedOptions } from "../../menu/options";
+import { selectedOptions } from "../../menu/buttons/options";
 import { currentTime } from ".././timer";
 import { turnCounter } from ".././play";
 
