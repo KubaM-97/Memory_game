@@ -1,5 +1,5 @@
 import { interfaceCard, Card } from "./../classes/card";
-import { selectedOptions } from "../menu/buttons/options";
+import { selectedOptions } from "./menu/buttons/options";
 
 export const allGameCards: string[] = []
 

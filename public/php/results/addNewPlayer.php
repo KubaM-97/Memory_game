@@ -1,6 +1,6 @@
 <?php
 $id = uniqid();
-$nickname = prepare($_POST['nickname']);
+$nickname = $_POST['nickname'];
 $points = $_POST['points'];
 
 $oldResults = json_decode(file_get_contents('../../top10Players.json'));

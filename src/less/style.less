@@ -1,10 +1,8 @@
-@import "variables/variables.less";
-@import "./animations";
-@import "./start_screen";
-@import "./play";
-@import "./options";
-@import "./best_scores";
-@import "./end_screen";
+@import "variables";
+@import "animations";
+@import "gate";
+@import "menu";
+@import "end_screen";
 
 html{
     height: 100%;
@@ -18,10 +16,10 @@ body{
     font-family: 'Stick', sans-serif;
 }
 a{
-    color: inherit;
+   color: inherit;
     text-decoration: none;
     &:hover{
-        color: gold;
+       color: #colors[@link-hover];
     }
 }
 .container{
@@ -32,6 +30,7 @@ a{
     height: 800px;
 }
 .page{
+    .center();
     width: 100%;
     height: 100%;
 }
@@ -45,14 +44,13 @@ a{
     height: 100%;
 }
 #overlay{
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: transparent;
     z-index: 9999;
-    display: none;
 }
 
 @media @mobile_landscape {

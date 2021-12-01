@@ -1,4 +1,4 @@
-import { changeView } from '../gate';
+import { changeView } from '../../gate';
 
 import { menuButtonPlayAction } from './buttons/play';
 import { menuButtonOptionsAction } from './buttons/options';
@@ -29,12 +29,10 @@ export function menuButtonsService(): void {
 }
 
 export async function backToMenu(): Promise<void> {
-    const isPagePlayExists: boolean = !!document.querySelector('#page_play')
-    const isPageOptionsExists: boolean = !!document.querySelector('#page_options')
-    const isPageBestScoresExists: boolean = !!document.querySelector('#page_best_scores')
-
-    if (isPagePlayExists || isPageOptionsExists || isPageBestScoresExists) {
+    const isPageMenu: boolean = !!document.querySelector('#page_menu')
+    const isPageWin: boolean = !!document.querySelector('#page_summary')
+    if (!isPageMenu && !isPageWin) {
         await changeView('menu');
-        menuButtonsService()
+        menuButtonsService();
     }
 }

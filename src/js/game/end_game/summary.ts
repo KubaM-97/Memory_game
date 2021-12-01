@@ -1,4 +1,4 @@
-import { selectedOptions } from "../../menu/buttons/options";
+import { selectedOptions } from "../menu/buttons/options";
 import { currentTime } from ".././timer";
 import { turnCounter } from ".././play";
 
@@ -23,45 +23,45 @@ function* updateTotalSumGenerator(x: number): any {
 
 export async function summary(): Promise<number> {
     totalSum = 0;
-    const cardsNumber = document?.querySelector(".message #cardsNumber") as HTMLDivElement;
-    const timeInitial = document?.querySelector(".message #timeInitial") as HTMLDivElement;
-    const timeLeft = document?.querySelector(".message #timeLeft") as HTMLDivElement;
-    const timeBonus = document?.querySelector(".message #timeBonus") as HTMLDivElement;
-    const madeMoves = document?.querySelector(".message #madeMoves") as HTMLDivElement;
-    const totalPoints = document?.querySelector(".message #totalPoints") as HTMLDivElement;
+    const cardsNumber = document?.querySelector(".statistics#cardsNumber") as HTMLDivElement;
+    const timeInitial = document?.querySelector(".statistics#timeInitial") as HTMLDivElement;
+    const timeLeft = document?.querySelector(".statistics#timeLeft") as HTMLDivElement;
+    const timeBonus = document?.querySelector(".statistics#timeBonus") as HTMLDivElement;
+    const madeMoves = document?.querySelector(".statistics#madeMoves") as HTMLDivElement;
+    const totalPoints = document?.querySelector(".statistics#totalPoints") as HTMLDivElement;
 
-    const messageScores = {
-        cardsNumberScore: cardsNumber?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-        timeInitialScore: timeInitial?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-        timeLeftScore: timeLeft?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-        timeBonusScore: timeBonus?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-        madeMovesScore: madeMoves?.querySelector(":scope > .message_segment_score") as HTMLDivElement,
-        totalPointsScore: totalPoints?.querySelector(":scope > .message_segment_score .score_full") as HTMLDivElement,
+    const statisticsScores = {
+        cardsNumberScore: cardsNumber?.querySelector(":scope > .statistics_segment_score") as HTMLDivElement,
+        timeInitialScore: timeInitial?.querySelector(":scope > .statistics_segment_score") as HTMLDivElement,
+        timeLeftScore: timeLeft?.querySelector(":scope > .statistics_segment_score") as HTMLDivElement,
+        timeBonusScore: timeBonus?.querySelector(":scope > .statistics_segment_score") as HTMLDivElement,
+        madeMovesScore: madeMoves?.querySelector(":scope > .statistics_segment_score") as HTMLDivElement,
+        totalPointsScore: totalPoints?.querySelector(":scope > .statistics_segment_score .score_full") as HTMLDivElement,
     }
-    messageScores.totalPointsScore.innerHTML = `0`;
+    statisticsScores.totalPointsScore.innerHTML = `0`;
     updateTotalSum = updateTotalSumGenerator(0);
     updateTotalSum.next(0);
 
     let cardsNumberScored: number = selectedOptions.cardsNumber;
     let timeInitialScored: number = selectedOptions.time! | 0;
-    let timeBonusScored: number = selectedOptions.selectedTime;
+    let timeBonusScored: number = !selectedOptions.time ? 0 : selectedOptions.selectedTime;
     let timeLeftScored: number = currentTime | 0;
     let madeMovesScored: number = turnCounter;
 
-    const totalSegmentPointsCards = await summarizePoints(cardsNumberScored, cardsNumber, messageScores.cardsNumberScore, multipliers.multiplierCards);
-    await summarizeTotalPoints(totalSum + totalSegmentPointsCards, totalSegmentPointsCards, messageScores)
+    const totalSegmentPointsCards = await summarizePoints(cardsNumberScored, cardsNumber, statisticsScores.cardsNumberScore, multipliers.multiplierCards);
+    await summarizeTotalPoints(totalSum + totalSegmentPointsCards, totalSegmentPointsCards, statisticsScores)
 
-    const totalSegmentPointsTimeLeft = await summarizePoints(timeLeftScored, timeLeft, messageScores.timeLeftScore, multipliers.multiplieTimeLeft);
-    await summarizeTotalPoints(totalSum + totalSegmentPointsTimeLeft, totalSegmentPointsTimeLeft, messageScores)
+    const totalSegmentPointsTimeLeft = await summarizePoints(timeLeftScored, timeLeft, statisticsScores.timeLeftScore, multipliers.multiplieTimeLeft);
+    await summarizeTotalPoints(totalSum + totalSegmentPointsTimeLeft, totalSegmentPointsTimeLeft, statisticsScores)
 
-    const totalSegmentPointsTimeBonus = await summarizePoints(timeBonusScored, timeBonus, messageScores.timeBonusScore, multipliers.multiplieTimeBonus);
-    await summarizeTotalPoints(totalSum + totalSegmentPointsTimeBonus, totalSegmentPointsTimeBonus, messageScores)
+    const totalSegmentPointsTimeBonus = await summarizePoints(timeBonusScored, timeBonus, statisticsScores.timeBonusScore, multipliers.multiplieTimeBonus);
+    await summarizeTotalPoints(totalSum + totalSegmentPointsTimeBonus, totalSegmentPointsTimeBonus, statisticsScores)
 
-    const totalSegmentPointstimeInitial = await summarizePoints(timeInitialScored, timeInitial, messageScores.timeInitialScore, multipliers.multiplieTimeInitial);
-    await summarizeTotalPoints(totalSum - totalSegmentPointstimeInitial, totalSegmentPointstimeInitial, messageScores)
+    const totalSegmentPointstimeInitial = await summarizePoints(timeInitialScored, timeInitial, statisticsScores.timeInitialScore, multipliers.multiplieTimeInitial);
+    await summarizeTotalPoints(totalSum - totalSegmentPointstimeInitial, totalSegmentPointstimeInitial, statisticsScores)
 
-    const totalSegmentPointsMoves = await summarizePoints(madeMovesScored, madeMoves, messageScores.madeMovesScore, multipliers.multiplieMoves);
-    await summarizeTotalPoints(totalSum - totalSegmentPointsMoves, totalSegmentPointsMoves, messageScores)
+    const totalSegmentPointsMoves = await summarizePoints(madeMovesScored, madeMoves, statisticsScores.madeMovesScore, multipliers.multiplieMoves);
+    await summarizeTotalPoints(totalSum - totalSegmentPointsMoves, totalSegmentPointsMoves, statisticsScores)
 
     // cardsNumberScored = 0;
     // timeInitialScored = 0;
@@ -72,45 +72,45 @@ export async function summary(): Promise<number> {
     return totalSum
 }
 
-async function summarizePoints(x: number, messagePart: HTMLDivElement, messageScore: HTMLDivElement, multiplier: number): Promise<number> {
-    messagePart.style.display = "flex";
-    messageScore.querySelector(":scope > .score")!.innerHTML = `0 x ${multiplier} = `;
+async function summarizePoints(x: number, statisticsPart: HTMLDivElement, statisticsScore: HTMLDivElement, multiplier: number): Promise<number> {
+    statisticsPart.style.display = "flex";
+    statisticsScore.querySelector(":scope > .score")!.innerHTML = `0 x ${multiplier} = `;
     let i: number = 0;
     return new Promise((resolve, reject) => {
         const incrementScore = setInterval(() => {
             if (i < x) {
                 i++
-                messageScore.querySelector(":scope > .score")!.innerHTML = `${i} x ${multiplier} = `;
+                statisticsScore.querySelector(":scope > .score")!.innerHTML = `${i} x ${multiplier} = `;
 
             }
             else {
                 clearInterval(incrementScore);
-                messageScore.querySelector(":scope > .score_full")!.innerHTML = `${i * multiplier} points`
+                statisticsScore.querySelector(":scope > .score_full")!.innerHTML = `${i * multiplier} points`
                 resolve(i * multiplier);
             }
         }, 50)
     })
 }
 
-async function summarizeTotalPoints(totalSumWithValueToUpdate: number, valueToUpdate: number, messageScores: any): Promise<void> {
+async function summarizeTotalPoints(totalSumWithValueToUpdate: number, valueToUpdate: number, statisticsScores: any): Promise<void> {
 
     return new Promise((resolve, reject) => {
         let x = totalSum;
         const incrementTotalScore = setInterval(async () => {
             if (x < totalSumWithValueToUpdate) {
-                messageScores.totalPointsScore.innerHTML = `${x + 5}`
+                statisticsScores.totalPointsScore.innerHTML = `${x + 5}`
                 x += 5
             }
             else if (x > totalSumWithValueToUpdate) {
-                messageScores.totalPointsScore.innerHTML = `${x - 5}`
+                statisticsScores.totalPointsScore.innerHTML = `${x - 5}`
                 x -= 5
-                messageScores.totalPointsScore.style.animation = "squintingTimer .4s infinite"
+                statisticsScores.totalPointsScore.style.animation = "squintingTimer .4s infinite"
             }
             else {
 
                 clearInterval(incrementTotalScore)
                 await updateTotalSum.next(valueToUpdate)
-                messageScores.totalPointsScore.style.animation = "none";
+                statisticsScores.totalPointsScore.style.animation = "none";
                 resolve()
 
             }

@@ -1,6 +1,10 @@
 @import "./fonts.less";
 @import "./colors.less";
-@import "./borders.less";
+
+.border(@width, @color, @radius: 0){
+    border: @width solid @color;
+    border-radius: @radius;
+}
 
 .center(){
     position: absolute;
@@ -10,9 +14,10 @@
 }
 
 .buttons{
+    display: flex;
+    justify-content: space-around;
     position: absolute;
     width: 100%;
-    justify-content: space-around;
     bottom: 10%;
     right: 0;
     text-align: center;

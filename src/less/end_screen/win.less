@@ -1,0 +1,105 @@
+#page_win {
+
+    #page_summary {
+
+        .total_statistics {
+            font-size: 2.8rem;
+            margin-top: 80px;
+            color: #colors[@end-screen-font-color];
+
+            .statistics {
+                justify-content: space-between;
+                align-items: center;
+                width: 90%;
+                margin: auto;
+
+                .statistics_segment_description {
+                    width: 40%;
+                }
+
+                .statistics_segment_score {
+                    width: 57%;
+                }
+
+                &#timeInitial,
+                &#madeMoves {
+                    color: #colors[@end-screen-decreased-font-color];
+                }
+
+                &#totalPoints {
+                    width: 90%;
+                    text-align: center;
+                    font-size: 2em;
+                    margin-top: 100px;
+    
+                    .statistics_segment_description {
+                        width: 40%;
+                    }
+    
+                    .statistics_segment_score {
+                        width: 50%;
+                        position: absolute;
+                        right: 10%;
+                    }
+                }
+            }
+
+
+            text-align: left;
+            margin: 30px;
+            text-shadow: #colors[@end-screen-text-shadow-color];
+        }
+
+    }
+
+}
+
+@media @mobile_landscape {
+    #page_win {
+        #page_summary {
+            .statistics {
+                width: 100%;
+                font-size: .8rem;
+                margin: 30px 0;
+
+                .statistics_segment {
+                    margin-top: 15px;
+                    width: 100%;
+                    font-size: 1.5rem;
+
+                    &#totalPoints {
+                        bottom: 36%;
+                        font-size: 2.2rem;
+
+                        .statistics_segment_description {
+                            width: 53%;
+                        }
+
+                        .statistics_segment_score {
+                            width: 71%;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media @mobile_portrait {
+    #page_win {
+        font-size: 7em;
+
+        #page_summary {
+            .statistics {
+                padding-top: 50px;
+                font-size: 2.5rem;
+
+                .statistics_segment {
+                    margin-top: 20px;
+                    width: 95%;
+                }
+            }
+        }
+    }
+}

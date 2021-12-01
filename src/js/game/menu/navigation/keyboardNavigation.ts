@@ -1,3 +1,4 @@
+import { toggleAudio } from "../buttons/sound";
 import { play, options, bestScores, removeClassActive } from "./index";
 
 export function menuKeyboardNavigation(e: KeyboardEvent): void {
@@ -8,19 +9,24 @@ export function menuKeyboardNavigation(e: KeyboardEvent): void {
 
         case "ArrowDown":
             removeClassActive();
-            arrowDown(menuButtonActive)
+            arrowDown(menuButtonActive);
             break;
 
         case "ArrowUp":
             removeClassActive();
-            arrowUp(menuButtonActive)
+            arrowUp(menuButtonActive);
             break;
 
         case "Enter":
-            enter(menuButtonActive, play, options, bestScores)
+            enter(menuButtonActive, play, options, bestScores);
             break;
 
-        default: null
+        case "M":
+        case "m":
+            toggleAudio();
+            break;
+
+        default: null;
 
     }
 }

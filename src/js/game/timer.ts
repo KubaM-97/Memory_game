@@ -1,5 +1,5 @@
 import { totalPairs } from "./play";
-import { selectedOptions } from "../menu/buttons/options";
+import { selectedOptions } from "./menu/buttons/options";
 import { losingProcedure } from "./end_game/lose";
 import { changeView } from "../gate";
 
@@ -26,6 +26,7 @@ export async function startTimer() {
                 timer.style.animationDirection = "alternate";
             }
             if (currentTime == -1) {
+                
                 clearInterval(startTimer);
                 const timeCounter = document?.getElementById("timeCounter") as HTMLDivElement
 
@@ -38,7 +39,6 @@ export async function startTimer() {
             if (totalPairs == 0) {
                 clearInterval(startTimer);
                 timer.style.animation = "none";
-
             }
         }, 1000)
     }

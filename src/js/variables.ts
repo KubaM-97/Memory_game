@@ -7,9 +7,9 @@ export const gateRight = document?.querySelector("#right_gate") as HTMLDivElemen
 export const backgroundSound = new Audio("audio/background.mp3") as HTMLAudioElement;
 export const cardSound = new Audio("audio/card.mp3") as HTMLAudioElement;
 export const loseSound = new Audio("audio/lose.mp3") as HTMLAudioElement;
+export const winSound = new Audio("audio/win.mp3") as HTMLAudioElement;
 
-export const audios: HTMLAudioElement[] = [backgroundSound, cardSound, loseSound];
-export const backgroundSoundIndex: number = audios.findIndex(audio => audio == backgroundSound);
+export const audios: HTMLAudioElement[] = [backgroundSound, cardSound, loseSound, winSound];
 
 //video
 export const loseVideo = document?.createElement("VIDEO") as HTMLVideoElement;

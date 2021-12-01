@@ -1,9 +1,9 @@
 import "../less/style.less";
 
-import { unmuteAudio } from "./menu/buttons/sound";
+import { unmuteAudio } from "./game/menu/buttons/sound";
 unmuteAudio();
 
-import { menuButtonsService } from './menu';
+import { menuButtonsService } from './game/menu';
 
 const xhttp = new XMLHttpRequest();
 xhttp.onload = function() {
