@@ -13,8 +13,8 @@ function getCards(){
         case 16:{
             originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky"];
             size = 170;
-            size_mobile_landscape = 95;
-            size_mobile_portrait = 172;
+            size_mobile_landscape = 100;
+            size_mobile_portrait = 150;
             break;
         }
         case 20:{
