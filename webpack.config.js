@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 
@@ -12,30 +11,8 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve(__dirname, "public")
     },
-    // target: "node",
-    // node: {
-    //   __dirname: false,
-    // },
     module: {
-        // loaders: [
-        //     {
-        //         test: /\.js$/,
-        //         loader: "transform?brfs"
-        //     }
-        // ],
         rules: [
-            {
-                // test: /\.js$/,
-                // use: "transform?brfs"
-            },
-            {
-                test: /\.txt$/i,
-                use: 'raw-loader',
-              },
-                {
-                  test: /\.node$/,
-                  loader: "node-loader",
-                },
             {
                 test: /\.ts$/,
                 use: 'ts-loader',
@@ -46,7 +23,7 @@ module.exports = {
                 use: ["style-loader", "css-loader"]
             },
             {
-              test: /\.(png|jpe?g|gif|txt)$/i,
+              test: /\.(png|jpe?g|gif|php|json)$/i,
               loader: 'file-loader',
               options: {
                 outputPath: 'images',
@@ -89,14 +66,15 @@ module.exports = {
     },
     resolve: {
         extensions: [".ts", ".js"],
-        fallback: {
-            fs: false
-          }
     },
     plugins:[
         new CopyWebpackPlugin({
             patterns: [
-                { from: "src/images", to: "images" }
+                { from: "src/images", to: "images" },
+                { from: "src/php", to: "php" },
+                { from: "src/json", to: "json" },
+                { from: "src/audio", to: "audio" },
+                { from: "src/audio", to: "audio" }
             ],
         }),
         new CompressionPlugin(),

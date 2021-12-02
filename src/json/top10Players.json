@@ -1,0 +1,52 @@
+[
+    {
+        "id": "1",
+        "nickname": "Player1",
+        "points": 4000
+    },
+    {
+        "id": "2",
+        "nickname": "Player2",
+        "points": 3800
+    },
+    {
+        "id": "3",
+        "nickname": "Player3",
+        "points": 3400
+    },
+    {
+        "id": "4",
+        "nickname": "Player4",
+        "points": 3200
+    },
+    {
+        "id": "5",
+        "nickname": "Player5",
+        "points": 3000
+    },
+    {
+        "id": "6",
+        "nickname": "Player6",
+        "points": 2750
+    },
+    {
+        "id": "7",
+        "nickname": "Player7",
+        "points": 2500
+    },
+    {
+        "id": "8",
+        "nickname": "Player8",
+        "points": 2475
+    },
+    {
+        "id": "9",
+        "nickname": "Player9",
+        "points": 2200
+    },
+    {
+        "id": "10",
+        "nickname": "Player10",
+        "points": 2000
+    }
+]

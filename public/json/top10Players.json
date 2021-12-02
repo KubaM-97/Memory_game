@@ -25,28 +25,28 @@
         "points": 3000
     },
     {
-        "id": "61a7f1d16bbaa",
-        "nickname": "gjgh",
-        "points": 2960
+        "id": "6",
+        "nickname": "Player6",
+        "points": 2750
     },
     {
-        "id": "61a7e5ff3093e",
-        "nickname": "gfg",
-        "points": 2940
+        "id": "7",
+        "nickname": "Player7",
+        "points": 2500
     },
     {
-        "id": "61a7e600347b7",
-        "nickname": "gfg",
-        "points": 2940
+        "id": "8",
+        "nickname": "Player8",
+        "points": 2475
     },
     {
-        "id": "61a7e60066bd6",
-        "nickname": "gfg",
-        "points": 2940
+        "id": "9",
+        "nickname": "Player9",
+        "points": 2200
     },
     {
-        "id": "61a7e79f1c429",
-        "nickname": "fghfg",
-        "points": 2940
+        "id": "10",
+        "nickname": "Player10",
+        "points": 2000
     }
 ]

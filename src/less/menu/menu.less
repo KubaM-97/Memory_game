@@ -16,8 +16,8 @@
         }
     }
     section.menu_buttons{
-        margin: 90px 0;
-        div{
+        margin-top: 90px;
+        div.menu_button{
             margin: 50px auto;
             button.menu_button{
                 padding: 20px;
@@ -57,39 +57,49 @@
 
 @media @mobile_landscape{
     #page_menu{
+        width: percentage(1);
         header{
-            font-size: 15px;
+            font-size: .8em;
         }
         section.menu_buttons{
-            margin: 30px 0;
-            div{
+            margin-top: 55px;
+            div.menu_button{
                 margin: 30px 0;
-                & .menu_button{
+                button.menu_button{
                     font-size: 1.1rem !important;
-                    width: 90%;
+                    width: 60%;
+                    padding: 13px;
                 }
             }
-            
+        }
+        .switch_sound{
+            padding: 4px 10px;
+            img{
+                width: 20px;
+            }
         }
     }
 }
 @media @mobile_portrait{
-    #game_start{
+    #page_menu{
+        width: percentage(1);
         header{
-            font-size: 1.2em;
+            font-size: .9em;
         }
         section.menu_buttons{
+            margin-top: 60px;
             div{
-                & .menu_button{
-                    font-size: 1.9rem !important;
+                .menu_button{
+                    font-size: .9em;
                     width: 90%;
                 }
             }
            
         }
         .switch_sound{
+            padding: 10px 10px 5px;
             img{
-                width: 64px;
+                width: 40px;
             }
         }
     }

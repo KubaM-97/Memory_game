@@ -1,19 +1,19 @@
 @import "./fonts.less";
 @import "./colors.less";
 
-.border(@width, @color, @radius: 0){
+.border(@width, @color, @radius: 0) {
     border: @width solid @color;
     border-radius: @radius;
 }
 
-.center(){
+.center() {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: space-around;
     position: absolute;
@@ -21,11 +21,13 @@
     bottom: 10%;
     right: 0;
     text-align: center;
-    button{
+
+    button {
         .button;
     }
 }
-.button{
+
+.button {
     display: inline-block;
     background-color: #colors[@optionAndEnd-button-background-color];
     padding: 10px 30px 15px;
@@ -36,13 +38,14 @@
     outline: none;
     font-family: inherit;
     min-width: 250px;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: #colors[@optionAndEnd-button-hover-background-color];
     }
 }
 
-.option{
+.option {
     display: inline-block;
     width: 135px;
     height: 135px;
@@ -55,3 +58,13 @@
 
 @mobile_landscape: ~"all and (orientation: landscape) and (max-device-width: 800px)";
 @mobile_portrait: ~"all and (orientation: portrait) and (max-device-width: 800px)";
+
+// @media @mobile_landscape {
+
+//     .buttons {
+//         bottom: 5%;
+//     }
+//     .button {
+//         font-size: 1rem;
+//     }
+// }

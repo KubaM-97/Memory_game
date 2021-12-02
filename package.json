@@ -6,22 +6,17 @@
   "type": "commonjs",
   "scripts": {
     "build": "webpack",
-    "xxx": "webpack serve --watch",
-    "yyy": "webpack --watch",
+    "start": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ts": "ts-node",
-    "start:dev": "webpack serve"
+    "ts": "ts-node"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^16.11.9",
-    "brfs": "^2.0.2",
-    "fs": "^0.0.1-security",
     "less-watcher": "^1.2.0",
-    "transform-loader": "^0.2.4",
-    "ts-node": "^9.1.1"
+    "transform-loader": "^0.2.4"
   },
   "devDependencies": {
     "compression-webpack-plugin": "^7.1.2",
@@ -30,8 +25,6 @@
     "file-loader": "^6.2.0",
     "less": "^4.1.1",
     "less-loader": "^8.0.0",
-    "node-loader": "^2.0.0",
-    "raw-loader": "^4.0.2",
     "source-map-loader": "^2.0.1",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.17",
