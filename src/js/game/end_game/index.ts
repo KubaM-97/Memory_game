@@ -2,7 +2,7 @@
 import { backToMenu } from "../menu";
 import { menuButtonPlayAction } from "../menu/buttons/play";
 
-export async function showVideo(video: HTMLVideoElement){
+export function showVideo(video: HTMLVideoElement){
 
     const divVideo = document?.querySelector(".video") as HTMLDivElement;
 
@@ -46,7 +46,7 @@ export function showEndWinButton(){
     endScreenWinButton.style.display = "flex";
     endScreenWinButton.style.animation = "show 2s";
     endScreenWinButton.style.animationFillMode = "forwards";
-    go?.addEventListener("click", async function(){
+    go?.addEventListener("click", function(){
         const nickNamePanel = document?.querySelector(".enter_nickname") as HTMLDivElement;
         nickNamePanel.style.display="block";
         nickNamePanel.style.animation = "show 1s"

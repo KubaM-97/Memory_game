@@ -41,7 +41,7 @@ export async function winningProcedure() {
             showEndLoseButtons();
         }
     };
-    xhttp.open('GET', './php/results/getWorstPlayer.php', true);
+    xhttp.open('GET', './php/results/get10thBestPlayer.php', true);
     xhttp.send();
 
 }

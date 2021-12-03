@@ -28,6 +28,5 @@ export function changeView(filename: string){
         }, { once: true })
 
     })
-    
 
 }

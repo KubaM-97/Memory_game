@@ -6,8 +6,7 @@ echo '<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
     <title>Happy Tree Friends: Memory Game</title>
-    <meta name="description" content="A simple HTML5 Template for new projects.">
-    <meta name="author" content="SitePoint">
+    <meta name="description" content="Happy Tree Friends: Memory Game">
 </head>
 <body>            
     <script src="bundle.js" defer></script>

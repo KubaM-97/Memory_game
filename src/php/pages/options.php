@@ -38,11 +38,11 @@ echo '
         <div class="options optTimer">
 
             <button class="option timerNo">
-                <img src="./images/alarm_clock.png" alt="alarm_clock Yes">
+                <img src="./images/alarmClock.png" alt="alarmClock Yes">
             </button>
 
             <button class="option timerYes">
-                <img src="./images/alarm_clock.png" alt="alarm_clock No">
+                <img src="./images/alarmClock.png" alt="alarmClock No">
             </button>
 
             <div class="timer"> 

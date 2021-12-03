@@ -9,7 +9,8 @@ export function showBestPlayerPage(playerTotalScore: number) {
 
     pointsPage.style.animation = "hide 2s";
     pointsPage.style.animationFillMode = "forwards";
-    setTimeout(() => pointsPage.style.display = "none", 2000)
+    pointsPage.addEventListener("ended", function() { this.style.display = "none" } )
+    
     nicknamePage.style.display = "block";
     nicknamePage.style.animation = "show 2s 2s";
     nicknamePage.style.animationFillMode = "forwards";
