@@ -1,11 +1,11 @@
 
 # Happy Tree Friends: Memory Game
 
-An application that allows you to manage the class and its students (actions such as editing their profiles or adding new students to the class).
-based on se
-Ready app: https://kubam97-librus.onrender.com
+Card game based on animated series for kids.
 
-<img src="./assets/images/logo.png" alt="Logo" title="Logo" width="200px" />
+Ready app: https://kubam97-memorygame.herokuapp.com
+
+<img src="./src/images/cards/HTFLogo.png" alt="Logo" title="Logo" width="200px" />
 
 ## Installation
 
