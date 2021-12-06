@@ -116,67 +116,70 @@
     }
 }
 
-@media @mobile_landscape {
-    #page_options {
-        margin-top: 30px;
+// @media @mobile_landscape {
+//     #page_options {
+//         margin-top: 30px;
 
-        .options_step {
-            .option_description {
-                font-size: 1.4em;
-                width: 35%;
-            }
+//         .options_step {
+//             .option_description {
+//                 font-size: 1.4em;
+//                 width: 35%;
+//             }
 
-            .options {
-                width: 80%;
+//             .options {
+//                 width: 80%;
 
-                .option {
+//                 .option {
 
-                    .border(4px, black);
-                    width: 105px;
-                    height: 105px;
+//                     .border(4px, black);
+//                     width: 105px;
+//                     height: 105px;
 
-                    .optHint {
-                        font-size: 2.3em;
-                    }
-                }
+//                     .optHint {
+//                         font-size: 2.3em;
+//                     }
+//                 }
 
-                .timer {
-                    width: 190px;
-                    .timerScreen {
-                        font-size: 1.5rem;
+//                 .timer {
+//                     width: 190px;
+//                     .timerScreen {
+//                         font-size: 1.5rem;
 
-                        .setTimer {
-                            font-size: 2.4rem;
-                            &#plusTime{
-                                font-size: 1.6rem;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+//                         .setTimer {
+//                             font-size: 2.4rem;
+//                             &#plusTime{
+//                                 font-size: 1.6rem;
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
 
-        .buttons {
-            bottom: 5%;
-            button {
-                font-size: 1rem;
-            }
-        }
-    }
-}
+//         .buttons {
+//             bottom: 5%;
+//             button {
+//                 font-size: 1rem;
+//             }
+//         }
+//     }
+// }
 
 @media @mobile_portrait {
     #page_options {
-        margin-top: 100px;
 
         .options_step {
+            display: block;
+            text-align: center;
+
             .option_description {
                 font-size: 1.4em;
-                width: 35%;
+                width: 100%;
             }
 
             .options {
-                width: 80%;
+                width: 100%;
+                margin-top: 20px;
 
                 .option {
 
@@ -190,25 +193,47 @@
                 }
 
                 .timer {
-                    width: 185px;
-                    .timerScreen {
-                        font-size: 1.5rem;
+                    width: 140px;
+
+                    .timerDevice {
+                        font-size: 1.3em;
 
                         .setTimer {
-                            font-size: 2.4rem;
-                            &#plusTime{
-                                font-size: 1.6rem;
-                            }
+                            font-size: .7em;
                         }
+
+                        &#plusTime {
+                            font-size: .6em;
+                        }
+
                     }
                 }
             }
+
+            &.time {
+                text-align: left;
+
+                .timerNo,
+                .timerYes {
+                    position: relative;
+                    width: 20%;
+                    height: 0;
+                    padding-bottom: 20%;
+
+                    img {
+                        .center();
+                    }
+                }
+
+            }
+
         }
 
         .buttons {
             bottom: 5%;
+
             button {
-                font-size: 1rem;
+                font-size: 1.25em;
             }
         }
     }

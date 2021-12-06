@@ -2,7 +2,7 @@
 echo '
 <div id="page_options">
 
-    <div class="options_step">
+    <div class="options_step cards">
 
         <div class="option_description">
             <span>Cards Number</span>
@@ -29,7 +29,7 @@ echo '
 
     </div>
 
-    <div class="options_step">
+    <div class="options_step time">
 
         <div class="option_description">
             <span>Timer</span>
@@ -62,7 +62,7 @@ echo '
                     <span class="setTimer plusTime">
                         <button id="plusTime">+</button> 
                     </span>
-                </span>                     
+                </div>                     
 
             </div>
 
@@ -70,10 +70,10 @@ echo '
 
     </div>
 
-</div>
-
-<div class="buttons">
-    <button class="back_menu">SAVE & QUIT</button>
+    <div class="buttons">
+        <button class="back_menu">SAVE & QUIT</button>
+    </div>
+    
 </div>
 
 '

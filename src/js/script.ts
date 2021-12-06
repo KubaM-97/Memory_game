@@ -13,3 +13,7 @@ xhttp.onload = function() {
 }
 xhttp.open("GET", "./php/pages/menu.php", true);
 xhttp.send();
+
+// window.addEventListener("orientationchange", function(e) {
+//     e.stopPropagation();
+// }, false);

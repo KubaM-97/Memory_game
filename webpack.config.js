@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
-    mode: "production",
+    mode: "development",
     devtool: "source-map",
     entry: './src/js/script.ts',
     output: {

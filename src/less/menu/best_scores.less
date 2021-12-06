@@ -3,26 +3,22 @@
 
         font-size: 1.4rem;
         font-weight: 700;
-        padding-top: 50px;
         text-align: center;
+        margin: 50px auto;
+        width: 90%;
+        border-collapse: collapse;
+        color: #colors[@headerAndBestScores-font-color];
 
-        table {
-            margin: auto;
+        tbody {
             width: 90%;
-            border-collapse: collapse;
-            color: #colors[@headerAndBestScores-font-color];
 
-            tbody {
-                width: 90%;
+            td {
+                padding: 10px 50px;
+                .border(1px, white);
+            }
 
-                td {
-                    padding: 10px 50px;
-                    .border(1px, white);
-                }
-
-                td:first-child {
-                    padding-right: 40px;
-                }
+            td:first-child {
+                padding-right: 40px;
             }
         }
     }
@@ -32,26 +28,36 @@
     }
 }
 
-@media @mobile_landscape {
-    #page_best_scores {
-        .tableScores {
-            font-size: .8em;
-            padding-top: 25px;
-        }
-
-        .buttons {
-            bottom: 5%;
-            button {
-                font-size: 1rem;
-            }
-        }
-    }
-}
+// @media @mobile_landscape {
+//     #page_best_scores {
+//         .tableScores {
+//             font-size: 1.1em;
+//             padding-top: 25px;
+            
+//             tbody {
+//                 td {
+//                     padding: 10px 40px;
+//                 }
+//             }
+//         }
+//         .buttons {
+//             bottom: 5%;
+//             button {
+//                 font-size: 1rem;
+//             }
+//         }
+//     }
+// }
 @media @mobile_portrait {
     #page_best_scores {
         .tableScores {
-            font-size: 1.4em;
+            font-size: 1.1em;
             padding-top: 25px;
+            tbody {
+                td {
+                    padding: 10px 40px;
+                }
+            }
         }
 
         .buttons {

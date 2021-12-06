@@ -13,22 +13,22 @@ function getCards(){
         case 16:{
             originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky"];
             size = 170;
-            size_mobile_landscape = 100;
-            size_mobile_portrait = 150;
+            // size_mobile_landscape = 100;
+            size_mobile_portrait = 85;
             break;
         }
         case 20:{
             originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky", "lifty&shifty", "mime"];
             size = 140;
-            size_mobile_landscape = 93;
-            size_mobile_portrait = 155;
+            // size_mobile_landscape = 93;
+            size_mobile_portrait = 85;
             break;
         }
         case 24:{
             originCards = ["lumpy", "toothy", "petunia", "giggles", "cuddles", "handy", "mole", "flaky", "lifty&shifty", "mime", "nutty", "ruffles"];
             size = 117;
-            size_mobile_landscape = 77;
-            size_mobile_portrait = 140;
+            // size_mobile_landscape = 77;
+            size_mobile_portrait = 80;
             break;
         }
     }
