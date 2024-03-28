@@ -4,6 +4,9 @@
   "description": "",
   "main": "script.js",
   "type": "commonjs",
+  "engines": {
+    "node": "16.14.2"
+  },
   "scripts": {
     "build": "webpack",
     "start": "webpack --watch",
